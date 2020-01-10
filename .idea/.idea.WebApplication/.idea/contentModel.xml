@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\avram\.Rider2019.3\config\javascript\extLibs\http_stackpath.bootstrapcdn.com_bootstrap_4.4.1_css_bootstrap.css" t="IncludeRecursive" />
-    <e p="C:\Users\avram\.Rider2019.3\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\avram\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_WebApplication.-728541950.00" t="ExcludeRecursive" />
-    <e p="C:\Users\avram\RiderProjects\WebApplication" t="IncludeFlat">
+    <e p="C:\Users\Bazinga\.Rider2019.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Bazinga\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_WebApplication.932755175.00" t="ExcludeRecursive" />
+    <e p="C:\Users\Bazinga\Desktop\spat" t="IncludeFlat">
       <e p="packages" t="ExcludeRecursive" />
       <e p="WebApplication" t="IncludeRecursive">
         <e p="appsettings.Development.json" t="Include" />
