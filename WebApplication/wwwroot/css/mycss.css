@@ -1,0 +1,8 @@
+﻿
+.actionButton{
+    width: 200px !important;
+    height: 160px !important;
+}
+.rubric-item:hover{
+    background: #A6E08E;
+}

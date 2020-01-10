@@ -1,0 +1,141 @@
+﻿@{
+    ViewData["Title"] = "Current pending items";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="text-center">
+    <h1>Create Rubric</h1>
+</div>
+<form id="teacherTable" method="post" action="@Url.Action("SubmitRound", "Round")">
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">Deadline: </span>
+        </div>
+        <input type="date" name="roundDeadline" class="form-control" placeholder="Deadline" aria-label="Deadline" aria-describedby="basic-addon1">
+        <div class="input-group-prepend ml-3">
+            <span class="input-group-text" id="basic-addon1">Module: </span>
+        </div>
+        <select class="form-control" name="moduleName">
+            <option>Romanian</option>
+            <option>Maths</option>
+            <option>Network and Security</option>
+        </select>
+    </div>
+    <div class="row mt-4">
+        <div class="col">
+            <table class="table table-bordered">
+                <input type="hidden" name="tableLength" value="5"/>
+                <input type="hidden" name="tableWidth" value="3"/>
+
+                <thead>
+                <tr class="table-success">
+                    <th scope="col"></th>
+                    <th scope="col">1</th>
+                    <th scope="col">2</th>
+                    <th scope="col">3</th>
+                    <th scope="col">4</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row" class="rubric-item">
+                        <!--Material textarea-->
+                        <div class="md-form">
+                            <textarea id="form7" class="md-textarea form-control" rows="3" name="row1col1"></textarea>
+                        </div>
+                    </th>
+                    <td class="rubric-item">
+                        <!--Material textarea-->
+                        <div class="md-form">
+                            <textarea id="form7" class="md-textarea form-control" rows="3" name="row1col2"></textarea>
+                        </div>
+                    </td>
+                    <td class="rubric-item">
+                        <!--Material textarea-->
+                        <div class="md-form">
+                            <textarea id="form7" class="md-textarea form-control" rows="3" name="row1col3"></textarea>
+                        </div>
+                    </td>
+                    <td class="rubric-item">
+                        <!--Material textarea-->
+                        <div class="md-form">
+                            <textarea id="form7" class="md-textarea form-control" name="row1col4" rows="3"></textarea>
+                        </div>
+                    </td>
+                    <td class="rubric-item">
+                        <!--Material textarea-->
+                        <div class="md-form">
+                            <textarea id="form7" class="md-textarea form-control" rows="3"  name="row1col5" ></textarea>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row" class="rubric-item">
+                        <!--Material textarea-->
+                        <div class="md-form">
+                            <textarea id="form7" class="md-textarea form-control" rows="3" name="row2col1"></textarea>
+                        </div>
+                    </th>
+                    <td class="rubric-item">
+                        <!--Material textarea-->
+                        <div class="md-form">
+                            <textarea id="form7" class="md-textarea form-control" rows="3" name="row2col2"></textarea>
+                        </div>
+                    </td>
+                    <td class="rubric-item">
+                        <!--Material textarea-->
+                        <div class="md-form">
+                            <textarea id="form7" class="md-textarea form-control" rows="3" name="row2col3"></textarea>
+                        </div>
+                    </td>
+                    <td class="rubric-item">
+                        <!--Material textarea-->
+                        <div class="md-form">
+                            <textarea id="form7" class="md-textarea form-control" rows="3" name="row2col4" ></textarea>
+                        </div>
+                    </td>
+                    <td class="rubric-item">
+                        <!--Material textarea-->
+                        <div class="md-form">
+                            <textarea id="form7" class="md-textarea form-control" name="row2col5"></textarea>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row" class="rubric-item">
+                        <!--Material textarea-->
+                        <div class="md-form">
+                            <textarea id="form7" class="md-textarea form-control" rows="3" name="row3col1"></textarea>
+                            <input type="hidden" name="thirdRowCol1"/>
+                        </div>
+                    </th>
+                    <td class="rubric-item">
+                        <!--Material textarea-->
+                        <div class="md-form">
+                            <textarea id="form7" class="md-textarea form-control" rows="3" name="row3col2"></textarea>
+                        </div>
+                    </td>
+                    <td class="rubric-item">
+                        <!--Material textarea-->
+                        <div class="md-form">
+                            <textarea id="form7" class="md-textarea form-control" rows="3" name="row3col3"></textarea>
+                        </div>
+                    </td>
+                    <td class="rubric-item">
+                        <!--Material textarea-->
+                        <div class="md-form">
+                            <textarea id="form7" class="md-textarea form-control" rows="3" name="row3col4"></textarea>
+                        </div>
+                    </td>
+                    <td class="rubric-item">
+                        <!--Material textarea-->
+                        <div class="md-form">
+                            <textarea id="form7" class="md-textarea form-control" rows="3" name="row3col5"></textarea>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary float-right mr-3" id="createRubric">Create</button>
+</form>

@@ -1,0 +1,56 @@
+﻿#pendingButton{
+    border: 3px solid white !important;
+    border-radius: 25px !important;
+    font-size: 20px !important;
+    color: white;
+    background-color: dodgerblue;
+    margin: 2rem;
+    padding: 4rem;
+    border-radius: 25px;
+    font-size: 20px;
+}
+#markedButton{
+    border: 3px solid wheat !important;
+    border-radius: 25px !important;
+    font-size: 20px !important;
+    color: white;
+    background-color: dodgerblue;
+    margin: 2rem;
+    padding: 4rem;
+    border-radius: 25px;
+    font-size: 20px;
+}
+#split{
+    height: 100% !important;
+}
+/* Split the screen in half */
+.split {
+    height: 100%;
+    width: 50%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+/* Control the left side */
+.left {
+    left: 0;
+    background-color: lightgreen;
+}
+
+/* Control the right side */
+.right {
+    right: 0;
+    background-color: lightblue;
+}
+
+/* If you want the content centered horizontally and vertically */
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}

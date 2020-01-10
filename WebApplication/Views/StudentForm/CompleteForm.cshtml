@@ -1,0 +1,98 @@
+﻿@using System.Drawing.Printing
+@using Newtonsoft.Json
+@{
+    ViewData["Title"] = "Complete form";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int roundID = (int) ViewData["sheetId"];
+    string[] lines = System.IO.File.ReadAllLines(@"D:\data.txt");
+    Round round = null;
+    foreach (string line in lines)
+    {
+        if (JsonConvert.DeserializeObject<Round>(line).roundID == roundID)
+        {
+            round = JsonConvert.DeserializeObject<Round>(line);
+        }
+    }
+    Sheet markingSheet = round.markingSheets[0];
+}
+
+
+<div class="text-center">
+    <h1>Rate Ricards for the @round.ModuleName</h1>
+    <h4>Deadline : <strong>@round.Deadline</strong></h4>
+</div>
+<div class="row mt-4">
+    <div class="col">
+        <form method="post" action="@Url.Action("SubmitForm", "StudentForm")">
+            <table class="table table-bordered" id="form-table">
+                <thead>
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col">1</th>
+                    <th scope="col">2</th>
+                    <th scope="col">3</th>
+                    <th scope="col">4</th>
+                </tr>
+                </thead>
+                <tbody>
+              
+                @for (var index = 0; index < markingSheet.Rubrics.Count; index+=5)
+                {
+                    <tr>
+                        <th scope="row">@markingSheet.Rubrics[index].Name</th>
+                        <td class="rubric-item">@markingSheet.Rubrics[index+1].Name</td>
+                        <td class="rubric-item">@markingSheet.Rubrics[index+2].Name</td>
+                        <td class="rubric-item">@markingSheet.Rubrics[index+3].Name</td>
+                        <td class="rubric-item">@markingSheet.Rubrics[index+4].Name</td>
+                        
+                    </tr>
+                }
+
+                @* <tr> *@
+                @*      *@
+                @*     <input type="hidden" id="firstRowValue" name="firstRowValue" class="input-hidden"/> *@
+                @* </tr> *@
+                @* <tr> *@
+                @*     <th scope="row">IQ</th> *@
+                @*     <td class="rubric-item">I do not follow the rules I do not follow the rules I do not follow the rules I do not follow the rules</td> *@
+                @*     <td class="rubric-item">It is difficult I do not follow the rules I do not follow the rules I do not follow the rules </td> *@
+                @*     <td class="rubric-item">I do not follow the rules I do not follow the rules I do not follow the rules I do not follow the rules </td> *@
+                @*     <td class="rubric-item">I do not follow the rules I do not follow the rules I do not follow the rules </td> *@
+                @*     <input type="hidden" id="thirdRowValue" name="thirdRowValue" class="input-hidden"/> *@
+                @* </tr> *@
+                @* <tr> *@
+                @*     <th scope="row">Flexing</th> *@
+                @*     <td class="rubric-item">I do not follow the rules I do not follow the rules I do not follow the rules I do not follow the rules</td> *@
+                @*     <td class="rubric-item">It is difficult I do not follow the rules I do not follow the rules I do not follow the rules </td> *@
+                @*     <td class="rubric-item">I do not follow the rules I do not follow the rules I do not follow the rules I do not follow the rules </td> *@
+                @*     <td class="rubric-item">I do not follow the rules I do not follow the rules I do not follow the rules</td> *@
+                @* </tr> *@
+                @* <input type="hidden" id="forthRowValue" name="forthRowValue" class="input-hidden"/> *@
+                </tbody>
+            </table>
+            <!-- Modal -->
+            <div class="modal fade" id="confirmationModal" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Submission confirmation</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            Would you really want to submit these grades?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Confirm submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#confirmationModal">Submit</button>
+
+    </div>
+
+</div>
