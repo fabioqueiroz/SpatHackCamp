@@ -63,5 +63,10 @@ namespace WebApplication.Controllers
             //redirect home afterwards
             return RedirectToAction("Index", "Home");
         }
+
+        public IActionResult SendRound(int id)
+        {
+            return View();
+        }
     }
 }

@@ -1,6 +1,5 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
-    string userType = ViewData["userType"].ToString();
     Layout = null;
     
     bool userLoggedIn = false;
@@ -9,6 +8,7 @@
         string username = ViewData["username"].ToString();
         userLoggedIn = true;
     }
+    string userType = ViewData["userType"].ToString();
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -78,7 +78,7 @@ else if (userType.Equals("teacher"))
     <div class="split left">
         <div class="split left">
             <div class="centered">
-                <button type="button" id="pendingButton" class="btn btn-secondary actionButton" onclick="location.href='@Url.Action("SendRound", "Round", new {id = 2})'">Create a round for a specific group of students</button>
+                <button type="button" id="pendingButton" class="btn btn-secondary actionButton" onclick="location.href='@Url.Action("SendRound", "Round", new {id = 2})'">Initialise a round for a specific group of students</button>
             </div>
         </div>
         <div class="split right">

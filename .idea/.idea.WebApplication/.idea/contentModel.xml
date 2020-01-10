@@ -53,7 +53,6 @@
           </e>
           <e p="Login" t="Include">
             <e p="Index.cshtml" t="Include" />
-            <e p="Index.cshtml.cs" t="Include" />
           </e>
           <e p="PendingItems" t="Include">
             <e p="Index.cshtml" t="Include" />
@@ -65,6 +64,7 @@
           </e>
           <e p="Round" t="Include">
             <e p="CreateRound.cshtml" t="Include" />
+            <e p="SendRound.cshtml" t="Include" />
           </e>
           <e p="Shared" t="Include">
             <e p="_Layout.cshtml" t="Include" />
