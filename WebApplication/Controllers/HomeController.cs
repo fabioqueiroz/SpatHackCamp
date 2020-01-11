@@ -27,7 +27,7 @@ namespace WebApplication.Controllers
         public IActionResult Index()
         {   
             
-            if (HttpContext.Session.GetString("username")==null)
+            if (String.IsNullOrWhiteSpace(HttpContext.Session.GetString("username")))
             {
                 return RedirectToAction("Index", "Login");
             }

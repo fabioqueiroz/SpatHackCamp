@@ -8,5 +8,6 @@ namespace WebApplication.Models
         public string Deadline { get; set; }
         public string ModuleName { get; set; }
         public int roundID { get; set; }
+        public bool active { get; set; }
     }
 }
