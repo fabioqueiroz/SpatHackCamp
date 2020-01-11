@@ -44,3 +44,5 @@ C:\Users\avram\RiderProjects\WebApplication\WebApplication\obj\Debug\netcoreapp3
 C:\Users\avram\RiderProjects\WebApplication\WebApplication\bin\Debug\netcoreapp3.1\System.Net.Http.Formatting.dll
 C:\Users\avram\RiderProjects\WebApplication\WebApplication\bin\Debug\netcoreapp3.1\System.Web.Http.dll
 C:\Users\avram\RiderProjects\WebApplication\WebApplication\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+C:\Users\avram\RiderProjects\WebApplication\WebApplication\obj\Debug\netcoreapp3.1\Razor\Views\Round\SelectRoundTemplate.cshtml.g.cs
+C:\Users\avram\RiderProjects\WebApplication\WebApplication\obj\Debug\netcoreapp3.1\Razor\Views\Round\SelectStudentsToSendRound.cshtml.g.cs

@@ -32,7 +32,7 @@ namespace WebApplication.Controllers
         {
             //get the marking sheet and then insert the appropriate value 
             //the teacher should be responsible for creating the actual marking sheet
-            return Content("dfd");
+            return RedirectToAction("Index", "Home");
         }
 
     }

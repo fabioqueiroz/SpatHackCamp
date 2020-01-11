@@ -12,10 +12,11 @@ namespace WebApplication.Controllers
     {
         public IActionResult CreateRound()
         {
-            if (HttpContext.Session.GetString("username")==null)
+            if (HttpContext.Session.GetString("username") == null)
             {
                 return RedirectToAction("Index", "Login");
             }
+
             string username = HttpContext.Session.GetString("username").ToString();
             string studentType = HttpContext.Session.GetString("userType");
             ViewData["userType"] = studentType;
@@ -49,7 +50,7 @@ namespace WebApplication.Controllers
             }
 
             Random random = new Random();
-            round.roundID = random.Next(0,101000);
+            round.roundID = random.Next(0, 101000);
             sheet.Rubrics = currentRubrics;
             //open file stream
             using (StreamWriter file = System.IO.File.AppendText(@"D:\data.txt"))
@@ -61,6 +62,41 @@ namespace WebApplication.Controllers
             }
 
             //redirect home afterwards
+            return RedirectToAction("Index", "Home");
+        }
+
+        public IActionResult SelectStudentsToSendRound(int id)
+        {
+            ViewData["rubricId"] = id;
+            return View();
+        }
+
+        public IActionResult SelectRoundTemplate()
+        {
+            return View();
+        }
+
+        public IActionResult SendRoundToStudents(int id)
+        {
+            //read mock data from file and duplicate the round with the same id 
+            string[] lines = System.IO.File.ReadAllLines(@"D:\data.txt");
+            Round round = null;
+            foreach (string line in lines)
+            {
+                if (JsonConvert.DeserializeObject<Round>(line).roundID == id)
+                {
+                    round = JsonConvert.DeserializeObject<Round>(line);
+                }
+            }
+            
+            round.active = true;
+            using (StreamWriter file = System.IO.File.AppendText(@"D:\data.txt"))
+            {
+                JsonSerializer serializer = new JsonSerializer();
+                //serialize object directly into file stream
+                serializer.Serialize(file, round);
+                file.Write(Environment.NewLine);
+            }
             return RedirectToAction("Index", "Home");
         }
     }

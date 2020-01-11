@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\avram\.Rider2019.3\config\javascript\extLibs\http_stackpath.bootstrapcdn.com_bootstrap_4.4.1_css_bootstrap.css" t="IncludeRecursive" />
+    <e p="C:\Users\avram\.Rider2019.3\config\javascript\extLibs\http_use.fontawesome.com_releases_v5.7.1_css_all.css" t="IncludeRecursive" />
     <e p="C:\Users\avram\.Rider2019.3\system\extResources" t="IncludeRecursive" />
     <e p="C:\Users\avram\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_WebApplication.-728541950.00" t="ExcludeRecursive" />
     <e p="C:\Users\avram\RiderProjects\WebApplication" t="IncludeFlat">
@@ -20,10 +20,10 @@
         </e>
         <e p="Models" t="Include">
           <e p="ErrorViewModel.cs" t="Include" />
-          <e p="Round.cs" t="Include" />
-          <e p="Rubric.cs" t="Include" />
-          <e p="Sheet.cs" t="Include" />
-          <e p="Student.cs" t="Include" />
+          <e p="RoundMode.cs" t="Include" />
+          <e p="RubricModel.cs" t="Include" />
+          <e p="SheetModel.cs" t="Include" />
+          <e p="StudentModel.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
@@ -53,7 +53,6 @@
           </e>
           <e p="Login" t="Include">
             <e p="Index.cshtml" t="Include" />
-            <e p="Index.cshtml.cs" t="Include" />
           </e>
           <e p="PendingItems" t="Include">
             <e p="Index.cshtml" t="Include" />
@@ -65,6 +64,8 @@
           </e>
           <e p="Round" t="Include">
             <e p="CreateRound.cshtml" t="Include" />
+            <e p="SelectRoundTemplate.cshtml" t="Include" />
+            <e p="SelectStudentsToSendRound.cshtml" t="Include" />
           </e>
           <e p="Shared" t="Include">
             <e p="_Layout.cshtml" t="Include" />

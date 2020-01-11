@@ -1,14 +1,15 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
-    string userType = ViewData["userType"].ToString();
     Layout = null;
     
     bool userLoggedIn = false;
+    string username ="";
     if (ViewData["username"] != null)
     {
-        string username = ViewData["username"].ToString();
+         username = ViewData["username"].ToString();
         userLoggedIn = true;
     }
+    string userType = ViewData["userType"].ToString();
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -34,7 +35,7 @@
             @if (userLoggedIn)
             {
                 <div class="float-right">
-                    <h4>Logged in as Andrei</h4>
+                    <h4>Logged in as @username</h4>
                 </div>
                 <form class="form-inline" method="post" action="@Url.Action("Logout", "Login")">
                     <button class="btn btn-success my-2 my-sm-0 ml-5" type="submit">Log out</button>
@@ -78,7 +79,7 @@ else if (userType.Equals("teacher"))
     <div class="split left">
         <div class="split left">
             <div class="centered">
-                <button type="button" id="pendingButton" class="btn btn-secondary actionButton" onclick="location.href='@Url.Action("SendRound", "Round", new {id = 2})'">Create a round for a specific group of students</button>
+                <button type="button" id="pendingButton" class="btn btn-secondary actionButton" onclick="location.href='@Url.Action("SelectRoundTemplate", "Round")'">Initialise a round for a specific group of students</button>
             </div>
         </div>
         <div class="split right">
