@@ -20,10 +20,10 @@
         </e>
         <e p="Models" t="Include">
           <e p="ErrorViewModel.cs" t="Include" />
-          <e p="Round.cs" t="Include" />
-          <e p="Rubric.cs" t="Include" />
-          <e p="Sheet.cs" t="Include" />
-          <e p="Student.cs" t="Include" />
+          <e p="RoundMode.cs" t="Include" />
+          <e p="RubricModel.cs" t="Include" />
+          <e p="SheetModel.cs" t="Include" />
+          <e p="StudentModel.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
