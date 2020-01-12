@@ -9,6 +9,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Rubrics.Business.Services;
+using Rubrics.Data.Access;
+using Rubrics.Data.Access.ConnectionFactory;
+using Rubrics.Data.Access.RepositoryInterfaces;
+using Rubrics.General.Business.Interfaces;
 
 namespace WebApplication
 {
@@ -25,6 +30,18 @@ namespace WebApplication
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMvc();
+
+            // Dapper connection setup
+            var connectionString = new ConnectionString(Configuration.GetConnectionString("DefaultConnection"));
+            services.AddSingleton(connectionString);
+
+            services
+                .AddScoped<ITestService, TestService>()
+                .AddScoped<IStudentService, StudentService>()
+                .AddScoped<IRubricsRepository, RubricsRepository>()
+                .AddScoped<IStudentRepository, StudentRepository>();
+
             //configure the Session 
             services.AddControllersWithViews();
             services.AddDistributedMemoryCache();

@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Rubrics.Data.Access\Rubrics.Data.Access.csproj" />
+    <ProjectReference Include="..\Rubrics.Data\Rubrics.Data.csproj" />
+    <ProjectReference Include="..\Rubrics.General\Rubrics.General.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -4,6 +4,275 @@
     "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatProjectRickAndMe\\WebApplication\\WebApplication.csproj": {}
   },
   "projects": {
+    "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatProjectRickAndMe\\Rubrics.Business\\Rubrics.Business.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatProjectRickAndMe\\Rubrics.Business\\Rubrics.Business.csproj",
+        "projectName": "Rubrics.Business",
+        "projectPath": "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatProjectRickAndMe\\Rubrics.Business\\Rubrics.Business.csproj",
+        "packagesPath": "C:\\Users\\fabio\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatProjectRickAndMe\\Rubrics.Business\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\fabio\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://pkgs.dev.azure.com/afintechnologies/_packaging/Buxbo/nuget/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.0": {
+            "projectReferences": {
+              "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatProjectRickAndMe\\Rubrics.Data.Access\\Rubrics.Data.Access.csproj": {
+                "projectPath": "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatProjectRickAndMe\\Rubrics.Data.Access\\Rubrics.Data.Access.csproj"
+              },
+              "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatProjectRickAndMe\\Rubrics.Data\\Rubrics.Data.csproj": {
+                "projectPath": "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatProjectRickAndMe\\Rubrics.Data\\Rubrics.Data.csproj"
+              },
+              "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatProjectRickAndMe\\Rubrics.General\\Rubrics.General.csproj": {
+                "projectPath": "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatProjectRickAndMe\\Rubrics.General\\Rubrics.General.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.0": {
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatProjectRickAndMe\\Rubrics.Data.Access\\Rubrics.Data.Access.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatProjectRickAndMe\\Rubrics.Data.Access\\Rubrics.Data.Access.csproj",
+        "projectName": "Rubrics.Data.Access",
+        "projectPath": "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatProjectRickAndMe\\Rubrics.Data.Access\\Rubrics.Data.Access.csproj",
+        "packagesPath": "C:\\Users\\fabio\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatProjectRickAndMe\\Rubrics.Data.Access\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\fabio\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://pkgs.dev.azure.com/afintechnologies/_packaging/Buxbo/nuget/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.0": {
+            "projectReferences": {
+              "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatProjectRickAndMe\\Rubrics.Data\\Rubrics.Data.csproj": {
+                "projectPath": "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatProjectRickAndMe\\Rubrics.Data\\Rubrics.Data.csproj"
+              },
+              "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatProjectRickAndMe\\Rubrics.General\\Rubrics.General.csproj": {
+                "projectPath": "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatProjectRickAndMe\\Rubrics.General\\Rubrics.General.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.0": {
+          "dependencies": {
+            "CSharpFunctionalExtensions": {
+              "target": "Package",
+              "version": "[2.3.0, )"
+            },
+            "Dapper": {
+              "target": "Package",
+              "version": "[2.0.30, )"
+            },
+            "Microsoft.Data.SqlClient": {
+              "target": "Package",
+              "version": "[1.1.0, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.1.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatProjectRickAndMe\\Rubrics.Data\\Rubrics.Data.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatProjectRickAndMe\\Rubrics.Data\\Rubrics.Data.csproj",
+        "projectName": "Rubrics.Data",
+        "projectPath": "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatProjectRickAndMe\\Rubrics.Data\\Rubrics.Data.csproj",
+        "packagesPath": "C:\\Users\\fabio\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatProjectRickAndMe\\Rubrics.Data\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\fabio\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://pkgs.dev.azure.com/afintechnologies/_packaging/Buxbo/nuget/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.0": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.0": {
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatProjectRickAndMe\\Rubrics.General\\Rubrics.General.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatProjectRickAndMe\\Rubrics.General\\Rubrics.General.csproj",
+        "projectName": "Rubrics.General",
+        "projectPath": "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatProjectRickAndMe\\Rubrics.General\\Rubrics.General.csproj",
+        "packagesPath": "C:\\Users\\fabio\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatProjectRickAndMe\\Rubrics.General\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\fabio\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://pkgs.dev.azure.com/afintechnologies/_packaging/Buxbo/nuget/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.0": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.0": {
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
     "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatProjectRickAndMe\\WebApplication\\WebApplication.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -30,7 +299,20 @@
         },
         "frameworks": {
           "netcoreapp3.0": {
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatProjectRickAndMe\\Rubrics.Business\\Rubrics.Business.csproj": {
+                "projectPath": "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatProjectRickAndMe\\Rubrics.Business\\Rubrics.Business.csproj"
+              },
+              "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatProjectRickAndMe\\Rubrics.Data.Access\\Rubrics.Data.Access.csproj": {
+                "projectPath": "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatProjectRickAndMe\\Rubrics.Data.Access\\Rubrics.Data.Access.csproj"
+              },
+              "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatProjectRickAndMe\\Rubrics.Data\\Rubrics.Data.csproj": {
+                "projectPath": "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatProjectRickAndMe\\Rubrics.Data\\Rubrics.Data.csproj"
+              },
+              "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatProjectRickAndMe\\Rubrics.General\\Rubrics.General.csproj": {
+                "projectPath": "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatProjectRickAndMe\\Rubrics.General\\Rubrics.General.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

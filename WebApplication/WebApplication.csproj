@@ -9,5 +9,12 @@
       <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\Rubrics.Business\Rubrics.Business.csproj" />
+      <ProjectReference Include="..\Rubrics.Data.Access\Rubrics.Data.Access.csproj" />
+      <ProjectReference Include="..\Rubrics.Data\Rubrics.Data.csproj" />
+      <ProjectReference Include="..\Rubrics.General\Rubrics.General.csproj" />
+    </ItemGroup>
+
 
 </Project>
