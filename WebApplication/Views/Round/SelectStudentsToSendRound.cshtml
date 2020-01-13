@@ -12,15 +12,15 @@
     //read the data from the json file and then 
     //select the desired round
     string[] lines = System.IO.File.ReadAllLines(@"D:\data.txt");
-    Round round = null;
+    RoundModel roundModel = null;
     foreach (string line in lines)
     {
-        if (JsonConvert.DeserializeObject<Round>(line).roundID == (int) ViewData["rubricId"])
+        if (JsonConvert.DeserializeObject<RoundModel>(line).RoundId == (int) ViewData["rubricId"])
         {
-            round = JsonConvert.DeserializeObject<Round>(line);
+            roundModel = JsonConvert.DeserializeObject<RoundModel>(line);
         }
     }
-    Sheet markingSheet = round.markingSheets[0];
+    SheetModel markingSheetModel = roundModel.MarkingSheets[0];
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -73,14 +73,14 @@
                     </thead>
                     <tbody>
 
-                    @for (var index = 0; index < markingSheet.Rubrics.Count; index += 5)
+                    @for (var index = 0; index < markingSheetModel.Rubrics.Count; index += 5)
                     {
                         <tr>
-                            <th scope="row">@markingSheet.Rubrics[index].Name</th>
-                            <td class="rubric-item">@markingSheet.Rubrics[index + 1].Name</td>
-                            <td class="rubric-item">@markingSheet.Rubrics[index + 2].Name</td>
-                            <td class="rubric-item">@markingSheet.Rubrics[index + 3].Name</td>
-                            <td class="rubric-item">@markingSheet.Rubrics[index + 4].Name</td>
+                            <th scope="row">@markingSheetModel.Rubrics[index].Name</th>
+                            <td class="rubric-item">@markingSheetModel.Rubrics[index + 1].Name</td>
+                            <td class="rubric-item">@markingSheetModel.Rubrics[index + 2].Name</td>
+                            <td class="rubric-item">@markingSheetModel.Rubrics[index + 3].Name</td>
+                            <td class="rubric-item">@markingSheetModel.Rubrics[index + 4].Name</td>
 
                         </tr>
                     }

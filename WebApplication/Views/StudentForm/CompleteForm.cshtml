@@ -5,21 +5,21 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     int roundID = (int) ViewData["sheetId"];
     string[] lines = System.IO.File.ReadAllLines(@"D:\data.txt");
-    Round round = null;
+    RoundModel roundModel = null;
     foreach (string line in lines)
     {
-        if (JsonConvert.DeserializeObject<Round>(line).roundID == roundID)
+        if (JsonConvert.DeserializeObject<RoundModel>(line).RoundId == roundID)
         {
-            round = JsonConvert.DeserializeObject<Round>(line);
+            roundModel = JsonConvert.DeserializeObject<RoundModel>(line);
         }
     }
-    Sheet markingSheet = round.markingSheets[0];
+    SheetModel markingSheetModel = roundModel.MarkingSheets[0];
 }
 
 
 <div class="text-center">
-    <h1>Rate Ricards for the @round.ModuleName</h1>
-    <h4>Deadline : <strong>@round.Deadline</strong></h4>
+    <h1>Rate Ricards for the @roundModel.ModuleName</h1>
+    <h4>Deadline : <strong>@roundModel.Deadline</strong></h4>
 </div>
 <div class="row mt-4">
     <div class="col">
@@ -36,14 +36,14 @@
                 </thead>
                 <tbody>
               
-                @for (var index = 0; index < markingSheet.Rubrics.Count; index+=5)
+                @for (var index = 0; index < markingSheetModel.Rubrics.Count; index+=5)
                 {
                     <tr>
-                        <th scope="row">@markingSheet.Rubrics[index].Name</th>
-                        <td class="rubric-item">@markingSheet.Rubrics[index+1].Name</td>
-                        <td class="rubric-item">@markingSheet.Rubrics[index+2].Name</td>
-                        <td class="rubric-item">@markingSheet.Rubrics[index+3].Name</td>
-                        <td class="rubric-item">@markingSheet.Rubrics[index+4].Name</td>
+                        <th scope="row">@markingSheetModel.Rubrics[index].Name</th>
+                        <td class="rubric-item">@markingSheetModel.Rubrics[index+1].Name</td>
+                        <td class="rubric-item">@markingSheetModel.Rubrics[index+2].Name</td>
+                        <td class="rubric-item">@markingSheetModel.Rubrics[index+3].Name</td>
+                        <td class="rubric-item">@markingSheetModel.Rubrics[index+4].Name</td>
                         
                     </tr>
                 }

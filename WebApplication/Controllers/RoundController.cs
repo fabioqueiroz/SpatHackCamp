@@ -30,34 +30,34 @@ namespace WebApplication.Controllers
         {
             //take round details and all of the names
             //loop through the form until you get all the data
-            Round round = new Round();
-            round.ModuleName = form["moduleName"];
-            List<Sheet> markingSheets = new List<Sheet>();
-            Sheet sheet = new Sheet();
-            sheet.Length = Int32.Parse(form["tableLength"]);
-            sheet.Width = Int32.Parse(form["tableWidth"]);
-            markingSheets.Add(sheet);
-            round.markingSheets = markingSheets;
-            round.Deadline = form["roundDeadline"];
-            List<Rubric> currentRubrics = new List<Rubric>();
-            for (var i = 1; i <= sheet.Width; i++)
+            RoundModel roundModel = new RoundModel();
+            roundModel.ModuleName = form["moduleName"];
+            List<SheetModel> markingSheets = new List<SheetModel>();
+            SheetModel sheetModel = new SheetModel();
+            sheetModel.Length = Int32.Parse(form["tableLength"]);
+            sheetModel.Width = Int32.Parse(form["tableWidth"]);
+            markingSheets.Add(sheetModel);
+            roundModel.MarkingSheets = markingSheets;
+            roundModel.Deadline = form["roundDeadline"];
+            List<RubricModel> currentRubrics = new List<RubricModel>();
+            for (var i = 1; i <= sheetModel.Width; i++)
             {
-                for (var j = 1; j <= sheet.Length; j++)
+                for (var j = 1; j <= sheetModel.Length; j++)
                 {
                     var inputName = "row" + i + "col" + j;
-                    currentRubrics.Add(new Rubric() {Name = form[inputName], Grade = j});
+                    currentRubrics.Add(new RubricModel() {Name = form[inputName], Grade = j});
                 }
             }
 
             Random random = new Random();
-            round.roundID = random.Next(0, 101000);
-            sheet.Rubrics = currentRubrics;
+            roundModel.RoundId = random.Next(0, 101000);
+            sheetModel.Rubrics = currentRubrics;
             //open file stream
             using (StreamWriter file = System.IO.File.AppendText(@"D:\data.txt"))
             {
                 JsonSerializer serializer = new JsonSerializer();
                 //serialize object directly into file stream
-                serializer.Serialize(file, round);
+                serializer.Serialize(file, roundModel);
                 file.Write(Environment.NewLine);
             }
 
@@ -80,21 +80,21 @@ namespace WebApplication.Controllers
         {
             //read mock data from file and duplicate the round with the same id 
             string[] lines = System.IO.File.ReadAllLines(@"D:\data.txt");
-            Round round = null;
+            RoundModel roundModel = null;
             foreach (string line in lines)
             {
-                if (JsonConvert.DeserializeObject<Round>(line).roundID == id)
+                if (JsonConvert.DeserializeObject<RoundModel>(line).RoundId == id)
                 {
-                    round = JsonConvert.DeserializeObject<Round>(line);
+                    roundModel = JsonConvert.DeserializeObject<RoundModel>(line);
                 }
             }
             
-            round.active = true;
+            roundModel.Active = true;
             using (StreamWriter file = System.IO.File.AppendText(@"D:\data.txt"))
             {
                 JsonSerializer serializer = new JsonSerializer();
                 //serialize object directly into file stream
-                serializer.Serialize(file, round);
+                serializer.Serialize(file, roundModel);
                 file.Write(Environment.NewLine);
             }
             return RedirectToAction("Index", "Home");
