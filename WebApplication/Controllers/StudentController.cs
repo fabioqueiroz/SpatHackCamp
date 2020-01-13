@@ -19,5 +19,10 @@ namespace WebApplication.Controllers
         {
             return View();
         }
+
+        public IActionResult PastRounds()
+        {
+            return View();
+        }
     }
 }

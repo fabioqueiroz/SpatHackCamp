@@ -6,7 +6,7 @@
     string username ="";
     if (ViewData["username"] != null)
     {
-         username = ViewData["username"].ToString();
+        username = ViewData["username"].ToString();
         userLoggedIn = true;
     }
     string userType = ViewData["userType"].ToString();
@@ -49,12 +49,12 @@
     <div class="split left">
         <div class="split left">
             <div class="centered">
-                <button type="button" id="pendingButton" class="btn btn-secondary actionButton" onclick="location.href='@Url.Action("Items", "PendingItems", new {id = 2})'">Rate yourself and your peers, by using a Rubric.</button>
+                <button type="button" id="pendingButton" class="btn btn-secondary actionButton" onclick="location.href='@Url.Action("CurrentItems", "PendingItems", new {id = 2})'">Rate yourself and your peers in the group</button>
             </div>
         </div>
         <div class="split right">
             <div class="centered">
-                <button type="button" id="markedButton" class="btn btn-secondary actionButton">Check how well you performed, and see how others rated you.</button>
+                <button type="button" id="markedButton" class="btn btn-secondary actionButton" onclick="location.href='@Url.Action("PastRounds", "Student")'">Check how well you performed in previous rounds</button>
             </div>
         </div>
     </div>

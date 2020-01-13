@@ -59,7 +59,7 @@
 <div class="container">
     <div class="row mt-4" id="container-page">
         <div class="col">
-            <h1 class="text-center">Send to</h1>
+            <h1 class="text-center">Initialise a rubric for your class</h1>
             <form method="post" action="@Url.Action("SendRoundToStudents", "Round", new {id = (int) ViewData["rubricId"]})">
                 <table class="table table-bordered" id="form-table">
                     <thead>
@@ -108,38 +108,38 @@
                         </div>
                     </div>
                 </div>
-                <div class="button-group text-center">
-                    <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">
-                        <span class="glyphicon glyphicon-cog"></span> <span class="caret" style="font-size:20px;">Select Class</span>
-                    </button>
-                    <ul class="dropdown-menu dropdown-menu-select-class">
-                        <li>
-                            <input type="checkbox"
-                                   checked>
-                            <label for="scales">Scales</label>
-                        </li>
-                        <li>
-                            <input type="checkbox"
-                                   checked>
-                            <label for="scales">Scales</label>
-                        </li>
-                        <li>
-                            <input type="checkbox"
-                                   checked>
-                            <label for="scales">Scales</label>
-                        </li>
-                        <li>
-                            <input type="checkbox"
-                                   checked>
-                            <label for="scales">Scales</label>
-                        </li>
-                        <li>
-                            <input type="checkbox"
-                                   checked>
-                            <label for="scales">Scales</label>
-                        </li>
-                    </ul>
-                </div>
+                @* <div class="button-group text-center"> *@
+                @*     <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown"> *@
+                @*         <span class="glyphicon glyphicon-cog"></span> <span class="caret" style="font-size:20px;">Select Class</span> *@
+                @*     </button> *@
+                @*     <ul class="dropdown-menu dropdown-menu-select-class"> *@
+                @*         <li> *@
+                @*             <input type="checkbox" *@
+                @*                    checked> *@
+                @*             <label for="scales">Scales</label> *@
+                @*         </li> *@
+                @*         <li> *@
+                @*             <input type="checkbox" *@
+                @*                    checked> *@
+                @*             <label for="scales">Scales</label> *@
+                @*         </li> *@
+                @*         <li> *@
+                @*             <input type="checkbox" *@
+                @*                    checked> *@
+                @*             <label for="scales">Scales</label> *@
+                @*         </li> *@
+                @*         <li> *@
+                @*             <input type="checkbox" *@
+                @*                    checked> *@
+                @*             <label for="scales">Scales</label> *@
+                @*         </li> *@
+                @*         <li> *@
+                @*             <input type="checkbox" *@
+                @*                    checked> *@
+                @*             <label for="scales">Scales</label> *@
+                @*         </li> *@
+                @*     </ul> *@
+                @* </div> *@
                 <div class="text-center">
                     <button type="button" class="btn btn-primary mt-3" data-toggle="modal" data-target="#confirmationModal">Submit</button>
                 </div>

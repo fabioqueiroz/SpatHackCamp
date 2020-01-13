@@ -7,7 +7,9 @@ namespace WebApplication.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public int StudentId { get; set; }
-
+        
+        private string email { get; set; }
+        
         public Dictionary<int, List<RubricModel>> MarkingSheet { get; set; }
     }
 }

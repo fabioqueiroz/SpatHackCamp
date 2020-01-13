@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "Past rounds";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    //get data from the database
+
+    //have some mock data
+    string[] modules = new[] {"Maths", "Romanian", "History"};
+    int[] grades = new[] {26, 85, 63};
+    
+    int index = 0;
+    while (index < modules.Length)
+    {
+        <div class="row">
+            @{
+                ViewData["moduleName"] = modules[index];
+                ViewData["Grade"] = grades[index];
+                Html.RenderPartial("CardPastRound");
+
+                index++;
+                while (index % 3 != 0)
+                {
+                    ViewData["moduleName"] = modules[index];
+                    ViewData["Grade"] = grades[index];
+                    Html.RenderPartial("CardPastRound");
+                    index++;
+                }
+            }
+
+        </div>
+    }
+
+}

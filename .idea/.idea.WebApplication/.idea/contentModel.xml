@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\Bazinga\.Rider2019.3\config\javascript\extLibs\http_use.fontawesome.com_releases_v5.7.1_css_all.css" t="IncludeRecursive" />
-    <e p="C:\Users\Bazinga\.Rider2019.3\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\Bazinga\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_WebApplication.932755175.00" t="ExcludeRecursive" />
-    <e p="C:\Users\Bazinga\Desktop\spat" t="IncludeFlat">
+    <e p="C:\Users\avram\.Rider2019.3\config\javascript\extLibs\http_use.fontawesome.com_releases_v5.7.1_css_all.css" t="IncludeRecursive" />
+    <e p="C:\Users\avram\.Rider2019.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\avram\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_WebApplication.-728541950.00" t="ExcludeRecursive" />
+    <e p="C:\Users\avram\RiderProjects\WebApplication" t="IncludeFlat">
       <e p="0. Solution Items" t="Include" />
       <e p="1. Presentation Layer" t="Include" />
       <e p="2. Service Layer" t="Include" />
@@ -152,8 +152,8 @@
             <e p="Index.cshtml" t="Include" />
           </e>
           <e p="PendingItems" t="Include">
+            <e p="CurrentItems.cshtml" t="Include" />
             <e p="Index.cshtml" t="Include" />
-            <e p="Items.cshtml" t="Include" />
           </e>
           <e p="Rating" t="Include">
             <e p="Rate.cshtml" t="Include" />
@@ -167,10 +167,13 @@
           <e p="Shared" t="Include">
             <e p="_Layout.cshtml" t="Include" />
             <e p="_ValidationScriptsPartial.cshtml" t="Include" />
+            <e p="CardPastRound.cshtml" t="Include" />
+            <e p="CardStudent.cshtml" t="Include" />
             <e p="Error.cshtml" t="Include" />
           </e>
           <e p="Student" t="Include">
             <e p="Index.cshtml" t="Include" />
+            <e p="PastRounds.cshtml" t="Include" />
             <e p="SelectGroup.cshtml" t="Include" />
             <e p="SelectStudent.cshtml" t="Include" />
           </e>

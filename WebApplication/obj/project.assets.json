@@ -2122,30 +2122,52 @@
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
       },
+      "Westwind.AspnetCore.LiveReload/0.1.12": {
+        "type": "package",
+        "compile": {
+          "lib/netcoreapp3.0/Westwind.AspnetCore.LiveReload.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.0/Westwind.AspnetCore.LiveReload.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
       "Rubrics.Business/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.0",
         "dependencies": {
           "Rubrics.Data": "1.0.0",
           "Rubrics.Data.Access": "1.0.0",
-          "Rubrics.General": "1.0.0"
+          "Rubrics.General": "1.0.0",
+          "Westwind.AspnetCore.LiveReload": "0.1.12"
         },
         "compile": {
           "bin/placeholder/Rubrics.Business.dll": {}
         },
         "runtime": {
           "bin/placeholder/Rubrics.Business.dll": {}
-        }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       },
       "Rubrics.Data/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.0",
+        "dependencies": {
+          "Westwind.AspnetCore.LiveReload": "0.1.12"
+        },
         "compile": {
           "bin/placeholder/Rubrics.Data.dll": {}
         },
         "runtime": {
           "bin/placeholder/Rubrics.Data.dll": {}
-        }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       },
       "Rubrics.Data.Access/1.0.0": {
         "type": "project",
@@ -2157,24 +2179,34 @@
           "Microsoft.EntityFrameworkCore": "3.1.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "3.1.0",
           "Rubrics.Data": "1.0.0",
-          "Rubrics.General": "1.0.0"
+          "Rubrics.General": "1.0.0",
+          "Westwind.AspnetCore.LiveReload": "0.1.12"
         },
         "compile": {
           "bin/placeholder/Rubrics.Data.Access.dll": {}
         },
         "runtime": {
           "bin/placeholder/Rubrics.Data.Access.dll": {}
-        }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       },
       "Rubrics.General/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.0",
+        "dependencies": {
+          "Westwind.AspnetCore.LiveReload": "0.1.12"
+        },
         "compile": {
           "bin/placeholder/Rubrics.General.dll": {}
         },
         "runtime": {
           "bin/placeholder/Rubrics.General.dll": {}
-        }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
       }
     }
   },
@@ -7318,6 +7350,19 @@
         "system.xml.xmlserializer.nuspec"
       ]
     },
+    "Westwind.AspnetCore.LiveReload/0.1.12": {
+      "sha512": "zFUlJS6pRUKt5l7kxdApBcfPxkgloFrYVRFqFZY6MY/2Bjq1S5A/14NRtB3e9f0aZgak8OladX/9pCQ9/LYsUQ==",
+      "type": "package",
+      "path": "westwind.aspnetcore.livereload/0.1.12",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netcoreapp2.1/Westwind.AspnetCore.LiveReload.dll",
+        "lib/netcoreapp3.0/Westwind.AspnetCore.LiveReload.dll",
+        "westwind.aspnetcore.livereload.0.1.12.nupkg.sha512",
+        "westwind.aspnetcore.livereload.nuspec"
+      ]
+    },
     "Rubrics.Business/1.0.0": {
       "type": "project",
       "path": "../Rubrics.Business/Rubrics.Business.csproj",
@@ -7351,48 +7396,47 @@
       "Rubrics.Business >= 1.0.0",
       "Rubrics.Data >= 1.0.0",
       "Rubrics.Data.Access >= 1.0.0",
-      "Rubrics.General >= 1.0.0"
+      "Rubrics.General >= 1.0.0",
+      "Westwind.AspnetCore.LiveReload >= 0.1.12"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Bazinga\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\avram\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Bazinga\\Desktop\\spat\\WebApplication\\WebApplication.csproj",
+      "projectUniqueName": "C:\\Users\\avram\\RiderProjects\\WebApplication\\WebApplication\\WebApplication.csproj",
       "projectName": "WebApplication",
-      "projectPath": "C:\\Users\\Bazinga\\Desktop\\spat\\WebApplication\\WebApplication.csproj",
-      "packagesPath": "C:\\Users\\Bazinga\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Bazinga\\Desktop\\spat\\WebApplication\\obj\\",
+      "projectPath": "C:\\Users\\avram\\RiderProjects\\WebApplication\\WebApplication\\WebApplication.csproj",
+      "packagesPath": "C:\\Users\\avram\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\avram\\RiderProjects\\WebApplication\\WebApplication\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Bazinga\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\avram\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp3.0": {
           "projectReferences": {
-            "C:\\Users\\Bazinga\\Desktop\\spat\\Rubrics.Business\\Rubrics.Business.csproj": {
-              "projectPath": "C:\\Users\\Bazinga\\Desktop\\spat\\Rubrics.Business\\Rubrics.Business.csproj"
+            "C:\\Users\\avram\\RiderProjects\\WebApplication\\Rubrics.Business\\Rubrics.Business.csproj": {
+              "projectPath": "C:\\Users\\avram\\RiderProjects\\WebApplication\\Rubrics.Business\\Rubrics.Business.csproj"
             },
-            "C:\\Users\\Bazinga\\Desktop\\spat\\Rubrics.Data.Access\\Rubrics.Data.Access.csproj": {
-              "projectPath": "C:\\Users\\Bazinga\\Desktop\\spat\\Rubrics.Data.Access\\Rubrics.Data.Access.csproj"
+            "C:\\Users\\avram\\RiderProjects\\WebApplication\\Rubrics.Data.Access\\Rubrics.Data.Access.csproj": {
+              "projectPath": "C:\\Users\\avram\\RiderProjects\\WebApplication\\Rubrics.Data.Access\\Rubrics.Data.Access.csproj"
             },
-            "C:\\Users\\Bazinga\\Desktop\\spat\\Rubrics.Data\\Rubrics.Data.csproj": {
-              "projectPath": "C:\\Users\\Bazinga\\Desktop\\spat\\Rubrics.Data\\Rubrics.Data.csproj"
+            "C:\\Users\\avram\\RiderProjects\\WebApplication\\Rubrics.Data\\Rubrics.Data.csproj": {
+              "projectPath": "C:\\Users\\avram\\RiderProjects\\WebApplication\\Rubrics.Data\\Rubrics.Data.csproj"
             },
-            "C:\\Users\\Bazinga\\Desktop\\spat\\Rubrics.General\\Rubrics.General.csproj": {
-              "projectPath": "C:\\Users\\Bazinga\\Desktop\\spat\\Rubrics.General\\Rubrics.General.csproj"
+            "C:\\Users\\avram\\RiderProjects\\WebApplication\\Rubrics.General\\Rubrics.General.csproj": {
+              "projectPath": "C:\\Users\\avram\\RiderProjects\\WebApplication\\Rubrics.General\\Rubrics.General.csproj"
             }
           }
         }
@@ -7437,6 +7481,10 @@
           "Newtonsoft.Json": {
             "target": "Package",
             "version": "[12.0.3, )"
+          },
+          "Westwind.AspnetCore.LiveReload": {
+            "target": "Package",
+            "version": "[0.1.12, )"
           }
         },
         "imports": [

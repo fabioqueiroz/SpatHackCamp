@@ -24,7 +24,7 @@ namespace WebApplication.Controllers
         }
         
         //GET
-        public IActionResult Items(int id)
+        public IActionResult CurrentItems(int id)
         {
             if (HttpContext.Session.GetString("username")==null)
             {

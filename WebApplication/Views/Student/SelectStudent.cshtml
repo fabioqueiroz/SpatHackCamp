@@ -15,41 +15,24 @@
     students.Add(new StudentModel() {StudentId = 3, FirstName = "Andrei", LastName = "Avram"});
 
 }
-@for (int i = 0; i < students.Count; i++)
-{
-    <div class="row mt-4">
-        <!--Process all rounds-->
-        <div class="col">
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title">@students[0].FirstName + " "+ @students[0].LastName</h5>
-                    <p>Group member : <strong>Ricards</strong></p>
-                    <p class="card-text mt-3">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <button type="button" class="btn btn-primary btn-block" onclick="location.href='@Url.Action("Index", "Student")'">Select</button>
-                </div>
-            </div>
-        </div>
+@{
+    int index = 0;
+    while (index < students.Count)
+    {
+        <div class="row">
+            @{
+            ViewData["Student"] = students[index];
+            Html.RenderPartial("CardStudent");
+            
+            index++;
+            while (index % 3 != 0)
+            {
+            ViewData["Student"] = students[index];
+            Html.RenderPartial("CardStudent");
+            index++;
+            }
+            }
 
-        <div class="col">
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title">(@students[1].FirstName + " "+ @students[1].LastName)</h5>
-                    <p>Group member : <strong>Fabio</strong></p>
-                    <p class="card-text mt-3">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <button type="button" class="btn btn-primary btn-block" onclick="location.href='@Url.Action("Index", "Student")'">Select</button>
-                </div>
-            </div>
         </div>
-
-        <div class="col">
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title">@students[2].FirstName + " "+ @students[2].LastName</h5>
-                    <p>Group member : <strong>Yourself</strong></p>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <button type="button" class="btn btn-primary btn-block"  onclick="location.href='@Url.Action("Index", "Student")'">Select</button>
-                </div>
-            </div>
-        </div>
-    </div>
+    }
 }
