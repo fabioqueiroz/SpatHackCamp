@@ -46,9 +46,9 @@ namespace WebApplication.Controllers
             round.markingSheets = markingSheets;
             round.Deadline = form["roundDeadline"];
             List<Rubric> currentRubrics = new List<Rubric>();
-            for (var i = 0; i < sheet.Width; i++)
+            for (var i = 1; i <=sheet.Width; i++)
             {
-                for (var j = 0; j < sheet.Length; j++)
+                for (var j = 1; j <=sheet.Length; j++)
                 {
                     var inputName = "row" + i + "col" + j;
                     currentRubrics.Add(new Rubric() {Name = form[inputName], Grade = j});
@@ -74,13 +74,16 @@ namespace WebApplication.Controllers
             {
                 var arr = array;
 
-                if (array.Grade == 0)
+                if (array.Grade == 1 && !array.Name.Equals(""))
                 {
                     categories.Add(new CategoryModel { Name = array.Name});
                 }
                 else
                 {
-                    descriptions.Add(new DescriptionModel { Scale = array.Grade, Description = array.Name });
+                    if (!array.Name.Equals(""))
+                    {
+                        descriptions.Add(new DescriptionModel { Scale = (array.Grade - 1), Description = array.Name }); 
+                    }
                 }
             }
 
