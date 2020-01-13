@@ -1,41 +1,40 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Bazinga\\Desktop\\spat\\WebApplication\\WebApplication.csproj": {}
+    "C:\\Users\\avram\\RiderProjects\\WebApplication\\WebApplication\\WebApplication.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Bazinga\\Desktop\\spat\\Rubrics.Business\\Rubrics.Business.csproj": {
+    "C:\\Users\\avram\\RiderProjects\\WebApplication\\Rubrics.Business\\Rubrics.Business.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Bazinga\\Desktop\\spat\\Rubrics.Business\\Rubrics.Business.csproj",
+        "projectUniqueName": "C:\\Users\\avram\\RiderProjects\\WebApplication\\Rubrics.Business\\Rubrics.Business.csproj",
         "projectName": "Rubrics.Business",
-        "projectPath": "C:\\Users\\Bazinga\\Desktop\\spat\\Rubrics.Business\\Rubrics.Business.csproj",
-        "packagesPath": "C:\\Users\\Bazinga\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Bazinga\\Desktop\\spat\\Rubrics.Business\\obj\\",
+        "projectPath": "C:\\Users\\avram\\RiderProjects\\WebApplication\\Rubrics.Business\\Rubrics.Business.csproj",
+        "packagesPath": "C:\\Users\\avram\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\avram\\RiderProjects\\WebApplication\\Rubrics.Business\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Bazinga\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\avram\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.0": {
             "projectReferences": {
-              "C:\\Users\\Bazinga\\Desktop\\spat\\Rubrics.Data.Access\\Rubrics.Data.Access.csproj": {
-                "projectPath": "C:\\Users\\Bazinga\\Desktop\\spat\\Rubrics.Data.Access\\Rubrics.Data.Access.csproj"
+              "C:\\Users\\avram\\RiderProjects\\WebApplication\\Rubrics.Data.Access\\Rubrics.Data.Access.csproj": {
+                "projectPath": "C:\\Users\\avram\\RiderProjects\\WebApplication\\Rubrics.Data.Access\\Rubrics.Data.Access.csproj"
               },
-              "C:\\Users\\Bazinga\\Desktop\\spat\\Rubrics.Data\\Rubrics.Data.csproj": {
-                "projectPath": "C:\\Users\\Bazinga\\Desktop\\spat\\Rubrics.Data\\Rubrics.Data.csproj"
+              "C:\\Users\\avram\\RiderProjects\\WebApplication\\Rubrics.Data\\Rubrics.Data.csproj": {
+                "projectPath": "C:\\Users\\avram\\RiderProjects\\WebApplication\\Rubrics.Data\\Rubrics.Data.csproj"
               },
-              "C:\\Users\\Bazinga\\Desktop\\spat\\Rubrics.General\\Rubrics.General.csproj": {
-                "projectPath": "C:\\Users\\Bazinga\\Desktop\\spat\\Rubrics.General\\Rubrics.General.csproj"
+              "C:\\Users\\avram\\RiderProjects\\WebApplication\\Rubrics.General\\Rubrics.General.csproj": {
+                "projectPath": "C:\\Users\\avram\\RiderProjects\\WebApplication\\Rubrics.General\\Rubrics.General.csproj"
               }
             }
           }
@@ -73,35 +72,34 @@
         }
       }
     },
-    "C:\\Users\\Bazinga\\Desktop\\spat\\Rubrics.Data.Access\\Rubrics.Data.Access.csproj": {
+    "C:\\Users\\avram\\RiderProjects\\WebApplication\\Rubrics.Data.Access\\Rubrics.Data.Access.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Bazinga\\Desktop\\spat\\Rubrics.Data.Access\\Rubrics.Data.Access.csproj",
+        "projectUniqueName": "C:\\Users\\avram\\RiderProjects\\WebApplication\\Rubrics.Data.Access\\Rubrics.Data.Access.csproj",
         "projectName": "Rubrics.Data.Access",
-        "projectPath": "C:\\Users\\Bazinga\\Desktop\\spat\\Rubrics.Data.Access\\Rubrics.Data.Access.csproj",
-        "packagesPath": "C:\\Users\\Bazinga\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Bazinga\\Desktop\\spat\\Rubrics.Data.Access\\obj\\",
+        "projectPath": "C:\\Users\\avram\\RiderProjects\\WebApplication\\Rubrics.Data.Access\\Rubrics.Data.Access.csproj",
+        "packagesPath": "C:\\Users\\avram\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\avram\\RiderProjects\\WebApplication\\Rubrics.Data.Access\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Bazinga\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\avram\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.0": {
             "projectReferences": {
-              "C:\\Users\\Bazinga\\Desktop\\spat\\Rubrics.Data\\Rubrics.Data.csproj": {
-                "projectPath": "C:\\Users\\Bazinga\\Desktop\\spat\\Rubrics.Data\\Rubrics.Data.csproj"
+              "C:\\Users\\avram\\RiderProjects\\WebApplication\\Rubrics.Data\\Rubrics.Data.csproj": {
+                "projectPath": "C:\\Users\\avram\\RiderProjects\\WebApplication\\Rubrics.Data\\Rubrics.Data.csproj"
               },
-              "C:\\Users\\Bazinga\\Desktop\\spat\\Rubrics.General\\Rubrics.General.csproj": {
-                "projectPath": "C:\\Users\\Bazinga\\Desktop\\spat\\Rubrics.General\\Rubrics.General.csproj"
+              "C:\\Users\\avram\\RiderProjects\\WebApplication\\Rubrics.General\\Rubrics.General.csproj": {
+                "projectPath": "C:\\Users\\avram\\RiderProjects\\WebApplication\\Rubrics.General\\Rubrics.General.csproj"
               }
             }
           }
@@ -167,25 +165,24 @@
         }
       }
     },
-    "C:\\Users\\Bazinga\\Desktop\\spat\\Rubrics.Data\\Rubrics.Data.csproj": {
+    "C:\\Users\\avram\\RiderProjects\\WebApplication\\Rubrics.Data\\Rubrics.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Bazinga\\Desktop\\spat\\Rubrics.Data\\Rubrics.Data.csproj",
+        "projectUniqueName": "C:\\Users\\avram\\RiderProjects\\WebApplication\\Rubrics.Data\\Rubrics.Data.csproj",
         "projectName": "Rubrics.Data",
-        "projectPath": "C:\\Users\\Bazinga\\Desktop\\spat\\Rubrics.Data\\Rubrics.Data.csproj",
-        "packagesPath": "C:\\Users\\Bazinga\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Bazinga\\Desktop\\spat\\Rubrics.Data\\obj\\",
+        "projectPath": "C:\\Users\\avram\\RiderProjects\\WebApplication\\Rubrics.Data\\Rubrics.Data.csproj",
+        "packagesPath": "C:\\Users\\avram\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\avram\\RiderProjects\\WebApplication\\Rubrics.Data\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Bazinga\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\avram\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -226,25 +223,24 @@
         }
       }
     },
-    "C:\\Users\\Bazinga\\Desktop\\spat\\Rubrics.General\\Rubrics.General.csproj": {
+    "C:\\Users\\avram\\RiderProjects\\WebApplication\\Rubrics.General\\Rubrics.General.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Bazinga\\Desktop\\spat\\Rubrics.General\\Rubrics.General.csproj",
+        "projectUniqueName": "C:\\Users\\avram\\RiderProjects\\WebApplication\\Rubrics.General\\Rubrics.General.csproj",
         "projectName": "Rubrics.General",
-        "projectPath": "C:\\Users\\Bazinga\\Desktop\\spat\\Rubrics.General\\Rubrics.General.csproj",
-        "packagesPath": "C:\\Users\\Bazinga\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Bazinga\\Desktop\\spat\\Rubrics.General\\obj\\",
+        "projectPath": "C:\\Users\\avram\\RiderProjects\\WebApplication\\Rubrics.General\\Rubrics.General.csproj",
+        "packagesPath": "C:\\Users\\avram\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\avram\\RiderProjects\\WebApplication\\Rubrics.General\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Bazinga\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\avram\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -285,41 +281,40 @@
         }
       }
     },
-    "C:\\Users\\Bazinga\\Desktop\\spat\\WebApplication\\WebApplication.csproj": {
+    "C:\\Users\\avram\\RiderProjects\\WebApplication\\WebApplication\\WebApplication.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Bazinga\\Desktop\\spat\\WebApplication\\WebApplication.csproj",
+        "projectUniqueName": "C:\\Users\\avram\\RiderProjects\\WebApplication\\WebApplication\\WebApplication.csproj",
         "projectName": "WebApplication",
-        "projectPath": "C:\\Users\\Bazinga\\Desktop\\spat\\WebApplication\\WebApplication.csproj",
-        "packagesPath": "C:\\Users\\Bazinga\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Bazinga\\Desktop\\spat\\WebApplication\\obj\\",
+        "projectPath": "C:\\Users\\avram\\RiderProjects\\WebApplication\\WebApplication\\WebApplication.csproj",
+        "packagesPath": "C:\\Users\\avram\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\avram\\RiderProjects\\WebApplication\\WebApplication\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Bazinga\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\avram\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.0": {
             "projectReferences": {
-              "C:\\Users\\Bazinga\\Desktop\\spat\\Rubrics.Business\\Rubrics.Business.csproj": {
-                "projectPath": "C:\\Users\\Bazinga\\Desktop\\spat\\Rubrics.Business\\Rubrics.Business.csproj"
+              "C:\\Users\\avram\\RiderProjects\\WebApplication\\Rubrics.Business\\Rubrics.Business.csproj": {
+                "projectPath": "C:\\Users\\avram\\RiderProjects\\WebApplication\\Rubrics.Business\\Rubrics.Business.csproj"
               },
-              "C:\\Users\\Bazinga\\Desktop\\spat\\Rubrics.Data.Access\\Rubrics.Data.Access.csproj": {
-                "projectPath": "C:\\Users\\Bazinga\\Desktop\\spat\\Rubrics.Data.Access\\Rubrics.Data.Access.csproj"
+              "C:\\Users\\avram\\RiderProjects\\WebApplication\\Rubrics.Data.Access\\Rubrics.Data.Access.csproj": {
+                "projectPath": "C:\\Users\\avram\\RiderProjects\\WebApplication\\Rubrics.Data.Access\\Rubrics.Data.Access.csproj"
               },
-              "C:\\Users\\Bazinga\\Desktop\\spat\\Rubrics.Data\\Rubrics.Data.csproj": {
-                "projectPath": "C:\\Users\\Bazinga\\Desktop\\spat\\Rubrics.Data\\Rubrics.Data.csproj"
+              "C:\\Users\\avram\\RiderProjects\\WebApplication\\Rubrics.Data\\Rubrics.Data.csproj": {
+                "projectPath": "C:\\Users\\avram\\RiderProjects\\WebApplication\\Rubrics.Data\\Rubrics.Data.csproj"
               },
-              "C:\\Users\\Bazinga\\Desktop\\spat\\Rubrics.General\\Rubrics.General.csproj": {
-                "projectPath": "C:\\Users\\Bazinga\\Desktop\\spat\\Rubrics.General\\Rubrics.General.csproj"
+              "C:\\Users\\avram\\RiderProjects\\WebApplication\\Rubrics.General\\Rubrics.General.csproj": {
+                "projectPath": "C:\\Users\\avram\\RiderProjects\\WebApplication\\Rubrics.General\\Rubrics.General.csproj"
               }
             }
           }
