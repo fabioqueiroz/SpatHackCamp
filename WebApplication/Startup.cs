@@ -48,8 +48,8 @@ namespace WebApplication
 
             services.AddSession(options =>
             {
-                // Set a short timeout for easy testing.
-                options.IdleTimeout = TimeSpan.FromSeconds(10);
+                // set the timeout for the session to 10 hours
+                options.IdleTimeout = TimeSpan.FromSeconds(3600*10);
                 options.Cookie.HttpOnly = true;
                 // Make the session cookie essential
                 options.Cookie.IsEssential = true;
