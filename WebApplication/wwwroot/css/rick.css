@@ -1,4 +1,10 @@
-﻿#pendingButton{
+﻿.dropdown-menu-select-class label{
+    font-size: 22px;
+}
+.dropdown-menu-select-class input{
+    margin-left: 35px;
+}
+#pendingButton{
     border: 3px solid white !important;
     border-radius: 25px !important;
     font-size: 20px !important;
