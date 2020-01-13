@@ -62,3 +62,11 @@
     transform: translate(-50%, -50%);
     text-align: center;
 }
+#rowThing{
+    text-align: left !important;
+    padding: 2px !important;
+    
+}
+h5{
+    
+}
