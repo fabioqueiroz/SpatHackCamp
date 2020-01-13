@@ -4,12 +4,18 @@ using System.IO;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using Rubrics.General.Models;
 using WebApplication.Models;
+using WebApplication.ViewModels;
 
 namespace WebApplication.Controllers
 {
     public class RoundController : Controller
     {
+        public RoundController()
+        {
+
+        }
         public IActionResult CreateRound()
         {
             if (HttpContext.Session.GetString("username") == null)
@@ -40,9 +46,9 @@ namespace WebApplication.Controllers
             round.markingSheets = markingSheets;
             round.Deadline = form["roundDeadline"];
             List<Rubric> currentRubrics = new List<Rubric>();
-            for (var i = 1; i <= sheet.Width; i++)
+            for (var i = 0; i < sheet.Width; i++)
             {
-                for (var j = 1; j <= sheet.Length; j++)
+                for (var j = 0; j < sheet.Length; j++)
                 {
                     var inputName = "row" + i + "col" + j;
                     currentRubrics.Add(new Rubric() {Name = form[inputName], Grade = j});
@@ -59,6 +65,23 @@ namespace WebApplication.Controllers
                 //serialize object directly into file stream
                 serializer.Serialize(file, round);
                 file.Write(Environment.NewLine);
+            }
+
+            List<CategoryModel> categories = new List<CategoryModel>();
+            List<DescriptionModel> descriptions = new List<DescriptionModel>();
+            // send to the service
+            foreach (var array in currentRubrics)
+            {
+                var arr = array;
+
+                if (array.Grade == 0)
+                {
+                    categories.Add(new CategoryModel { Name = array.Name});
+                }
+                else
+                {
+                    descriptions.Add(new DescriptionModel { Scale = array.Grade, Description = array.Name });
+                }
             }
 
             //redirect home afterwards
