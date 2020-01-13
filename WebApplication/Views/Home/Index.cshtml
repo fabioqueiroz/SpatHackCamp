@@ -1,15 +1,14 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
     Layout = null;
-    
-    bool userLoggedIn = false;
-    string username ="";
-    if (ViewData["username"] != null)
+    bool userLoggedIn = ViewData["userId"] != null;
+    string username = "";
+    string userType = "";
+    if (userLoggedIn)
     {
         username = ViewData["username"].ToString();
-        userLoggedIn = true;
+        userType = ViewData["userType"].ToString();
     }
-    string userType = ViewData["userType"].ToString();
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -84,7 +83,7 @@ else if (userType.Equals("teacher"))
         </div>
         <div class="split right">
             <div class="centered">
-                <button type="button" id="markedButton" class="btn btn-secondary actionButton"  onclick="location.href='@Url.Action("SelectGroup", "Student")'">View the data of a particular student or a group</button>
+                <button type="button" id="markedButton" class="btn btn-secondary actionButton"  onclick="location.href='@Url.Action("SelectGroup", "Teacher")'">View the data of a particular student or a group</button>
             </div>
         </div>
     </div>

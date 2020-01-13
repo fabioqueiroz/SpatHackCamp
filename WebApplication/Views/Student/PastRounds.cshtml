@@ -1,19 +1,8 @@
 ﻿@{
     ViewData["Title"] = "Past rounds";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    //get data from the database
-    //right now only mock data
-    
-    //todo
-    //how are we getting the grades?
-    //static now
-    int[] grades = new[] {30, 80, 76};
-    List<RoundModel> pastRounds = new List<RoundModel>();
-    pastRounds.Add(new RoundModel(){ModuleName = "Maths",Active = false,Deadline = "12/1/2020"});
-    pastRounds.Add(new RoundModel(){ModuleName = "Romanian",Active = false,Deadline = "10/1/2020"});
-    pastRounds.Add(new RoundModel(){ModuleName = "History",Active = false,Deadline = "5/12/2019"});
-
-    
+    List<RoundModel> pastRounds = (List<RoundModel>) ViewData["PastRounds"];
+    int[] grades = (int[]) ViewData["Grades"];
     
     //todo
     //refactor this
@@ -22,6 +11,9 @@
     {
         <div class="row">
             @{
+                //put the current round with the grade
+                //inside the ViewData object so it can be used
+                //in the Partial view "CardPastRound"
                 ViewData["Round"] = pastRounds[index];
                 ViewData["Grade"] = grades[index];
                 Html.RenderPartial("CardPastRound");

@@ -1,51 +1,45 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "Student profile";
     Layout = "~/Views/Shared/_Layout.cshtml";
-} 
+    StudentModel studentModel = (StudentModel) ViewData["Student"];
+}
 <link rel="stylesheet" href="~/css/rick.css"/>
 <div style="text-align: center !important;">
-<div class="card w-75">
-    <div class="card-body">
-        <h5 class="card-title">Student ID: </h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-    </div>
-</div>
-<div class="card w-75">
-    <div class="card-body">
-        <h5 class="card-title">Firstname: </h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-    </div>
-</div>
-<div class="card w-75">
-    <div class="card-body">
-        <h5 class="card-title">Surname: </h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-    </div>
-</div>
-<div class="card w-75">
-    <div class="card-body">
-        <h5 class="card-title">Date of Birth: </h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-    </div>
-</div>
-<div class="card w-75">
-    <div class="card-body">
-        <h5 class="card-title">Class Name: </h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-    </div>
-</div>
-<div class="card w-75">
-    <div class="card-body">
-        <h5 class="card-title">Group Number: </h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-    </div>
-</div>
     <div class="card w-75">
         <div class="card-body">
-            <h5 class="card-title">Average: </h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <h5 class="card-title">Student ID</h5>
+            <p class="card-text">@studentModel.StudentId</p>
         </div>
     </div>
-   <a class="btn btn-primary" href = "mailto: avramandreitiberiu@gmail.com" role="button">Send email</a>
+    <div class="card w-75">
+        <div class="card-body">
+            <h5 class="card-title">Firstname:</h5>
+            <p class="card-text">@studentModel.FirstName </p>
+        </div>
+    </div>
+    <div class="card w-75">
+        <div class="card-body">
+            <h5 class="card-title">Lastname</h5>
+            <p class="card-text">@studentModel.LastName</p>
+        </div>
+    </div>
+    <div class="card w-75">
+        <div class="card-body">
+            <h5 class="card-title">Date of Birth </h5>
+            <p class="card-text">@studentModel.DateOfBirth</p>
+        </div>
+    </div>
+    <div class="card w-75">
+        <div class="card-body">
+            <h5 class="card-title">Class Name: </h5>
+            <p class="card-text">@studentModel.TableGroup.ClassName</p>
+        </div>
+    </div>
+    <div class="card w-75">
+        <div class="card-body">
+            <h5 class="card-title">Group Name: </h5>
+            <p class="card-text">@studentModel.TableGroup.Name</p>
+        </div>
+    </div>
+    <a class="btn btn-primary" href="mailto: @studentModel.Email" role="button">Send email to student</a>
 </div>

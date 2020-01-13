@@ -1,11 +1,6 @@
 ﻿@using Microsoft.AspNetCore.Http
 @{
-    bool userLoggedIn = false;
-    if (ViewData["username"] != null)
-    {
-        string username = ViewData["username"].ToString();
-        userLoggedIn = true;
-    }
+    bool userLoggedIn = ViewData["userId"] != null;
 
 }
 <!DOCTYPE html>

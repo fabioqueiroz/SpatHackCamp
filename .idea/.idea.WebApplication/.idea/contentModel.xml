@@ -83,6 +83,8 @@
           </e>
         </e>
         <e p="Models" t="Include">
+          <e p="CategoryModel.cs" t="Include" />
+          <e p="DescriptionModel.cs" t="Include" />
           <e p="JoinModel.cs" t="Include" />
           <e p="StudentModel.cs" t="Include" />
           <e p="TestModel.cs" t="Include" />
@@ -108,14 +110,17 @@
           <e p="RoundController.cs" t="Include" />
           <e p="StudentController.cs" t="Include" />
           <e p="StudentFormController.cs" t="Include" />
+          <e p="TeacherController.cs" t="Include" />
           <e p="TestController.cs" t="Include" />
         </e>
         <e p="Models" t="Include">
           <e p="ErrorViewModel.cs" t="Include" />
-          <e p="RoundMode.cs" t="Include" />
+          <e p="MockDatabase.cs" t="Include" />
+          <e p="RoundModel.cs" t="Include" />
           <e p="RubricModel.cs" t="Include" />
           <e p="SheetModel.cs" t="Include" />
           <e p="StudentModel.cs" t="Include" />
+          <e p="TableGroupModel.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
@@ -136,6 +141,7 @@
         </e>
         <e p="Startup.cs" t="Include" />
         <e p="ViewModels" t="Include">
+          <e p="CategoryViewModel.cs" t="Include" />
           <e p="JoinViewModel.cs" t="Include" />
           <e p="StudentViewModel.cs" t="Include" />
           <e p="TestViewModel.cs" t="Include" />
@@ -174,12 +180,14 @@
           <e p="Student" t="Include">
             <e p="Index.cshtml" t="Include" />
             <e p="PastRounds.cshtml" t="Include" />
-            <e p="SelectGroup.cshtml" t="Include" />
-            <e p="SelectStudent.cshtml" t="Include" />
           </e>
           <e p="StudentForm" t="Include">
             <e p="CompleteForm.cshtml" t="Include" />
             <e p="CompleteForm.cshtml.cs" t="Include" />
+          </e>
+          <e p="Teacher" t="Include">
+            <e p="GroupMembers.cshtml" t="Include" />
+            <e p="SelectGroup.cshtml" t="Include" />
           </e>
         </e>
         <e p="WebApplication.csproj" t="IncludeRecursive" />

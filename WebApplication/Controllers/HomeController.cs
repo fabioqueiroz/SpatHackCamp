@@ -25,30 +25,30 @@ namespace WebApplication.Controllers
         }
 
         public IActionResult Index()
-        {   
-            
-            if (String.IsNullOrWhiteSpace(HttpContext.Session.GetString("username")))
+        {
+            if (HttpContext.Session.GetInt32("userId") == null)
             {
                 return RedirectToAction("Index", "Login");
             }
-            string username = HttpContext.Session.GetString("username").ToString();
-            string studentType = HttpContext.Session.GetString("userType");
-            ViewData["userType"] = studentType;
-            ViewData["username"] = username;
+
+            ViewData["userId"] = HttpContext.Session.GetInt32("userId");
+            ViewData["username"] = HttpContext.Session.GetString("username").ToString();
+            ViewData["userType"]= HttpContext.Session.GetString("userType");
             return View();
         }
 
 
         public IActionResult Privacy()
         {
-            if (HttpContext.Session.GetString("username")==null)
+            if (HttpContext.Session.GetInt32("userId") == null)
             {
                 return RedirectToAction("Index", "Login");
             }
-            string username = HttpContext.Session.GetString("username").ToString();
-            string studentType = HttpContext.Session.GetString("userType");
-            ViewData["userType"] = studentType;
-            ViewData["username"] = username;
+
+            ViewData["userId"] = HttpContext.Session.GetInt32("userId");
+            ViewData["username"] = HttpContext.Session.GetString("username").ToString();
+            ViewData["userType"]= HttpContext.Session.GetString("userType");
+            return View();
 
             return View();
         }
@@ -56,15 +56,14 @@ namespace WebApplication.Controllers
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
-            if (HttpContext.Session.GetString("username")==null)
+            if (HttpContext.Session.GetInt32("userId") == null)
             {
                 return RedirectToAction("Index", "Login");
             }
-            string username = HttpContext.Session.GetString("username").ToString();
-            string studentType = HttpContext.Session.GetString("userType");
-            ViewData["userType"] = studentType;
-            ViewData["username"] = username;
 
+            ViewData["userId"] = HttpContext.Session.GetInt32("userId");
+            ViewData["username"] = HttpContext.Session.GetString("username").ToString();
+            ViewData["userType"]= HttpContext.Session.GetString("userType");
             return View(new ErrorViewModel {RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier});
         }
     }

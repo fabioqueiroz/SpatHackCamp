@@ -18,15 +18,14 @@ namespace WebApplication.Controllers
         }
         public IActionResult CreateRound()
         {
-            if (HttpContext.Session.GetString("username") == null)
+            if (HttpContext.Session.GetInt32("userId") == null)
             {
                 return RedirectToAction("Index", "Login");
             }
 
-            string username = HttpContext.Session.GetString("username").ToString();
-            string studentType = HttpContext.Session.GetString("userType");
-            ViewData["userType"] = studentType;
-            ViewData["username"] = username;
+            ViewData["userId"] = HttpContext.Session.GetInt32("userId");
+            ViewData["username"] = HttpContext.Session.GetString("username").ToString();
+            ViewData["userType"]= HttpContext.Session.GetString("userType");
 
             return View();
         }
@@ -36,27 +35,27 @@ namespace WebApplication.Controllers
         {
             //take round details and all of the names
             //loop through the form until you get all the data
-            Round round = new Round();
+            RoundModel round = new RoundModel();
             round.ModuleName = form["moduleName"];
-            List<Sheet> markingSheets = new List<Sheet>();
-            Sheet sheet = new Sheet();
+            List<SheetModel> markingSheets = new List<SheetModel>();
+            SheetModel sheet = new SheetModel();
             sheet.Length = Int32.Parse(form["tableLength"]);
             sheet.Width = Int32.Parse(form["tableWidth"]);
             markingSheets.Add(sheet);
-            round.markingSheets = markingSheets;
+            round.MarkingSheets = markingSheets;
             round.Deadline = form["roundDeadline"];
-            List<Rubric> currentRubrics = new List<Rubric>();
+            List<RubricModel> currentRubrics = new List<RubricModel>();
             for (var i = 1; i <=sheet.Width; i++)
             {
                 for (var j = 1; j <=sheet.Length; j++)
                 {
                     var inputName = "row" + i + "col" + j;
-                    currentRubrics.Add(new Rubric() {Name = form[inputName], Grade = j});
+                    currentRubrics.Add(new RubricModel() {Name = form[inputName], Grade = j});
                 }
             }
 
             Random random = new Random();
-            round.roundID = random.Next(0, 101000);
+            round.RoundId = random.Next(0, 101000);
             sheet.Rubrics = currentRubrics;
             //open file stream
             using (StreamWriter file = System.IO.File.AppendText(@"D:\data.txt"))
@@ -94,11 +93,28 @@ namespace WebApplication.Controllers
         public IActionResult SelectStudentsToSendRound(int id)
         {
             ViewData["rubricId"] = id;
+            
+            if (HttpContext.Session.GetInt32("userId") == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
+
+            ViewData["userId"] = HttpContext.Session.GetInt32("userId");
+            ViewData["username"] = HttpContext.Session.GetString("username").ToString();
+            ViewData["userType"]= HttpContext.Session.GetString("userType");
             return View();
         }
 
         public IActionResult SelectRoundTemplate()
         {
+            if (HttpContext.Session.GetInt32("userId") == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
+
+            ViewData["userId"] = HttpContext.Session.GetInt32("userId");
+            ViewData["username"] = HttpContext.Session.GetString("username").ToString();
+            ViewData["userType"]= HttpContext.Session.GetString("userType");
             return View();
         }
 
@@ -106,16 +122,16 @@ namespace WebApplication.Controllers
         {
             //read mock data from file and duplicate the round with the same id 
             string[] lines = System.IO.File.ReadAllLines(@"D:\data.txt");
-            Round round = null;
+            RoundModel round = null;
             foreach (string line in lines)
             {
-                if (JsonConvert.DeserializeObject<Round>(line).roundID == id)
+                if (JsonConvert.DeserializeObject<RoundModel>(line).RoundId == id)
                 {
-                    round = JsonConvert.DeserializeObject<Round>(line);
+                    round = JsonConvert.DeserializeObject<RoundModel>(line);
                 }
             }
             
-            round.active = true;
+            round.Active = true;
             using (StreamWriter file = System.IO.File.AppendText(@"D:\data.txt"))
             {
                 JsonSerializer serializer = new JsonSerializer();
