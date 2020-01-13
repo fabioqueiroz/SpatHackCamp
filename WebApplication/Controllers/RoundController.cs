@@ -4,12 +4,18 @@ using System.IO;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using Rubrics.General.Models;
 using WebApplication.Models;
+using WebApplication.ViewModels;
 
 namespace WebApplication.Controllers
 {
     public class RoundController : Controller
     {
+        public RoundController()
+        {
+
+        }
         public IActionResult CreateRound()
         {
             if (HttpContext.Session.GetString("username") == null)
@@ -30,35 +36,55 @@ namespace WebApplication.Controllers
         {
             //take round details and all of the names
             //loop through the form until you get all the data
-            RoundModel roundModel = new RoundModel();
-            roundModel.ModuleName = form["moduleName"];
-            List<SheetModel> markingSheets = new List<SheetModel>();
-            SheetModel sheetModel = new SheetModel();
-            sheetModel.Length = Int32.Parse(form["tableLength"]);
-            sheetModel.Width = Int32.Parse(form["tableWidth"]);
-            markingSheets.Add(sheetModel);
-            roundModel.MarkingSheets = markingSheets;
-            roundModel.Deadline = form["roundDeadline"];
-            List<RubricModel> currentRubrics = new List<RubricModel>();
-            for (var i = 1; i <= sheetModel.Width; i++)
+            Round round = new Round();
+            round.ModuleName = form["moduleName"];
+            List<Sheet> markingSheets = new List<Sheet>();
+            Sheet sheet = new Sheet();
+            sheet.Length = Int32.Parse(form["tableLength"]);
+            sheet.Width = Int32.Parse(form["tableWidth"]);
+            markingSheets.Add(sheet);
+            round.markingSheets = markingSheets;
+            round.Deadline = form["roundDeadline"];
+            List<Rubric> currentRubrics = new List<Rubric>();
+            for (var i = 1; i <=sheet.Width; i++)
             {
-                for (var j = 1; j <= sheetModel.Length; j++)
+                for (var j = 1; j <=sheet.Length; j++)
                 {
                     var inputName = "row" + i + "col" + j;
-                    currentRubrics.Add(new RubricModel() {Name = form[inputName], Grade = j});
+                    currentRubrics.Add(new Rubric() {Name = form[inputName], Grade = j});
                 }
             }
 
             Random random = new Random();
-            roundModel.RoundId = random.Next(0, 101000);
-            sheetModel.Rubrics = currentRubrics;
+            round.roundID = random.Next(0, 101000);
+            sheet.Rubrics = currentRubrics;
             //open file stream
             using (StreamWriter file = System.IO.File.AppendText(@"D:\data.txt"))
             {
                 JsonSerializer serializer = new JsonSerializer();
                 //serialize object directly into file stream
-                serializer.Serialize(file, roundModel);
+                serializer.Serialize(file, round);
                 file.Write(Environment.NewLine);
+            }
+
+            List<CategoryModel> categories = new List<CategoryModel>();
+            List<DescriptionModel> descriptions = new List<DescriptionModel>();
+            // send to the service
+            foreach (var array in currentRubrics)
+            {
+                var arr = array;
+
+                if (array.Grade == 1 && !array.Name.Equals(""))
+                {
+                    categories.Add(new CategoryModel { Name = array.Name});
+                }
+                else
+                {
+                    if (!array.Name.Equals(""))
+                    {
+                        descriptions.Add(new DescriptionModel { Scale = (array.Grade - 1), Description = array.Name }); 
+                    }
+                }
             }
 
             //redirect home afterwards
@@ -80,21 +106,21 @@ namespace WebApplication.Controllers
         {
             //read mock data from file and duplicate the round with the same id 
             string[] lines = System.IO.File.ReadAllLines(@"D:\data.txt");
-            RoundModel roundModel = null;
+            Round round = null;
             foreach (string line in lines)
             {
-                if (JsonConvert.DeserializeObject<RoundModel>(line).RoundId == id)
+                if (JsonConvert.DeserializeObject<Round>(line).roundID == id)
                 {
-                    roundModel = JsonConvert.DeserializeObject<RoundModel>(line);
+                    round = JsonConvert.DeserializeObject<Round>(line);
                 }
             }
             
-            roundModel.Active = true;
+            round.active = true;
             using (StreamWriter file = System.IO.File.AppendText(@"D:\data.txt"))
             {
                 JsonSerializer serializer = new JsonSerializer();
                 //serialize object directly into file stream
-                serializer.Serialize(file, roundModel);
+                serializer.Serialize(file, round);
                 file.Write(Environment.NewLine);
             }
             return RedirectToAction("Index", "Home");
