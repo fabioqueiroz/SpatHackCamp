@@ -171,7 +171,7 @@
           </e>
           <e p="Student" t="Include">
             <e p="Index.cshtml" t="Include" />
-            <e p="SelectGroup.cshtml" t="Include" />
+            <e p="SelectStudent.cshtml" t="Include" />
           </e>
           <e p="StudentForm" t="Include">
             <e p="CompleteForm.cshtml" t="Include" />

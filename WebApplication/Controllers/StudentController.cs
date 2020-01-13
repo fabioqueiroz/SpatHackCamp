@@ -10,7 +10,7 @@ namespace WebApplication.Controllers
             return View();
         }
 
-        public IActionResult SelectGroup()
+        public IActionResult SelectStudent()
         {
             return View();
         }
