@@ -3,17 +3,13 @@ using Microsoft.Extensions.Primitives;
 
 namespace WebApplication.Models
 {
-    public class Sheet
+    public class SheetModel
     {
-        private List<Rubric> rubrics;
-        private List<Student> students;
-        private Student studentMarked;
+        public List<RubricModel> Rubrics { get; set; }
 
-        public List<Rubric> Rubrics { get; set; }
+        public List<StudentModel> Students { get; set; }
 
-        public List<Student> Students { get; set; }
-
-        public Student StudentMarked { get; set; }
+        public StudentModel StudentModelMarked { get; set; }
         public int Length { get; set; }
         public int Width { get; set; }
     }

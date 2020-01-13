@@ -5,14 +5,14 @@
     ViewData["Title"] = "Current pending items";
     Layout = "~/Views/Shared/_Layout.cshtml";
     //get the active rounds  rounds
-    List<Round> allRounds = new List<Round>();
+    List<RoundModel> allRounds = new List<RoundModel>();
     string[] lines = System.IO.File.ReadAllLines(@"D:\data.txt");
     foreach (string line in lines)
     {
-        Round currentProcessRound = JsonConvert.DeserializeObject<Round>(line);
-        if (currentProcessRound.active)
+        RoundModel currentProcessRoundModel = JsonConvert.DeserializeObject<RoundModel>(line);
+        if (currentProcessRoundModel.Active)
         {
-            allRounds.Add(currentProcessRound);
+            allRounds.Add(currentProcessRoundModel);
         }
     }
 
@@ -21,7 +21,7 @@
 
 <h1 class="text-center">Pending items</h1>
 
-@foreach (Round round in allRounds)
+@foreach (RoundModel round in allRounds)
 {
     <div class="row mt-4">
         <!--Process all rounds-->
@@ -32,7 +32,7 @@
                     <p>Group member : <strong>Ricards</strong></p>
                     <p>Deadline <strong>@round.Deadline</strong></p>
                     <p class="card-text mt-3">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <button type="button" class="btn btn-primary btn-block" onclick="location.href='@Url.Action("CompleteForm", "StudentForm", new {id = @round.roundID})'">Rate</button>
+                    <button type="button" class="btn btn-primary btn-block" onclick="location.href='@Url.Action("CompleteForm", "StudentForm", new {id = @round.RoundId})'">Rate</button>
                 </div>
             </div>
         </div>
@@ -44,7 +44,7 @@
                     <p>Group member : <strong>Fabio</strong></p>
                     <p>Deadline <strong>@round.Deadline</strong></p>
                     <p class="card-text mt-3">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <button type="button" class="btn btn-primary btn-block" onclick="location.href='@Url.Action("CompleteForm", "StudentForm", new {id = @round.roundID})'">Rate</button>
+                    <button type="button" class="btn btn-primary btn-block" onclick="location.href='@Url.Action("CompleteForm", "StudentForm", new {id = @round.RoundId})'">Rate</button>
                 </div>
             </div>
         </div>
@@ -56,7 +56,7 @@
                     <p>Group member : <strong>Yourself</strong></p>
                     <p>Deadline <strong>@round.Deadline</strong></p>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <button type="button" class="btn btn-primary btn-block" onclick="location.href='@Url.Action("CompleteForm", "StudentForm", new {id = @round.roundID})'">Rate</button>
+                    <button type="button" class="btn btn-primary btn-block" onclick="location.href='@Url.Action("CompleteForm", "StudentForm", new {id = @round.RoundId})'">Rate</button>
                 </div>
             </div>
         </div>
