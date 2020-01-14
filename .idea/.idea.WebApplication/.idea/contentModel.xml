@@ -191,6 +191,7 @@
             <e p="CompleteForm.cshtml.cs" t="Include" />
           </e>
           <e p="Teacher" t="Include">
+            <e p="CreateTableGroup.cshtml" t="Include" />
             <e p="GroupMembers.cshtml" t="Include" />
             <e p="SelectGroup.cshtml" t="Include" />
           </e>

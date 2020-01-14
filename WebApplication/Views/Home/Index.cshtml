@@ -76,14 +76,24 @@ else if (userType.Equals("admin"))
 else if (userType.Equals("teacher"))
 {
     <div class="split left">
-        <div class="split left">
+        <div class="split top-left">
             <div class="centered">
                 <button type="button" id="pendingButton" class="btn btn-secondary actionButton" onclick="location.href='@Url.Action("SelectRoundTemplate", "Round")'">Initialise a round for a specific group of students</button>
             </div>
         </div>
-        <div class="split right">
+        <div class="split top-right">
             <div class="centered">
-                <button type="button" id="markedButton" class="btn btn-secondary actionButton"  onclick="location.href='@Url.Action("SelectGroup", "Teacher")'">View the data of a particular student or a group</button>
+                <button type="button" id="markedButton" class="btn btn-secondary actionButton" onclick="location.href='@Url.Action("SelectGroup", "Teacher")'">View the data of a particular student or a group</button>
+            </div>
+        </div>
+        <div class="split bottom-right">
+            <div class="centered">
+                <button type="button" id="markedButton" class="btn btn-secondary actionButton" onclick="location.href='@Url.Action("CreateTableGroup", "Teacher")'">Select Students and create a table group</button>
+            </div>
+        </div>
+        <div class="split bottom-left">
+            <div class="centered">
+                <button type="button" id="markedButton" class="btn btn-secondary actionButton" onclick="location.href='@Url.Action("SelectGroup", "Teacher")'">View the data of a particular student or a group</button>
             </div>
         </div>
     </div>
