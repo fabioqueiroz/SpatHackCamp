@@ -50,6 +50,11 @@ namespace WebApplication.Models
             };
             return studentModel;
         }
+
+        public void InsertStudentIntoTheDatabase(string fullAddress)
+        {
+           //insert the address into the database
+        }
     }
     
 }

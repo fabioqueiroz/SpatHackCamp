@@ -31,3 +31,7 @@ function areLoginDetailsValid() {
 
 var options = [];
 
+function areFieldsValueValid(){
+    
+    return true;
+}

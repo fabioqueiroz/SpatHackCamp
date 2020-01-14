@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using WebApplication.Models;
 
 namespace WebApplication.Controllers
 {
@@ -9,9 +11,23 @@ namespace WebApplication.Controllers
             return View();
         }
 
-        public IActionResult SubmitStudentAccount()
+        [HttpPost]
+        public IActionResult SubmitStudentAccount(IFormCollection form)
         {
-            return RedirectToAction("");
+            string firstName = form["firstNameInputUser"];
+            string lastName = form["lastNameInputUser"];
+            string gender = form["genderInputUser"];
+            string dateOfBirth = form["dateOfBirthInputUser"];
+            string email = form["emailInputUser"];
+            string address1 = form["address1InputUser"];
+            string city = form["cityInputUser"];
+            string country = form["countryInputUser"];
+            string postCode = form["postCodeInputUser"];
+            string fullAddress = address1 + " , " + city + " , "
+                                 + country + " , " + postCode;
+            MockDatabase mockDatabase = new MockDatabase();
+            mockDatabase.InsertStudentIntoTheDatabase(fullAddress);
+            return RedirectToAction("Index", "Home");
         }
     }
 }
