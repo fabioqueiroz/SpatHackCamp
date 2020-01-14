@@ -5,11 +5,11 @@
     ViewData["Title"] = "Current pending items";
     Layout = "~/Views/Shared/_Layout.cshtml";
     //get the rounds
-    List<Round> allRounds = new List<Round>();
+    List<RoundModel> allRounds = new List<RoundModel>();
     string[] lines = System.IO.File.ReadAllLines(@"D:\data.txt");
     foreach (string line in lines)
     {
-        allRounds.Add(JsonConvert.DeserializeObject<Round>(line));
+        allRounds.Add(JsonConvert.DeserializeObject<RoundModel>(line));
     }
     
 }
@@ -20,16 +20,16 @@
 
 <div class="row mt-4">
        
-@foreach (Round round in allRounds)
+@foreach (RoundModel round in allRounds)
 {
 
     <!--Process all rounds-->
     <div class="col">
         <div class="card" style="width: 18rem;">
             <div class="card-body">
-                <h5 class="card-title">Template : @round.roundID</h5>
+                <h5 class="card-title">Template : @round.RoundId</h5>
                 <p class="card-text mt-3">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <button type="button" class="btn btn-primary btn-block" onclick="location.href='@Url.Action("SelectStudentsToSendRound", "Round", new {id = @round.roundID})'">Select</button>
+                <button type="button" class="btn btn-primary btn-block" onclick="location.href='@Url.Action("SelectStudentsToSendRound", "Round", new {id = @round.RoundId})'">Select</button>
             </div>
         </div>
     </div>

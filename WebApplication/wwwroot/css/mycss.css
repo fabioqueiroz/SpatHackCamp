@@ -6,3 +6,7 @@
 .rubric-item:hover{
     background: #A6E08E;
 }
+.page-separator-horizontal{
+    border: 4px solid dodgerblue;
+    border-radius:5px ;
+}

@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatProjectRickAndMe\\WebApplication\\WebApplication.csproj": {}
+    "C:\\Users\\avram\\RiderProjects\\WebApplication\\WebApplication\\WebApplication.csproj": {}
   },
   "projects": {
-    "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatProjectRickAndMe\\Rubrics.Business\\Rubrics.Business.csproj": {
+    "C:\\Users\\avram\\RiderProjects\\WebApplication\\Rubrics.Business\\Rubrics.Business.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatProjectRickAndMe\\Rubrics.Business\\Rubrics.Business.csproj",
+        "projectUniqueName": "C:\\Users\\avram\\RiderProjects\\WebApplication\\Rubrics.Business\\Rubrics.Business.csproj",
         "projectName": "Rubrics.Business",
-        "projectPath": "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatProjectRickAndMe\\Rubrics.Business\\Rubrics.Business.csproj",
-        "packagesPath": "C:\\Users\\fabio\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatProjectRickAndMe\\Rubrics.Business\\obj\\",
+        "projectPath": "C:\\Users\\avram\\RiderProjects\\WebApplication\\Rubrics.Business\\Rubrics.Business.csproj",
+        "packagesPath": "C:\\Users\\avram\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\avram\\RiderProjects\\WebApplication\\Rubrics.Business\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\fabio\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\avram\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -25,20 +22,19 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://pkgs.dev.azure.com/afintechnologies/_packaging/Buxbo/nuget/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.0": {
             "projectReferences": {
-              "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatProjectRickAndMe\\Rubrics.Data.Access\\Rubrics.Data.Access.csproj": {
-                "projectPath": "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatProjectRickAndMe\\Rubrics.Data.Access\\Rubrics.Data.Access.csproj"
+              "C:\\Users\\avram\\RiderProjects\\WebApplication\\Rubrics.Data.Access\\Rubrics.Data.Access.csproj": {
+                "projectPath": "C:\\Users\\avram\\RiderProjects\\WebApplication\\Rubrics.Data.Access\\Rubrics.Data.Access.csproj"
               },
-              "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatProjectRickAndMe\\Rubrics.Data\\Rubrics.Data.csproj": {
-                "projectPath": "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatProjectRickAndMe\\Rubrics.Data\\Rubrics.Data.csproj"
+              "C:\\Users\\avram\\RiderProjects\\WebApplication\\Rubrics.Data\\Rubrics.Data.csproj": {
+                "projectPath": "C:\\Users\\avram\\RiderProjects\\WebApplication\\Rubrics.Data\\Rubrics.Data.csproj"
               },
-              "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatProjectRickAndMe\\Rubrics.General\\Rubrics.General.csproj": {
-                "projectPath": "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatProjectRickAndMe\\Rubrics.General\\Rubrics.General.csproj"
+              "C:\\Users\\avram\\RiderProjects\\WebApplication\\Rubrics.General\\Rubrics.General.csproj": {
+                "projectPath": "C:\\Users\\avram\\RiderProjects\\WebApplication\\Rubrics.General\\Rubrics.General.csproj"
               }
             }
           }
@@ -51,6 +47,12 @@
       },
       "frameworks": {
         "netcoreapp3.0": {
+          "dependencies": {
+            "Westwind.AspnetCore.LiveReload": {
+              "target": "Package",
+              "version": "[0.1.12, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -61,29 +63,35 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[3.0.1, 3.0.1]"
+            }
+          ],
           "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatProjectRickAndMe\\Rubrics.Data.Access\\Rubrics.Data.Access.csproj": {
+    "C:\\Users\\avram\\RiderProjects\\WebApplication\\Rubrics.Data.Access\\Rubrics.Data.Access.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatProjectRickAndMe\\Rubrics.Data.Access\\Rubrics.Data.Access.csproj",
+        "projectUniqueName": "C:\\Users\\avram\\RiderProjects\\WebApplication\\Rubrics.Data.Access\\Rubrics.Data.Access.csproj",
         "projectName": "Rubrics.Data.Access",
-        "projectPath": "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatProjectRickAndMe\\Rubrics.Data.Access\\Rubrics.Data.Access.csproj",
-        "packagesPath": "C:\\Users\\fabio\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatProjectRickAndMe\\Rubrics.Data.Access\\obj\\",
+        "projectPath": "C:\\Users\\avram\\RiderProjects\\WebApplication\\Rubrics.Data.Access\\Rubrics.Data.Access.csproj",
+        "packagesPath": "C:\\Users\\avram\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\avram\\RiderProjects\\WebApplication\\Rubrics.Data.Access\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\fabio\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\avram\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -91,17 +99,16 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://pkgs.dev.azure.com/afintechnologies/_packaging/Buxbo/nuget/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.0": {
             "projectReferences": {
-              "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatProjectRickAndMe\\Rubrics.Data\\Rubrics.Data.csproj": {
-                "projectPath": "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatProjectRickAndMe\\Rubrics.Data\\Rubrics.Data.csproj"
+              "C:\\Users\\avram\\RiderProjects\\WebApplication\\Rubrics.Data\\Rubrics.Data.csproj": {
+                "projectPath": "C:\\Users\\avram\\RiderProjects\\WebApplication\\Rubrics.Data\\Rubrics.Data.csproj"
               },
-              "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatProjectRickAndMe\\Rubrics.General\\Rubrics.General.csproj": {
-                "projectPath": "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatProjectRickAndMe\\Rubrics.General\\Rubrics.General.csproj"
+              "C:\\Users\\avram\\RiderProjects\\WebApplication\\Rubrics.General\\Rubrics.General.csproj": {
+                "projectPath": "C:\\Users\\avram\\RiderProjects\\WebApplication\\Rubrics.General\\Rubrics.General.csproj"
               }
             }
           }
@@ -140,6 +147,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[3.1.0, )"
+            },
+            "Westwind.AspnetCore.LiveReload": {
+              "target": "Package",
+              "version": "[0.1.12, )"
             }
           },
           "imports": [
@@ -152,29 +163,35 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[3.0.1, 3.0.1]"
+            }
+          ],
           "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatProjectRickAndMe\\Rubrics.Data\\Rubrics.Data.csproj": {
+    "C:\\Users\\avram\\RiderProjects\\WebApplication\\Rubrics.Data\\Rubrics.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatProjectRickAndMe\\Rubrics.Data\\Rubrics.Data.csproj",
+        "projectUniqueName": "C:\\Users\\avram\\RiderProjects\\WebApplication\\Rubrics.Data\\Rubrics.Data.csproj",
         "projectName": "Rubrics.Data",
-        "projectPath": "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatProjectRickAndMe\\Rubrics.Data\\Rubrics.Data.csproj",
-        "packagesPath": "C:\\Users\\fabio\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatProjectRickAndMe\\Rubrics.Data\\obj\\",
+        "projectPath": "C:\\Users\\avram\\RiderProjects\\WebApplication\\Rubrics.Data\\Rubrics.Data.csproj",
+        "packagesPath": "C:\\Users\\avram\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\avram\\RiderProjects\\WebApplication\\Rubrics.Data\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\fabio\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\avram\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -182,8 +199,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://pkgs.dev.azure.com/afintechnologies/_packaging/Buxbo/nuget/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.0": {
@@ -198,6 +214,12 @@
       },
       "frameworks": {
         "netcoreapp3.0": {
+          "dependencies": {
+            "Westwind.AspnetCore.LiveReload": {
+              "target": "Package",
+              "version": "[0.1.12, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -208,29 +230,35 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[3.0.1, 3.0.1]"
+            }
+          ],
           "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatProjectRickAndMe\\Rubrics.General\\Rubrics.General.csproj": {
+    "C:\\Users\\avram\\RiderProjects\\WebApplication\\Rubrics.General\\Rubrics.General.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatProjectRickAndMe\\Rubrics.General\\Rubrics.General.csproj",
+        "projectUniqueName": "C:\\Users\\avram\\RiderProjects\\WebApplication\\Rubrics.General\\Rubrics.General.csproj",
         "projectName": "Rubrics.General",
-        "projectPath": "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatProjectRickAndMe\\Rubrics.General\\Rubrics.General.csproj",
-        "packagesPath": "C:\\Users\\fabio\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatProjectRickAndMe\\Rubrics.General\\obj\\",
+        "projectPath": "C:\\Users\\avram\\RiderProjects\\WebApplication\\Rubrics.General\\Rubrics.General.csproj",
+        "packagesPath": "C:\\Users\\avram\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\avram\\RiderProjects\\WebApplication\\Rubrics.General\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\fabio\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\avram\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -238,8 +266,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://pkgs.dev.azure.com/afintechnologies/_packaging/Buxbo/nuget/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.0": {
@@ -254,6 +281,12 @@
       },
       "frameworks": {
         "netcoreapp3.0": {
+          "dependencies": {
+            "Westwind.AspnetCore.LiveReload": {
+              "target": "Package",
+              "version": "[0.1.12, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -264,29 +297,35 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[3.0.1, 3.0.1]"
+            }
+          ],
           "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatProjectRickAndMe\\WebApplication\\WebApplication.csproj": {
+    "C:\\Users\\avram\\RiderProjects\\WebApplication\\WebApplication\\WebApplication.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatProjectRickAndMe\\WebApplication\\WebApplication.csproj",
+        "projectUniqueName": "C:\\Users\\avram\\RiderProjects\\WebApplication\\WebApplication\\WebApplication.csproj",
         "projectName": "WebApplication",
-        "projectPath": "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatProjectRickAndMe\\WebApplication\\WebApplication.csproj",
-        "packagesPath": "C:\\Users\\fabio\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatProjectRickAndMe\\WebApplication\\obj\\",
+        "projectPath": "C:\\Users\\avram\\RiderProjects\\WebApplication\\WebApplication\\WebApplication.csproj",
+        "packagesPath": "C:\\Users\\avram\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\avram\\RiderProjects\\WebApplication\\WebApplication\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\fabio\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\avram\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -294,23 +333,22 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://pkgs.dev.azure.com/afintechnologies/_packaging/Buxbo/nuget/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.0": {
             "projectReferences": {
-              "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatProjectRickAndMe\\Rubrics.Business\\Rubrics.Business.csproj": {
-                "projectPath": "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatProjectRickAndMe\\Rubrics.Business\\Rubrics.Business.csproj"
+              "C:\\Users\\avram\\RiderProjects\\WebApplication\\Rubrics.Business\\Rubrics.Business.csproj": {
+                "projectPath": "C:\\Users\\avram\\RiderProjects\\WebApplication\\Rubrics.Business\\Rubrics.Business.csproj"
               },
-              "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatProjectRickAndMe\\Rubrics.Data.Access\\Rubrics.Data.Access.csproj": {
-                "projectPath": "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatProjectRickAndMe\\Rubrics.Data.Access\\Rubrics.Data.Access.csproj"
+              "C:\\Users\\avram\\RiderProjects\\WebApplication\\Rubrics.Data.Access\\Rubrics.Data.Access.csproj": {
+                "projectPath": "C:\\Users\\avram\\RiderProjects\\WebApplication\\Rubrics.Data.Access\\Rubrics.Data.Access.csproj"
               },
-              "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatProjectRickAndMe\\Rubrics.Data\\Rubrics.Data.csproj": {
-                "projectPath": "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatProjectRickAndMe\\Rubrics.Data\\Rubrics.Data.csproj"
+              "C:\\Users\\avram\\RiderProjects\\WebApplication\\Rubrics.Data\\Rubrics.Data.csproj": {
+                "projectPath": "C:\\Users\\avram\\RiderProjects\\WebApplication\\Rubrics.Data\\Rubrics.Data.csproj"
               },
-              "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatProjectRickAndMe\\Rubrics.General\\Rubrics.General.csproj": {
-                "projectPath": "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatProjectRickAndMe\\Rubrics.General\\Rubrics.General.csproj"
+              "C:\\Users\\avram\\RiderProjects\\WebApplication\\Rubrics.General\\Rubrics.General.csproj": {
+                "projectPath": "C:\\Users\\avram\\RiderProjects\\WebApplication\\Rubrics.General\\Rubrics.General.csproj"
               }
             }
           }
@@ -355,6 +393,10 @@
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[12.0.3, )"
+            },
+            "Westwind.AspnetCore.LiveReload": {
+              "target": "Package",
+              "version": "[0.1.12, )"
             }
           },
           "imports": [
@@ -367,6 +409,16 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[3.0.1, 3.0.1]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[3.0.1, 3.0.1]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -375,7 +427,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

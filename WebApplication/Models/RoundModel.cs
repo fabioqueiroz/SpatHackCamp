@@ -2,12 +2,12 @@
 
 namespace WebApplication.Models
 {
-    public class Round
+    public class RoundModel
     {
-        public List<Sheet> markingSheets { get; set; }
+        public List<SheetModel> MarkingSheets { get; set; }
         public string Deadline { get; set; }
         public string ModuleName { get; set; }
-        public int roundID { get; set; }
-        public bool active { get; set; }
+        public int RoundId { get; set; }
+        public bool Active { get; set; }
     }
 }

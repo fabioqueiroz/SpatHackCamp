@@ -15,14 +15,14 @@ namespace WebApplication.Controllers
         public IActionResult CompleteForm(int id)
         {
             ViewData["sheetId"] = id;
-            if (HttpContext.Session.GetString("username")==null)
+            if (HttpContext.Session.GetInt32("userId") == null)
             {
                 return RedirectToAction("Index", "Login");
             }
-            string username = HttpContext.Session.GetString("username").ToString();
-            string studentType = HttpContext.Session.GetString("userType");
-            ViewData["userType"] = studentType;
-            ViewData["username"] = username;
+
+            ViewData["userId"] = HttpContext.Session.GetInt32("userId");
+            ViewData["username"] = HttpContext.Session.GetString("username").ToString();
+            ViewData["userType"]= HttpContext.Session.GetString("userType");
 
             return View();
         }

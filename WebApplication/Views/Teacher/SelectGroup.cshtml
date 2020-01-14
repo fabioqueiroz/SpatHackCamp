@@ -1,0 +1,17 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    List<TableGroupModel> groups = (List<TableGroupModel>) ViewData["Groups"];
+
+}
+<form method="get" action="@Url.Action("GroupMembers", "Teacher")">
+    <div class="form-group">
+        <label for="selectedGroup">Select Group</label>
+        <select class="form-control" name="selectedGroup" id="selectedGroup">
+            @foreach (TableGroupModel tableGroupModel in groups)
+            {
+                <option value="@tableGroupModel.Id">@tableGroupModel.Name</option>
+            }
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Confirm</button>
+</form>

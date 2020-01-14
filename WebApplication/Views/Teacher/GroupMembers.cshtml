@@ -1,0 +1,30 @@
+﻿@using Rubrics.Data
+
+@{
+    ViewData["Title"] = "Select student from group";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    //get the data from the View Data object
+    List<StudentModel> students = (List<StudentModel>) ViewData["GroupMembers"];
+
+}
+@{     
+    int index = 0;
+    while (index < students.Count)
+    {
+        <div class="row">
+            @{
+                ViewData["Student"] = students[index];
+                Html.RenderPartial("CardStudent");
+
+                index++;
+                while (index % 3 != 0)
+                {
+                    ViewData["Student"] = students[index];
+                    Html.RenderPartial("CardStudent");
+                    index++;
+                }
+            }
+
+        </div>
+    }
+}

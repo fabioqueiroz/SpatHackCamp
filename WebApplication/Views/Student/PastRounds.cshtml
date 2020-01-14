@@ -1,0 +1,34 @@
+﻿@{
+    ViewData["Title"] = "Past rounds";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    List<RoundModel> pastRounds = (List<RoundModel>) ViewData["PastRounds"];
+    int[] grades = (int[]) ViewData["Grades"];
+    
+    //todo
+    //refactor this
+    int index = 0;
+    while (index < pastRounds.Count)
+    {
+        <div class="row">
+            @{
+                //put the current round with the grade
+                //inside the ViewData object so it can be used
+                //in the Partial view "CardPastRound"
+                ViewData["Round"] = pastRounds[index];
+                ViewData["Grade"] = grades[index];
+                Html.RenderPartial("CardPastRound");
+
+                index++;
+                while (index % 3 != 0)
+                {
+                    ViewData["Round"] = pastRounds[index];
+                    ViewData["Grade"] = grades[index];
+                    Html.RenderPartial("CardPastRound");
+                    index++;
+                }
+            }
+
+        </div>
+    }
+
+}

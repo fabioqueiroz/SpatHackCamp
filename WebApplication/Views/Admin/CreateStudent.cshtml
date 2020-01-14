@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewData["Title"] = "Create Student";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="text-center">Create Student</h1>
+<form style="padding: 2rem !important;" method="post" action="@Url.Action("SubmitStudentAccount", "Admin")">
+    <div class="form-row">
+      <div class="col">
+        <label for="firstNameInputUser">First Name</label>
+        <input type="text" class="form-control" name = "firstNameInputUser" id = "firstNameInputUser"  placeholder="First name">
+      </div>
+      <div class="col">
+        <label for="lastNameInputUser">Last Name</label>
+        <input type="text" class="form-control" placeholder="Last name" name="lastNameInputUser" id="lastNameInputUser">
+      </div>
+      <div class="col">
+        <label for="inputGender">Gender</label>
+        <select id="inputGender" class="form-control" name="genderInputUser">
+          <option selected>Gender</option>
+          <option>Male</option>
+          <option>Female</option>
+          <option>Other</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group">
+        <label for="dateOfBirthInputUser">Date Of Birth</label>
+        <input type="date" class="form-control" name="dateOfBirthInputUser" placeholder="Date Of Birth" id="dateOfBirthInputUser">
+      </div>
+      <div class="form-group">
+        <label for="emailInputUser">E-Mail</label>
+        <input type="email" class="form-control"  placeholder="E-Mail" name="emailInputUser" id="emailInputUser">
+      </div>
+      <hr class="page-separator-horizontal" aria-placeholder="Address">
+      <div class="form-group">
+        <label for="inputAddress">Street Address</label>
+        <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" name="address1InputUser">
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputCity">City</label>
+          <input type="text" class="form-control" id="inputCity" name = "cityInputUser">
+        </div>
+        <div class="form-group col-md-4">
+          <label for="inputCountry">Country</label>
+          <input type="text" class="form-control" id="inputCountry" name="countryInputUser">
+        </div>
+        <div class="form-group col-md-2">
+          <label for="inputPostCode">Post Code</label>
+          <input type="text" class="form-control" id="inputPostCode" name = "postCodeInputUser">
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Create</button>
+  </form>

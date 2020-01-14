@@ -1,6 +1,6 @@
 ﻿namespace WebApplication.Models
 {
-    public class Rubric
+    public class RubricModel
     {
         public string Name { get; set; }
         public int Grade { get; set; }

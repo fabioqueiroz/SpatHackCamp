@@ -25,6 +25,7 @@ namespace WebApplication.Controllers
             {
                 HttpContext.Session.SetString("username", usernameLogin);
                 HttpContext.Session.SetString("userType", "admin");
+                HttpContext.Session.SetInt32("userId", 1);
                 return RedirectToAction("Index", "Home");
             }
 
@@ -32,12 +33,14 @@ namespace WebApplication.Controllers
             {
                 HttpContext.Session.SetString("username", usernameLogin);
                 HttpContext.Session.SetString("userType", "teacher");
+                HttpContext.Session.SetInt32("userId", 2);
                 return RedirectToAction("Index", "Home");
             }
             if (AreLoginDetailsCorrect(usernameLogin, passwordLogin))
             {
                 HttpContext.Session.SetString("username", usernameLogin);
                 HttpContext.Session.SetString("userType", "student");
+                HttpContext.Session.SetInt32("userId", 3);
                 return RedirectToAction("Index", "Home");
             }
             

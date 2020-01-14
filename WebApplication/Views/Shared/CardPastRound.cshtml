@@ -1,0 +1,36 @@
+﻿@{
+    RoundModel round = (RoundModel) ViewData["Round"];
+    int grade = (int) ViewData["Grade"];
+}
+
+<div class="col mt-3" style="padding: 2rem">
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title text-center">@round.ModuleName</h5>
+            <p class="text-center"><strong>Deadline : @round.Deadline</strong></p>
+            <!--Display the color of the card accordingly to the grade-->
+            <div class="progress">
+                @{
+                    if (grade <40)
+                    {
+                        <!--Display red progressBar-->
+                        <div class="progress-bar" role="progressbar" style="width: @grade%;background: red" aria-valuenow="25"
+                             aria-valuemin="0" aria-valuemax="100"><strong>@grade%</strong></div>
+                    }else if (grade >= 40 && grade <= 69)
+                    {
+                        <!--Display yellow progressBar-->
+                        <div class="progress-bar" role="progressbar" style="width: @grade%;background: #EDBE01;color: black!important;" aria-valuenow="25"
+                             aria-valuemin="0" aria-valuemax="100"><strong>@grade%</strong></div>
+                    }
+                    else
+                    {
+                        <!--Display green progressBar-->
+                        <div class="progress-bar" role="progressbar" style="width: @grade%;background: green" aria-valuenow="25"
+                             aria-valuemin="0" aria-valuemax="100"><strong>@grade%</strong></div> 
+                    }
+                }
+                
+            </div>
+        </div>
+    </div>
+</div>
