@@ -55,6 +55,18 @@ namespace WebApplication.Models
         {
            //insert the address into the database
         }
+
+        public object GetStudentsWithoutGroupForTeacherId(int? id)
+        {
+            //get all the students that are not currently in a group 
+            //for that teache's class based on the teacher id 
+            List<StudentModel> students = new List<StudentModel>();
+            students.Add(new StudentModel(){FirstName = "Andrei"});
+            students.Add(new StudentModel() {StudentId = 1, FirstName = "Ricards", LastName = "Augustauskis"});
+            students.Add(new StudentModel() {StudentId = 2, FirstName = "Fabio", LastName = "Queiroz"});
+            students.Add(new StudentModel() {StudentId = 3, FirstName = "Andrei", LastName = "Avram"});
+            return students;
+        }
     }
     
 }

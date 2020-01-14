@@ -44,5 +44,13 @@ namespace WebApplication.Controllers
             ViewData["userType"]= HttpContext.Session.GetString("userType");
             return View();
         }
+
+        public IActionResult CreateTableGroup()
+        {
+            MockDatabase mockDatabase = new MockDatabase();
+            ViewData["studentsNotInGroup"] = 
+                mockDatabase.GetStudentsWithoutGroupForTeacherId(HttpContext.Session.GetInt32("userId"));
+            return View();
+        }
     }
 }
