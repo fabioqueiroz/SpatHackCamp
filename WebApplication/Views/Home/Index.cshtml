@@ -45,28 +45,24 @@
 </header>
 @if (userType.Equals("student"))
 {
-    <div class="split left">
-        <div class="split left">
-            <div class="centered">
-                <button type="button" id="pendingButton" class="btn btn-secondary actionButton" onclick="location.href='@Url.Action("CurrentItems", "PendingItems", new {id = 2})'">Rate yourself and your peers in the group</button>
-            </div>
+    <div class="split-half right-half">
+        <div class="centered">
+            <button type="button" id="pendingButton" class="btn btn-secondary actionButton" onclick="location.href='@Url.Action("CurrentItems", "PendingItems", new {id = 2})'">Rate yourself and your peers in the group</button>
         </div>
-        <div class="split right">
-            <div class="centered">
-                <button type="button" id="markedButton" class="btn btn-secondary actionButton" onclick="location.href='@Url.Action("PastRounds", "Student")'">Check how well you performed in previous rounds</button>
-            </div>
+    </div>
+    <div class="split-half left-half">
+        <div class="centered">
+            <button type="button" id="markedButton" class="btn btn-secondary actionButton" onclick="location.href='@Url.Action("PastRounds", "Student")'">Check how well you performed in previous rounds</button>
         </div>
     </div>
 }
 else if (userType.Equals("admin"))
 {
-    <div class="split left">
-        <div class="split left">
-            <div class="centered">
-                <button type="button" id="pendingButton" class="btn btn-secondary actionButton" onclick="location.href='@Url.Action("CreateRound", "Round", new {id = 2})'">Create a template for a round for students</button>
-            </div>
+    <div class="split-half left-half">
+        <div class="centered">
+            <button type="button" id="pendingButton" class="btn btn-secondary actionButton" onclick="location.href='@Url.Action("CreateRound", "Round", new {id = 2})'">Create a template for a round for students</button>
         </div>
-        <div class="split right">
+        <div class="split-half right-half">
             <div class="centered">
                 <button type="button" id="markedButton" class="btn btn-secondary actionButton" onclick="location.href='@Url.Action("CreateStudent", "Admin")'">Create a student account</button>
             </div>
@@ -75,26 +71,24 @@ else if (userType.Equals("admin"))
 }
 else if (userType.Equals("teacher"))
 {
-    <div class="split left">
-        <div class="split top-left">
-            <div class="centered">
-                <button type="button" id="pendingButton" class="btn btn-secondary actionButton" onclick="location.href='@Url.Action("SelectRoundTemplate", "Round")'">Initialise a round for a specific group of students</button>
-            </div>
+    <div class="split top-right">
+        <div class="centered">
+            <button type="button" id="pendingButton" class="btn btn-secondary actionButton" onclick="location.href='@Url.Action("SelectRoundTemplate", "Round")'">Initialise a round for a specific group of students</button>
         </div>
-        <div class="split top-right">
-            <div class="centered">
-                <button type="button" id="markedButton" class="btn btn-secondary actionButton" onclick="location.href='@Url.Action("SelectGroup", "Teacher")'">View the data of a particular student or a group</button>
-            </div>
+    </div>
+    <div class="split top-left">
+        <div class="centered">
+            <button type="button" id="markedButton" class="btn btn-secondary actionButton" onclick="location.href='@Url.Action("SelectGroup", "Teacher")'">Nothing yet</button>
         </div>
-        <div class="split bottom-right">
-            <div class="centered">
-                <button type="button" id="markedButton" class="btn btn-secondary actionButton" onclick="location.href='@Url.Action("CreateTableGroup", "Teacher")'">Select Students and create a table group</button>
-            </div>
+    </div>
+    <div class="split bottom-right">
+        <div class="centered">
+            <button type="button" id="markedButton" class="btn btn-secondary actionButton" onclick="location.href='@Url.Action("CreateTableGroup", "Teacher")'">Select Students and create a table group</button>
         </div>
-        <div class="split bottom-left">
-            <div class="centered">
-                <button type="button" id="markedButton" class="btn btn-secondary actionButton" onclick="location.href='@Url.Action("SelectGroup", "Teacher")'">View the data of a particular student or a group</button>
-            </div>
+    </div>
+    <div class="split bottom-left">
+        <div class="centered">
+            <button type="button" id="markedButton" class="btn btn-secondary actionButton" onclick="location.href='@Url.Action("SelectGroup", "Teacher")'">View the data of a particular student or a group</button>
         </div>
     </div>
 }

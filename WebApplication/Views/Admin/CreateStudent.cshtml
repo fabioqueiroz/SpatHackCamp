@@ -5,7 +5,8 @@
 }
 
 <h1 class="text-center">Create Student</h1>
-<form style="padding: 2rem !important;" onsubmit="areFieldsValueValid()" method="post" action="@Url.Action("SubmitStudentAccount", "Admin")">
+<div class="alert alert-danger" role="alert" id="errorMessage" style="visibility: hidden"></div>
+<form style="padding: 2rem !important;" onsubmit="return areFieldsValueValid()" method="post" action="@Url.Action("SubmitStudentAccount", "Admin")">
     <div class="form-row">
       <div class="col">
         <label for="firstNameInputUser">First Name</label>
@@ -54,4 +55,3 @@
       </div>
       <button type="submit" class="btn btn-primary">Create</button>
   </form>
-<div class="alert alert-danger" role="alert" id="errorMessage" style="visibility: hidden"></div>

@@ -75,11 +75,29 @@
     transform: translate(-50%, -50%);
     text-align: center;
 }
-#rowThing{
-    text-align: left !important;
-    padding: 2px !important;
+
+.split-half {
+    height: 100%;
+    width: 50%;
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
     
 }
-h5{
-    
+/* Control the left side */
+.left-half {
+    left: 0;
+    background-color: lightgreen;
+    z-index: -1;
 }
+/* Control the right side */
+.right-half {
+    right: 0;
+    background-color: lightblue;
+    z-index: -1;
+}
+
+
+

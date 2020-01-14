@@ -67,6 +67,12 @@ namespace WebApplication.Models
             students.Add(new StudentModel() {StudentId = 3, FirstName = "Andrei", LastName = "Avram"});
             return students;
         }
+
+        public void CreateGroup(int[] studentIDs)
+        {
+            //do mock things 
+            //lalala 
+        }
     }
     
 }

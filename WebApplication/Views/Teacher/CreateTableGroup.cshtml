@@ -4,22 +4,37 @@
     List<StudentModel> students = (List<StudentModel>) ViewData["studentsNotInGroup"];
 }
 <h1 class="text-center">Create a group</h1>
-<form>
-    <div class="form-group">
-        <label for="groupNameInput">Group name</label>
-        <input type="text" class="form-control" id="groupNameInput" name="groupNameInput" placeholder="Group name">
-    </div>
-      <div class="form-group">
-            <select class="custom-select">
-                   <option selected>Choose students</option>
-                   @foreach (StudentModel studentModel in students)
-                   {
-                       <option value="@studentModel.StudentId">@(studentModel.FirstName + " " + studentModel.LastName)</option>
-                   }
-               </select>
+<form method="post" action="@Url.Action("SubmitTableGroup", "Teacher")" class="mt-3">
+
+    <div>
+        <div class="form-row">
+            <div class="col">
+                <input type="text" class="form-control" id="groupNameInput" name="groupNameInput" placeholder="Group name">
+            </div>
+            <div class="col" id="container-selectors">
+                <!--Use this hidden element to keep track of how many elements we need to process in the form-->
+                <input type="hidden" name="numberOfStudents" id="numberOfStudents" value="1"/>
+                <select class="custom-select studentItems" name="selectedStudent1">
+                    <option selected>Choose students</option>
+                    @foreach (StudentModel studentModel in students)
+                    {
+                        <option value="@studentModel.StudentId">@(studentModel.FirstName + " " + studentModel.LastName)</option>
+                    }
+                </select>
+            </div>
+            <div>
+                <button type="button" class="btn btn-primary" onclick="removeStudentFromList()">
+                    <i class="fas fa-user-minus"></i>
+                </button>
+            </div>
         </div>
-   
+    </div>
     <div class="text-center mt-3">
-        <button class="btn-primary btn"><i class="far fa-plus-square" style="font-size: 35px"></i></button>
+        <button type="button" onclick="addStudentToList()" class="btn-primary btn">
+            <i class="far fa-plus-square" style="font-size: 35px"></i>
+        </button>
+    </div>
+    <div class="text-center mt-3">
+        <button type="submit" class="btn btn-primary">Submit</button>
     </div>
 </form>

@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.Immutable;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WebApplication.Models;
 
@@ -51,6 +54,24 @@ namespace WebApplication.Controllers
             ViewData["studentsNotInGroup"] = 
                 mockDatabase.GetStudentsWithoutGroupForTeacherId(HttpContext.Session.GetInt32("userId"));
             return View();
+        }
+        [HttpPost]
+        public IActionResult SubmitTableGroup(IFormCollection form)
+        {  
+            //get the number of students in a group
+            int numberOfStudents = Int32.Parse(form["numberOfStudents"]);
+            int[] ids = new int[numberOfStudents]; 
+            //get the students ids from the form
+            for (int index = 1; index <= numberOfStudents; index++)
+            {
+                //start the id-s array from 0 
+                ids[index - 1] = Int32.Parse(form["selectedStudent" + index]);
+            }
+            //insert the data into the mock database
+            MockDatabase mockDatabase = new MockDatabase();
+            mockDatabase.CreateGroup(ids);
+          //  return RedirectToAction("Index", "Home");
+          return RedirectToAction("Index", "Home");
         }
     }
 }
