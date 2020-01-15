@@ -1,4 +1,6 @@
-﻿//todo
+﻿
+
+//todo
 //refactor this 
 const highlightColor = "#A6E08E";
 const table = document.getElementById("form-table");
@@ -83,30 +85,5 @@ function sendError(errorMessage) {
     document.getElementById("errorMessage").style.visibility = "visible";
 }
 
-function addStudentToList() {
-    let container = document.getElementById("container-selectors");
-    let listItems = document.getElementsByClassName("custom-select studentItems")[0];
-    //get the length of the container elements and insert a 
-    //proper name for the form
-    let studentSelectorsLength = container.children.length;
 
-    var newListItems = listItems.cloneNode(true);
-    newListItems.style.marginTop = "10px";
-    newListItems.name = "selectedStudent" + (studentSelectorsLength);
 
-    container.append(newListItems);
-    //update the hidden field
-    let numberOfStudentsHiddenField = document.getElementById("numberOfStudents");
-    numberOfStudentsHiddenField.value = studentSelectorsLength;
-}
-
-function removeStudentFromList() {
-    let container = document.getElementById("container-selectors");
-    if (container.children.length > 2) {
-        let childToRemove = container.lastChild;
-        container.removeChild(childToRemove);
-        let numberOfStudentsHiddenField = document.getElementById("numberOfStudents");
-        numberOfStudentsHiddenField.value = container.children.length - 1;
-    }
-
-}
