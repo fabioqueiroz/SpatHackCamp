@@ -46,7 +46,7 @@ namespace WebApplication.Models
         {
             StudentModel studentModel = new StudentModel()
             {
-                FirstName = "Ricardo",LastName = "No",StudentId = id,Email = "avramandreitiberiu@gmail.com",
+                FirstName = "Ricardo",LastName = "August",StudentId = id,Email = "avramandreitiberiu@gmail.com",DateOfBirth = "15/06/1999",
                 TableGroup = new TableGroupModel(){Name = "La la group", ClassName = "12 B"}
             };
             return studentModel;
