@@ -92,6 +92,11 @@ namespace Rubrics.Data.Access
             throw new NotImplementedException();
         }
 
-       
+        // This method inserts a new student in the db
+        public void RegisterNewStudent(Student newStudent)
+        {
+            _repository.Add<Student>(newStudent);
+            _repository.Commit();
+        }
     }
 }

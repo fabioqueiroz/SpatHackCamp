@@ -73,5 +73,20 @@ namespace Rubrics.Business.Services
 
             return builder.ToString();
         }
+
+        public void CreateNewStudent(StudentFormModel studentFormModel)
+        {
+            var student = new Student
+            {
+                FirstName = studentFormModel.FirstName,
+                LastName = studentFormModel.LastName,
+                Email = studentFormModel.Email,
+                DOB = studentFormModel.DOB,
+                Password = studentFormModel.Password,
+                Address = studentFormModel.Address
+            };
+
+            _repository.RegisterNewStudent(student);
+        }
     }
 }

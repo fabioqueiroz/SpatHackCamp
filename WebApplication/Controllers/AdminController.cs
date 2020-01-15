@@ -53,6 +53,9 @@ namespace WebApplication.Controllers
                 
             };
 
+            // Create a new student
+            _studentService.CreateNewStudent(newStudent);
+
             return RedirectToAction("Index", "Home");
         }
     }

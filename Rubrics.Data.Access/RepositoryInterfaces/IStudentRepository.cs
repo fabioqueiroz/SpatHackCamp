@@ -14,6 +14,7 @@ namespace Rubrics.Data.Access.RepositoryInterfaces
         void UpdateStudent(StudentFormModel student);
         List<Join> GetJoinsUsingLinq();
         Task<IEnumerable<Join>> GetJoinsUsingDapper();
+        void RegisterNewStudent(Student newStudent);
        
     }
 }
