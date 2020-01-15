@@ -1,9 +1,10 @@
 ﻿//todo
 //refactor this 
 const highlightColor = "#A6E08E";
+let completedItems = 0;
 const table = document.getElementById("form-table");
 if (table != null) {
-    const allHiddenInputs = table.getElementsByClassName("input-hidden");
+   // const allHiddenInputs = table.getElementsByClassName("input-hidden");
     const allRows = table.getElementsByTagName("tr");
     if (allRows !== null) {
         for (let i = 0; i < allRows.length; i++) {
@@ -12,7 +13,7 @@ if (table != null) {
                 rubricsForCurrentRow[j].addEventListener('click', () => {
                     highlightRubric(rubricsForCurrentRow[j],
                         rubricsForCurrentRow);
-                    allHiddenInputs[0].value = j;
+                  //  allHiddenInputs[0].value = j;
                 })
             }
         }
@@ -21,16 +22,14 @@ if (table != null) {
 }
 
 function highlightRubric(rubric, allRubricsOnRow) {
-    //de highlight the other rubrics 
+    //de-highlight the other rubrics 
     for (let i = 0; i < allRubricsOnRow.length; i++) {
         allRubricsOnRow[i].style.background = ""
     }
     rubric.style.background = highlightColor;
+    
 }
 
-function areLoginDetailsValid() {
-    return true;
-}
 
 var options = [];
 
@@ -119,5 +118,22 @@ function isLoginValid(){
         return false;
     }
     return true;
+}
+function isSheetCompleted(){
+    let alert = document.getElementsByClassName("alert")[0];
+    let numberOfRubricsToComplete = document.getElementById("numberOfRubricsToComplete").value;
+    let actualCompletedRubrics = 0;
+    let allRubrics = document.getElementsByClassName("rubric-item");
+    for(let i =0;i<allRubrics.length;i++){
+        if(allRubrics[i].style.background === "rgb(166, 224, 142)"){
+            actualCompletedRubrics++;
+        }
+    }
+    if(actualCompletedRubrics == numberOfRubricsToComplete){
+        return true;
+    }else{
+        alert.style.visibility = "visible";
+        return false;
+    }
 }
 
