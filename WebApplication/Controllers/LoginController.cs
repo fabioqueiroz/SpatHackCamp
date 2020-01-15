@@ -15,11 +15,12 @@ namespace WebApplication.Controllers
         {
             _studentService = studentService;
         }
+
         // GET       
         public IActionResult Index(string error)
         {
             ViewData["loginError"] = error;
-            ViewData["userLoggedIn"] = !String.IsNullOrEmpty(HttpContext.Session.GetString("username"));
+            ViewData["userLoggedIn"] = !string.IsNullOrEmpty(HttpContext.Session.GetString("username"));
             return View();
         }
         

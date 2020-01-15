@@ -90,43 +90,18 @@ namespace Rubrics.Business.Services
             _repository.RegisterNewStudent(student);
         }
 
-        //public bool FindStudentLoginDetails(string email, string password)
-        //{
-        //    // Get the details from the db
-        //    var loginDetails = _repository.GetStudentLoginDetailsByEmail(email);
-
-        //    if (!string.IsNullOrWhiteSpace(email) && !string.IsNullOrWhiteSpace(password))
-        //    {
-        //        if (loginDetails.Contains(email) && loginDetails.Contains(password))
-        //        {
-        //            return true;
-        //        }
-        //    }
-
-        //    return false;
-        //}
-
         public bool FindStudentLoginDetails(string email, string password)
         {
-            // create a salt
-            var saltPwd = CreatePasswordSalt(password);
-            var sHA512ComputeHash = SHA512ComputeHash(password, saltPwd);
-
-            // TODO: create method to hash the password 
-            byte[] salt = new byte[64];
-
-            var hashedPassword = Hash(password, salt);
-
-            var conversion = Convert.ToBase64String(hashedPassword);
-
-            var x = "";
+            // Hash the password
+            var hashedPassword = SHA512ComputeHash(password);
 
             // Get the details from the db
             var loginDetails = _repository.GetStudentLoginDetailsByEmail(email);
    
             if (!string.IsNullOrWhiteSpace(email) && !string.IsNullOrWhiteSpace(password))
             {
-                if (loginDetails.Contains(email) && loginDetails.Contains(password)) // change to loginDetails.Contains(hashedPassword)
+                if (loginDetails.Contains(email) && loginDetails.Contains(hashedPassword) || 
+                    loginDetails.Contains(email) && loginDetails.Contains(password))
                 {
                     return true;
                 } 
@@ -135,30 +110,19 @@ namespace Rubrics.Business.Services
             return false;
         }
 
-        // encrypt password
-        public byte[] Hash(string passwordToHash, byte[] salt)
+        // Encrypt password
+        public string SHA512ComputeHash(string password)
         {
-            byte[] hashString;
+            // Create a salt
+            var saltString = password.Replace(password.ElementAt(0), password.ElementAt(1));
 
-            using (var hmac = new System.Security.Cryptography.HMACSHA512())
-            {
-                hmac.Key = salt;
-                hashString = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(passwordToHash));
-
-            }
-
-            return hashString;
-        }
-
-        // other version 
-        public string SHA512ComputeHash(string password, string saltString)
-        {
             var hash = new StringBuilder(); 
             byte[] secretkeyBytes = Encoding.UTF8.GetBytes(saltString);
             byte[] inputBytes = Encoding.UTF8.GetBytes(password);
-            using (var hmac = new System.Security.Cryptography.HMACSHA512(secretkeyBytes))
+            using (var hmac = new HMACSHA512(secretkeyBytes))
             {
                 byte[] hashValue = hmac.ComputeHash(inputBytes);
+
                 foreach (var theByte in hashValue)
                 {
                     hash.Append(theByte.ToString("x2"));
@@ -167,22 +131,5 @@ namespace Rubrics.Business.Services
 
             return hash.ToString();
         }
-
-        // create a salt
-        public string CreatePasswordSalt(string password)
-        {
-            var rng = new RNGCryptoServiceProvider();
-            byte[] buf = new byte[64];
-            rng.GetBytes(buf);
-            string salt = Convert.ToBase64String(buf);
-
-            Rfc2898DeriveBytes deriver2898 = new Rfc2898DeriveBytes(password.Trim(), buf, 1000);
-            string hash = Convert.ToBase64String(deriver2898.GetBytes(16));
-            return salt + ':' + hash;
-        }
-
-        // check if the ecrypted value matches the input
-
-
     }
 }
