@@ -38,7 +38,7 @@ namespace WebApplication.Controllers
             MockDatabase mockDatabase = new MockDatabase();
             mockDatabase.InsertStudentIntoTheDatabase(fullAddress);
 
-            var randomPassword = _studentService.CreateRandomPassord(4, true);
+            var randomPassword = _studentService.CreateRandomPassword(4, true);
 
             // Service logic
             var newStudent = new StudentFormModel

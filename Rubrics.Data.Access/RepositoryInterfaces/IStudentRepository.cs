@@ -10,8 +10,6 @@ namespace Rubrics.Data.Access.RepositoryInterfaces
     public interface IStudentRepository
     {
         List<Student> GetAllStudents();
-        void AddStudent(StudentFormModel student);
-        void UpdateStudent(StudentFormModel student);
         List<Join> GetJoinsUsingLinq();
         Task<IEnumerable<Join>> GetJoinsUsingDapper();
         void RegisterNewStudent(Student newStudent);

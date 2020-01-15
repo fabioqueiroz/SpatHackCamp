@@ -57,7 +57,7 @@ namespace Rubrics.Business.Services
             }).ToList();
         }
 
-        public string CreateRandomPassord(int size, bool lowerCase)
+        public string CreateRandomPassword(int size, bool lowerCase)
         {
             StringBuilder builder = new StringBuilder();
             Random random = new Random();

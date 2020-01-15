@@ -25,11 +25,7 @@ namespace Rubrics.Data.Access
             _connectionString = connectionString;
         }
 
-        public void AddStudent(StudentFormModel student)
-        {
-
-        }
-
+        // To be removed, ust for testing
         public List<Student> GetAllStudents()
         {
             var students = _repository.RubricsContext.Students.FromSqlRaw("SELECT * FROM dbo.Students").ToList();
@@ -40,6 +36,7 @@ namespace Rubrics.Data.Access
 
         }
 
+        // To be removed, ust for testing
         // Example of a sql operation LINQ syntax
         public List<Join> GetJoinsUsingLinq()
         {
@@ -60,6 +57,7 @@ namespace Rubrics.Data.Access
             return output;
         }
 
+        // To be removed, ust for testing
         // Example using Dapper
         public async Task<IEnumerable<Join>> GetJoinsUsingDapper()
         {
@@ -84,12 +82,6 @@ namespace Rubrics.Data.Access
                 }
 
             }
-        }
-
-
-        public void UpdateStudent(StudentFormModel student)
-        {
-            throw new NotImplementedException();
         }
 
         // This method inserts a new student in the db
