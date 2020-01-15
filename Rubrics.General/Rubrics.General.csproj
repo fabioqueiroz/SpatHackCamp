@@ -8,4 +8,8 @@
     <PackageReference Include="Westwind.AspnetCore.LiveReload" Version="0.1.12" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Rubrics.Data\Rubrics.Data.csproj" />
+  </ItemGroup>
+
 </Project>

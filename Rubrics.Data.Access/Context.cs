@@ -57,7 +57,7 @@ namespace Rubrics.Data.Access
         public DbSet<Description> Descriptions { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Test> Tests { get; set; }
-
+        public DbSet<CategoryDescription> CategoryDescriptions { get; set; }
     }
 }
 

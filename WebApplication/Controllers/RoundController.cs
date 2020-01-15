@@ -4,6 +4,8 @@ using System.IO;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using Rubrics.Data.Access.RepositoryInterfaces;
+using Rubrics.General.Business.Interfaces;
 using Rubrics.General.Models;
 using WebApplication.Models;
 using WebApplication.ViewModels;
@@ -12,9 +14,12 @@ namespace WebApplication.Controllers
 {
     public class RoundController : Controller
     {
-        public RoundController()
+        private IRubricsRepository _repository;
+        private IRubricCreatorService _rubricCreatorService;
+        public RoundController(IRubricsRepository repository, IRubricCreatorService rubricCreatorService)
         {
-
+            _repository = repository;
+            _rubricCreatorService = rubricCreatorService;
         }
         public IActionResult CreateRound()
         {
@@ -66,25 +71,27 @@ namespace WebApplication.Controllers
                 file.Write(Environment.NewLine);
             }
 
+            // send to the service
             List<CategoryModel> categories = new List<CategoryModel>();
             List<DescriptionModel> descriptions = new List<DescriptionModel>();
-            // send to the service
+
             foreach (var array in currentRubrics)
             {
-                var arr = array;
 
                 if (array.Grade == 1 && !array.Name.Equals(""))
                 {
-                    categories.Add(new CategoryModel { Name = array.Name});
+                    categories.Add(new CategoryModel { Name = array.Name });
                 }
                 else
                 {
                     if (!array.Name.Equals(""))
                     {
-                        descriptions.Add(new DescriptionModel { Scale = (array.Grade - 1), Description = array.Name }); 
+                        descriptions.Add(new DescriptionModel { Scale = (array.Grade - 1), Description = array.Name });
                     }
                 }
             }
+
+            _rubricCreatorService.CreateRubric(categories, descriptions);
 
             //redirect home afterwards
             return RedirectToAction("Index", "Home");
