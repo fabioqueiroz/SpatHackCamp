@@ -45,9 +45,29 @@ namespace WebApplication.Controllers
             pastRounds.Add(new RoundModel() {ModuleName = "History", Active = false, Deadline = "5/12/2019"});
             ViewData["Grades"] = grades;
             ViewData["PastRounds"] = pastRounds;
-
-
             return View();
+        }
+
+        public IActionResult Profile()
+        {
+            if (HttpContext.Session.GetInt32("userId") == null)
+            {
+                return RedirectToAction("Index", "Login");
+            }
+
+            ViewData["userId"] = HttpContext.Session.GetInt32("userId");
+            ViewData["username"] = HttpContext.Session.GetString("username").ToString();
+            ViewData["userType"] = HttpContext.Session.GetString("userType");
+            MockDatabase mockDatabase = new MockDatabase();
+            ViewData["student"] = mockDatabase.GetUserProfileFromId(HttpContext.Session.GetInt32("userId"));
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult SubmitPasswordChange(string passwordField)
+        {
+            string newPassword = passwordField;
+            return RedirectToAction("Profile", "Student");
         }
     }
 }

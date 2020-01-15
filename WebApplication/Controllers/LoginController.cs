@@ -20,6 +20,7 @@ namespace WebApplication.Controllers
         {
             ViewData["loginError"] = error;
             ViewData["userLoggedIn"] = !String.IsNullOrEmpty(HttpContext.Session.GetString("username"));
+            
             return View();
         }
         

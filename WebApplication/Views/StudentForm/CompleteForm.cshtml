@@ -16,14 +16,15 @@
     SheetModel markingSheetModel = roundModel.MarkingSheets[0];
 }
 
-
+<!--Use this hidden input field to perform front end validation-->
+<input type="hidden" value = "@markingSheetModel.Width" id ="numberOfRubricsToComplete"/>
 <div class="text-center">
     <h1>Rate Ricards for the @roundModel.ModuleName</h1>
     <h4>Deadline : <strong>@roundModel.Deadline</strong></h4>
 </div>
 <div class="row mt-4">
     <div class="col">
-        <form method="post" action="@Url.Action("SubmitForm", "StudentForm")">
+        <form method="post" action="@Url.Action("SubmitForm", "StudentForm")" onsubmit="return isSheetCompleted()">
             <table class="table table-bordered" id="form-table">
                 <thead>
                 <tr>
@@ -50,6 +51,9 @@
                 
                 </tbody>
             </table>
+            <div class="alert alert-danger" role="alert" style="visibility: hidden">
+             You must select one rubric for every row
+            </div>
             <!-- Modal -->
             <div class="modal fade" id="confirmationModal" tabindex="-1" role="dialog" aria-hidden="true">
                 <div class="modal-dialog" role="document">
@@ -72,7 +76,6 @@
             </div>
         </form>
         <button type="button" class="btn btn-primary float-right" data-toggle="modal" data-target="#confirmationModal">Submit</button>
-
     </div>
 
 </div>

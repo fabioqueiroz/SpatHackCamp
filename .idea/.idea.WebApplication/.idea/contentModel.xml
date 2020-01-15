@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
+    <e p="C:\Users\avram\.Rider2019.3\config\javascript\extLibs\http_cdnjs.cloudflare.com_ajax_libs_font-awesome_4.7.0_css_font-awesome.css" t="IncludeRecursive" />
     <e p="C:\Users\avram\.Rider2019.3\config\javascript\extLibs\http_use.fontawesome.com_releases_v5.7.1_css_all.css" t="IncludeRecursive" />
     <e p="C:\Users\avram\.Rider2019.3\system\extResources" t="IncludeRecursive" />
     <e p="C:\Users\avram\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_WebApplication.-728541950.00" t="ExcludeRecursive" />
@@ -152,6 +153,7 @@
           <e p="_ViewStart.cshtml" t="Include" />
           <e p="Admin" t="Include">
             <e p="CreateStudent.cshtml" t="Include" />
+            <e p="DeleteStudent.cshtml" t="Include" />
           </e>
           <e p="ConfirmationModal.html" t="Include" />
           <e p="Home" t="Include">
@@ -180,17 +182,20 @@
             <e p="CardPastRound.cshtml" t="Include" />
             <e p="CardStudent.cshtml" t="Include" />
             <e p="Error.cshtml" t="Include" />
+            <e p="Header.cshtml" t="Include" />
             <e p="modal.cshtml" t="Include" />
           </e>
           <e p="Student" t="Include">
             <e p="Index.cshtml" t="Include" />
             <e p="PastRounds.cshtml" t="Include" />
+            <e p="Profile.cshtml" t="Include" />
           </e>
           <e p="StudentForm" t="Include">
             <e p="CompleteForm.cshtml" t="Include" />
             <e p="CompleteForm.cshtml.cs" t="Include" />
           </e>
           <e p="Teacher" t="Include">
+            <e p="CreateTableGroup.cshtml" t="Include" />
             <e p="GroupMembers.cshtml" t="Include" />
             <e p="SelectGroup.cshtml" t="Include" />
           </e>
@@ -206,6 +211,7 @@
           <e p="js" t="Include">
             <e p="customScript.js" t="Include" />
             <e p="site.js" t="Include" />
+            <e p="StudentSelector.js" t="Include" />
           </e>
           <e p="lib" t="Include">
             <e p="bootstrap" t="Include">
