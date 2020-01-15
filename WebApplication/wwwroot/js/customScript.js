@@ -104,5 +104,20 @@ function isChangePasswordModalValid() {
     }
     return true;
 }
-
+function isLoginValid(){
+    let alert = document.getElementsByClassName("alert")[0];
+    let emailField = document.getElementById("inputEmailLogin");
+    let passwordField = document.getElementById("inputPasswordLogin");
+    if(emailField.value.trim() ===""){
+        alert.style.visibility = "visible";
+        alert.innerText = "You must insert an email";
+        return false;
+    }
+    if(passwordField.value.trim()===""){
+        alert.style.visibility = "visible";
+        alert.innerText = "You must insert a password";
+        return false;
+    }
+    return true;
+}
 

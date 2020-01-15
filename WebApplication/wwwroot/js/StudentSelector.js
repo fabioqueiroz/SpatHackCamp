@@ -108,6 +108,7 @@ function unfocusSelector(selector) {
     selector.style.borderWidth = "";
 }
 
+
 function isFormValid() {
     if (currentlySelectedStudents.length >= 4 && currentlySelectedStudents.length <= 6) {
         return !errorActive;
@@ -116,3 +117,4 @@ function isFormValid() {
     }
     return false;
 }
+
