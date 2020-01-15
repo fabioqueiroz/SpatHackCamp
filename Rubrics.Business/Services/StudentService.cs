@@ -17,11 +17,11 @@ namespace Rubrics.Business.Services
             _repository = repository;
         }
 
-        public List<StudentModel> GetAllTheStudents()
+        public List<StudentFormModel> GetAllTheStudents()
         {
             var std = _repository.GetAllStudents();
 
-            return std.Select(x => new StudentModel
+            return std.Select(x => new StudentFormModel
             {
                 Id = x.Id,
                 FirstName = x.FirstName,
@@ -56,5 +56,22 @@ namespace Rubrics.Business.Services
             }).ToList();
         }
 
+        public string CreateRandomPassord(int size, bool lowerCase)
+        {
+            StringBuilder builder = new StringBuilder();
+            Random random = new Random();
+            char ch;
+            for (int i = 0; i < size; i++)
+            {
+                ch = Convert.ToChar(Convert.ToInt32(Math.Floor(26 * random.NextDouble() + 65)));
+                builder.Append(ch);
+            }
+            if (lowerCase)
+            {
+                return builder.ToString().ToLower();
+            }
+
+            return builder.ToString();
+        }
     }
 }

@@ -25,7 +25,7 @@ namespace Rubrics.Data.Access
             _connectionString = connectionString;
         }
 
-        public void AddStudent(StudentModel student)
+        public void AddStudent(StudentFormModel student)
         {
 
         }
@@ -43,9 +43,6 @@ namespace Rubrics.Data.Access
         // Example of a sql operation LINQ syntax
         public List<Join> GetJoinsUsingLinq()
         {
-            //var result = _repository.RubricsContext.JoinTests
-            //    .FromSqlRaw("SELECT FirstName, LastName, Score FROM dbo.Students INNER JOIN dbo.Tests on dbo.Students.Score = dbo.Tests.Score")
-            //    .ToList();
 
             var output = new List<Join>();
 
@@ -90,11 +87,11 @@ namespace Rubrics.Data.Access
         }
 
 
-        public void UpdateStudent(StudentModel student)
+        public void UpdateStudent(StudentFormModel student)
         {
             throw new NotImplementedException();
         }
 
-
+       
     }
 }

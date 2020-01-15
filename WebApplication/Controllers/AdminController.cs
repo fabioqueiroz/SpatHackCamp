@@ -1,11 +1,21 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Rubrics.Data.Access.RepositoryInterfaces;
+using Rubrics.General.Business.Interfaces;
+using Rubrics.General.Business.Models;
+using System;
 using WebApplication.Models;
 
 namespace WebApplication.Controllers
 {
     public class AdminController : Controller
     {
+        private IStudentService _studentService;
+        public AdminController(IStudentService studentService)
+        {
+            _studentService = studentService;
+        }
+
         public IActionResult CreateStudent()
         {
             return View();
@@ -27,6 +37,22 @@ namespace WebApplication.Controllers
                                  + country + " , " + postCode;
             MockDatabase mockDatabase = new MockDatabase();
             mockDatabase.InsertStudentIntoTheDatabase(fullAddress);
+
+            var randomPassword = _studentService.CreateRandomPassord(4, true);
+
+            // Service logic
+            var newStudent = new StudentFormModel
+            {
+                FirstName = firstName,
+                LastName = lastName,
+                Email = email,
+                Password = randomPassword,
+                // gender ???
+                DOB = Convert.ToDateTime(dateOfBirth),
+                Address = fullAddress
+                
+            };
+
             return RedirectToAction("Index", "Home");
         }
     }

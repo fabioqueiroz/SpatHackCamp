@@ -8,8 +8,9 @@ namespace Rubrics.General.Business.Interfaces
 {
     public interface IStudentService
     {
-        List<StudentModel> GetAllTheStudents();
+        List<StudentFormModel> GetAllTheStudents();
         List<JoinModel> GetTestJoinsUsingLinq();
         Task<IEnumerable<JoinModel>> GetTestJoinsUsingDapper();
+        string CreateRandomPassord(int size, bool lowerCase);
     }
 }
