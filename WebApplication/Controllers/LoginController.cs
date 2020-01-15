@@ -4,12 +4,18 @@ using System.Runtime.Intrinsics.X86;
 using Microsoft.AspNetCore.Mvc;
 using System.Web;
 using Microsoft.AspNetCore.Http;
+using Rubrics.General.Business.Interfaces;
 
 namespace WebApplication.Controllers
 {
     public class LoginController : Controller
     {
-        // GET
+        private IStudentService _studentService;
+        public LoginController(IStudentService studentService)
+        {
+            _studentService = studentService;
+        }
+        // GET       
         public IActionResult Index(string error)
         {
             ViewData["loginError"] = error;
@@ -21,12 +27,19 @@ namespace WebApplication.Controllers
         [HttpPost]
         public IActionResult AttemptLogin(string usernameLogin,string passwordLogin)
         {
-            if (usernameLogin.Equals("ricards@gmail.com"))
+            if (usernameLogin.Equals("ricards@gmail.com") || usernameLogin.Equals("t@test.com"))
             {
                 HttpContext.Session.SetString("username", usernameLogin);
                 HttpContext.Session.SetString("userType", "admin");
                 HttpContext.Session.SetInt32("userId", 1);
-                return RedirectToAction("Index", "Home");
+
+                var checkIsCorrect = _studentService.FindStudentLoginDetails(usernameLogin, passwordLogin);
+
+                if (checkIsCorrect)
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+               
             }
 
             if (usernameLogin.Equals("fabio@gmail.com"))
@@ -36,6 +49,7 @@ namespace WebApplication.Controllers
                 HttpContext.Session.SetInt32("userId", 2);
                 return RedirectToAction("Index", "Home");
             }
+
             if (AreLoginDetailsCorrect(usernameLogin, passwordLogin))
             {
                 HttpContext.Session.SetString("username", usernameLogin);
@@ -43,8 +57,9 @@ namespace WebApplication.Controllers
                 HttpContext.Session.SetInt32("userId", 3);
                 return RedirectToAction("Index", "Home");
             }
-            
-           return RedirectToAction("Index",new {error = "Sorry but your login details are not valid ..."});
+        
+
+            return RedirectToAction("Index",new {error = "Sorry but your login details are not valid ..."});
                 
         }
 

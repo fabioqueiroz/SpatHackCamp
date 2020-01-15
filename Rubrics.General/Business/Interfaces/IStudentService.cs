@@ -13,5 +13,6 @@ namespace Rubrics.General.Business.Interfaces
         Task<IEnumerable<JoinModel>> GetTestJoinsUsingDapper();
         string CreateRandomPassord(int size, bool lowerCase);
         void CreateNewStudent(StudentFormModel studentFormModel);
+        bool FindStudentLoginDetails(string email, string password);
     }
 }

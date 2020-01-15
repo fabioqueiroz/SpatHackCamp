@@ -98,5 +98,17 @@ namespace Rubrics.Data.Access
             _repository.Add<Student>(newStudent);
             _repository.Commit();
         }
+
+        public List<string> GetStudentLoginDetailsByEmail(string email)
+        {
+            var stdDetails = new List<string>();
+
+            var studentInIDb = _repository.GetSingle<Student>(x => x.Email == email);
+
+            stdDetails.Add(studentInIDb.Email);
+            stdDetails.Add(studentInIDb.Password);
+
+            return stdDetails;
+        }
     }
 }

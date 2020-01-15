@@ -88,5 +88,20 @@ namespace Rubrics.Business.Services
 
             _repository.RegisterNewStudent(student);
         }
+
+        public bool FindStudentLoginDetails(string email, string password)
+        {
+            var login = _repository.GetStudentLoginDetailsByEmail(email);
+
+            if (!string.IsNullOrWhiteSpace(email) && !string.IsNullOrWhiteSpace(password))
+            {
+                if (login.Contains(email) && login.Contains(password))
+                {
+                    return true;
+                } 
+            }
+
+            return false;
+        }
     }
 }
