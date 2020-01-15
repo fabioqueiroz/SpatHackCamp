@@ -1,0 +1,39 @@
+﻿@{
+    bool userLoggedIn = ViewData["userId"] != null;
+}
+<header>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3 ">
+        <div class="container">
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Student Rubrics</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                <ul class="navbar-nav flex-grow-1">
+
+                </ul>
+            </div>
+            @if (userLoggedIn)
+            {
+                <form class="form-inline" method="post" action="@Url.Action("Logout", "Login")">
+                    <div class="float-right">
+                        <h4>Logged in as @ViewData["username"]</h4>
+                    </div>
+                    <button class="btn btn-success my-2 my-sm-0 ml-5" type="submit">Log out</button>
+                </form>
+                <div class="ml-5">
+                    @if (ViewData["userType"].ToString().Equals("student"))
+                    {
+                        <a href="@Url.Action("Profile", "Student")">
+                            <i class="fas fa-user-circle" style="font-size:35px"></i>
+                        </a>
+                    }
+                </div>
+            }
+
+
+
+        </div>
+    </nav>
+</header>

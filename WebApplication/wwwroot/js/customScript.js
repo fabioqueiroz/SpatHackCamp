@@ -1,6 +1,4 @@
-﻿
-
-//todo
+﻿//todo
 //refactor this 
 const highlightColor = "#A6E08E";
 const table = document.getElementById("form-table");
@@ -85,5 +83,26 @@ function sendError(errorMessage) {
     document.getElementById("errorMessage").style.visibility = "visible";
 }
 
+function isChangePasswordModalValid() {
+    let passwordField1 = document.getElementById("confirmPasswordField");
+    let passwordField2 = document.getElementById("confirmPasswordField2");
+    let alert = document.getElementsByClassName("alert alert-danger")[0];
+    if (passwordField1.value.trim() === "") {
+        alert.style.visibility = "visible";
+        alert.innerText = "You must enter a password";
+        return false;
+    }
+    if (passwordField2.value.trim() === "") {
+        alert.style.visibility = "visible";
+        alert.innerText = "You must confirm your password";
+        return false;
+    }
+    if (passwordField1.value.trim() !== passwordField2.value.trim()) {
+        alert.style.visibility = "visible";
+        alert.innerText = "The passwords must match";
+        return false;
+    }
+    return true;
+}
 
 

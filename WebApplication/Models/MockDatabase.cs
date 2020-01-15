@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Http;
 
 namespace WebApplication.Models
 {
@@ -72,6 +73,16 @@ namespace WebApplication.Models
         {
             //do mock things 
             //lalala 
+        }
+
+        public StudentModel GetUserProfileFromId(int? id)
+        {
+            StudentModel studentModel = new StudentModel();
+            studentModel.FirstName = "Andrei Tiberiu";
+            studentModel.LastName = "Avram";
+            studentModel.Email = "avramandreitiberiu@gmail.com";
+            studentModel.DateOfBirth = "15/06/1999";
+            return studentModel;
         }
     }
     

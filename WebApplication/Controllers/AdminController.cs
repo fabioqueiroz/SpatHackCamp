@@ -29,5 +29,10 @@ namespace WebApplication.Controllers
             mockDatabase.InsertStudentIntoTheDatabase(fullAddress);
             return RedirectToAction("Index", "Home");
         }
+
+        public IActionResult DeleteStudent()
+        {
+            return View();
+        }
     }
 }

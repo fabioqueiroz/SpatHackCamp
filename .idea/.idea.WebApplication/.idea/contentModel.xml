@@ -153,6 +153,7 @@
           <e p="_ViewStart.cshtml" t="Include" />
           <e p="Admin" t="Include">
             <e p="CreateStudent.cshtml" t="Include" />
+            <e p="DeleteStudent.cshtml" t="Include" />
           </e>
           <e p="ConfirmationModal.html" t="Include" />
           <e p="Home" t="Include">
@@ -181,11 +182,13 @@
             <e p="CardPastRound.cshtml" t="Include" />
             <e p="CardStudent.cshtml" t="Include" />
             <e p="Error.cshtml" t="Include" />
+            <e p="Header.cshtml" t="Include" />
             <e p="modal.cshtml" t="Include" />
           </e>
           <e p="Student" t="Include">
             <e p="Index.cshtml" t="Include" />
             <e p="PastRounds.cshtml" t="Include" />
+            <e p="Profile.cshtml" t="Include" />
           </e>
           <e p="StudentForm" t="Include">
             <e p="CompleteForm.cshtml" t="Include" />

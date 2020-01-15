@@ -1,7 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Http
+
 @{
     ViewData["Title"] = "Complete form";
-    
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <form method="post" action="@Url.Action("AttemptLogin", "Login")">
@@ -22,7 +22,7 @@
         {
             <div class="alert alert-danger mt-3" role="alert">
                @ViewData["loginError"].ToString()
-                </div>       
+            </div>       
         }
      
         
