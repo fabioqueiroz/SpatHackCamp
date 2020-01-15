@@ -43,6 +43,11 @@ namespace Rubrics.Data.Access
                 optionsBuilder
                     // local connection
                     .UseSqlServer("Data Source=LAPTOP-JEDG5RJB\\LAPSQLSERVER;Initial Catalog=Rubrics;Integrated Security=False;User Id=sa;Password=fabio1980;MultipleActiveResultSets=True");
+                // Yusuf
+                //.UseSqlServer("Data Source=YIU\\MYSERVER;Initial Catalog=Rubrics;Integrated Security=False;User Id=sa;Password=badat123;MultipleActiveResultSets=True");
+
+                // Khaled
+                //.UseSqlServer("Data Source=LAPTOP-SHIVRIL8\\KSQLSERVER;Initial Catalog=Rubrics;Integrated Security=False;User Id=sa;Password=1234;MultipleActiveResultSets=True");
 
             }
         }
