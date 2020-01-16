@@ -40,8 +40,31 @@ namespace Rubrics.Data.Access
             return adminInfo;
         }
 
-        // TODO: check teacher details
+        public List<string> CheckTeacherDetails(string email)
+        {
+            var teacherInfo = new List<string>();
 
-        
+            try
+            {
+                var adminInIDb = _repository.GetSingle<Teacher>(x => x.Email == email);
+
+                if (adminInIDb != null)
+                {
+                    teacherInfo.Add(adminInIDb.Email);
+                    teacherInfo.Add(adminInIDb.Password);
+                }
+
+            }
+            catch (SqlException ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+
+            return teacherInfo;
+        }
+
+
+
     }
 }

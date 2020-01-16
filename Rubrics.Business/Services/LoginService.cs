@@ -33,13 +33,20 @@ namespace Rubrics.Business.Services
             else
             {
                 // Check if is a teacher
-                // TODO
-
-                // Check if is a student
-                var studentDetails = _studentRepository.GetStudentLoginDetailsByEmail(email);
-                if (studentDetails.Count > 0)
+                var teacherDetails = _loginRepository.CheckTeacherDetails(email);
+                if (teacherDetails.Count > 0)
                 {
-                    return DetailsChecker(email, hashedPassword, studentDetails) == true ? 3 : 0;
+                    return DetailsChecker(email, hashedPassword, teacherDetails) == true ? 2 : 0;
+                }
+
+                else
+                {
+                    // Check if is a student
+                    var studentDetails = _studentRepository.GetStudentLoginDetailsByEmail(email);
+                    if (studentDetails.Count > 0)
+                    {
+                        return DetailsChecker(email, hashedPassword, studentDetails) == true ? 3 : 0;
+                    } 
                 }
             }
 
