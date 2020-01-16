@@ -29,8 +29,6 @@ function highlightRubric(rubric, allRubricsOnRow) {
     rubric.style.background = highlightColor;
     
 }
-
-
 var options = [];
 
 function areFieldsValueValid() {
@@ -142,7 +140,7 @@ function checkIfNoCellsEmpty(){
     for (var i = 0; i < textAreas.length; i++) {
         if(textAreas[i].value.trim() === '')
         {
-            alert("Fields are not full!");
+            document.getElementById("createRubricAlert").style.visibility = "visible";
             return false;
         }
     }

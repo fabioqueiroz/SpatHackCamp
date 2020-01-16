@@ -3,6 +3,9 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="text-center">
+    <div class="alert alert-danger" role="alert" id="createRubricAlert"  style="visibility: hidden;">
+      Fields are not full!
+    </div>
     <h1>Create Round</h1>
 </div>
 <form id="teacherTable" method="post" action="@Url.Action("SubmitRound", "Round")" onsubmit="return checkIfNoCellsEmpty()">
