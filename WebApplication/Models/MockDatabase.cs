@@ -84,6 +84,15 @@ namespace WebApplication.Models
             studentModel.DateOfBirth = "15/06/1999";
             return studentModel;
         }
+
+        public bool DeleteStudentByEmail(string studentEmailField)
+        {
+            //check the database if the user exists 
+            //if exists delete him from database 
+            //and return true
+            //if not return false
+            return true;
+        }
     }
     
 }

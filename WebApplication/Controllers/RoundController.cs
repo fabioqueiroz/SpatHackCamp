@@ -39,18 +39,17 @@ namespace WebApplication.Controllers
             round.ModuleName = form["moduleName"];
             List<SheetModel> markingSheets = new List<SheetModel>();
             SheetModel sheet = new SheetModel();
-            sheet.Length = Int32.Parse(form["tableLength"]);
-            sheet.Width = Int32.Parse(form["tableWidth"]);
+            sheet.Height = Int32.Parse(form["tableHeight"]);
             markingSheets.Add(sheet);
             round.MarkingSheets = markingSheets;
             round.Deadline = form["roundDeadline"];
             List<RubricModel> currentRubrics = new List<RubricModel>();
-            for (var i = 1; i <=sheet.Width; i++)
+            for (var i = 1; i <=sheet.Height; i++)
             {
-                for (var j = 1; j <=sheet.Length; j++)
+                for (var j = 1; j <= 5; j++)
                 {
                     var inputName = "row" + i + "col" + j;
-                    currentRubrics.Add(new RubricModel() {Name = form[inputName], Grade = j});
+                    currentRubrics.Add(new RubricModel() {Name = form[inputName], Grade = j-1});
                 }
             }
 
@@ -85,7 +84,6 @@ namespace WebApplication.Controllers
                     }
                 }
             }
-
             //redirect home afterwards
             return RedirectToAction("Index", "Home");
         }

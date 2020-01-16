@@ -1,4 +1,5 @@
-﻿.dropdown-menu-select-class label{
+﻿
+.dropdown-menu-select-class label{
     font-size: 22px;
 }
 .dropdown-menu-select-class input{
@@ -6,8 +7,6 @@
 }
 #pendingButton{
     border: 3px solid white !important;
-    border-radius: 25px !important;
-    font-size: 20px !important;
     color: white;
     background-color: dodgerblue;
     margin: 2rem;
@@ -17,8 +16,6 @@
 }
 #markedButton{
     border: 3px solid wheat !important;
-    border-radius: 25px !important;
-    font-size: 20px !important;
     color: white;
     background-color: dodgerblue;
     margin: 2rem;

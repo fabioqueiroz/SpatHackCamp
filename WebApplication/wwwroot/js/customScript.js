@@ -29,6 +29,8 @@ function highlightRubric(rubric, allRubricsOnRow) {
     rubric.style.background = highlightColor;
     
 }
+
+
 var options = [];
 
 function areFieldsValueValid() {
@@ -133,6 +135,18 @@ function isSheetCompleted(){
         alert.style.visibility = "visible";
         return false;
     }
+}
+
+function isEmailFieldValid() {
+    let emailField = document.getElementById("studentEmailField");
+    let alert = document.getElementsByClassName("alert alert-danger")[0];
+    if (emailField.value.trim() === "") {
+        alert.style.visibility = "visible";
+        alert.innerText = "You must insert an email";
+        return false;
+    }
+    return true;
+
 }
 
 function checkIfNoCellsEmpty(){

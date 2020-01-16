@@ -1,4 +1,6 @@
-﻿
+﻿.md-textarea{
+    resize: none !important;
+}
 .actionButton{
     width: 200px !important;
     height: 160px !important;
@@ -19,7 +21,4 @@
     background: #E8E8E8;
     margin-top: 15px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 3px 20px 0 rgba(0, 0, 0, 0.19);
-}
-#createRubricAlert{
-    visibility: hidden !important;
 }
