@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Http;
 
 namespace WebApplication.Models
 {
@@ -45,7 +46,7 @@ namespace WebApplication.Models
         {
             StudentModel studentModel = new StudentModel()
             {
-                FirstName = "Ricardo",LastName = "No",StudentId = id,Email = "avramandreitiberiu@gmail.com",
+                FirstName = "Ricardo",LastName = "August",StudentId = id,Email = "avramandreitiberiu@gmail.com",DateOfBirth = "15/06/1999",
                 TableGroup = new TableGroupModel(){Name = "La la group", ClassName = "12 B"}
             };
             return studentModel;
@@ -54,6 +55,34 @@ namespace WebApplication.Models
         public void InsertStudentIntoTheDatabase(string fullAddress)
         {
            //insert the address into the database
+        }
+
+        public object GetStudentsWithoutGroupForTeacherId(int? id)
+        {
+            //get all the students that are not currently in a group 
+            //for that teache's class based on the teacher id 
+            List<StudentModel> students = new List<StudentModel>();
+            students.Add(new StudentModel(){FirstName = "Andrei"});
+            students.Add(new StudentModel() {StudentId = 1, FirstName = "Ricards", LastName = "Augustauskis"});
+            students.Add(new StudentModel() {StudentId = 2, FirstName = "Fabio", LastName = "Queiroz"});
+            students.Add(new StudentModel() {StudentId = 3, FirstName = "Andrei", LastName = "Avram"});
+            return students;
+        }
+
+        public void CreateGroup(int[] studentIDs)
+        {
+            //do mock things 
+            //lalala 
+        }
+
+        public StudentModel GetUserProfileFromId(int? id)
+        {
+            StudentModel studentModel = new StudentModel();
+            studentModel.FirstName = "Andrei Tiberiu";
+            studentModel.LastName = "Avram";
+            studentModel.Email = "avramandreitiberiu@gmail.com";
+            studentModel.DateOfBirth = "15/06/1999";
+            return studentModel;
         }
     }
     

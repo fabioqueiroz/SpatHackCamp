@@ -20,7 +20,12 @@ namespace WebApplication.Controllers
         public IActionResult Index(string error)
         {
             ViewData["loginError"] = error;
+<<<<<<< HEAD
             ViewData["userLoggedIn"] = !string.IsNullOrEmpty(HttpContext.Session.GetString("username"));
+=======
+            ViewData["userLoggedIn"] = !String.IsNullOrEmpty(HttpContext.Session.GetString("username"));
+            
+>>>>>>> b1e05641061016312d0eff43be2e52e5e8214de8
             return View();
         }
         

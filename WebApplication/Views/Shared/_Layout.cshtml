@@ -1,8 +1,5 @@
 ﻿@using Microsoft.AspNetCore.Http
-@{
-    bool userLoggedIn = ViewData["userId"] != null;
 
-}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,51 +9,32 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="~/css/site.css"/>
     <link rel="stylesheet" href="~/css/mycss.css"/>
+    <link rel="stylesheet" href="~/css/rick.css"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+
 </head>
 <body>
-<header>
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3 ">
-        <div class="container">
-            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Student Rubrics</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                <ul class="navbar-nav flex-grow-1">
+@{
+    Html.RenderPartial("Header");
+}
 
-                </ul>
-            </div>
-            @if (userLoggedIn)
-            {
-                <form class="form-inline" method="post" action="@Url.Action("Logout", "Login")">
-                    <div class="float-right">
-                        <h4>Logged in as @ViewData["username"]</h4>
-                    </div>
-                    <button class="btn btn-success my-2 my-sm-0 ml-5" type="submit">Log out</button>
-                </form>
-            }
-
-
-        </div>
-    </nav>
-</header>
 <div class="container">
     <main role="main" class="pb-3">
         @RenderBody()
     </main>
 
 </div>
-
 <footer class="border-top footer text-muted">
     <div class="container">
-        &copy; 2020 - WebApplication - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        &copy; 2020 - Spat group - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
     </div>
 </footer>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
 <script src="~/js/customScript.js"></script>
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <script src="~/js/site.js" asp-append-version="true"></script>
+
 @RenderSection("Scripts", required: false)
 </body>
 </html>

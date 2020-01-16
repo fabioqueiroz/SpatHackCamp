@@ -58,5 +58,10 @@ namespace WebApplication.Controllers
 
             return RedirectToAction("Index", "Home");
         }
+
+        public IActionResult DeleteStudent()
+        {
+            return View();
+        }
     }
 }

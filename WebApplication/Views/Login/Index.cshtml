@@ -1,11 +1,11 @@
 ﻿@using Microsoft.AspNetCore.Http
+
 @{
     ViewData["Title"] = "Complete form";
-    
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<form method="post" action="@Url.Action("AttemptLogin", "Login")">
-    <div class ="container-form">
+<form method="post" action="@Url.Action("AttemptLogin", "Login")" onsubmit="return isLoginValid()">
+    <div class="container-form">
         <div class="form-group">
             <label for="inputEmailLogin">Email address</label>
             <input type="email" class="form-control" id="inputEmailLogin" aria-describedby="emailHelp"
@@ -17,14 +17,20 @@
             <input name="passwordLogin" type="password" class="form-control" id="inputPasswordLogin"
                    placeholder="Password">
         </div>
-        <button type="submit" onsubmit="areLoginDetailsValid()" class="btn btn-primary" name="loginButton">Log in</button>
-        @if (ViewData["loginError"] !=null)
+        <button type="submit"  class="btn btn-primary" name="loginButton">Log in</button>
+        <!-- the first alert is for the backend error while the second is for the javascript -->
+        @if (ViewData["loginError"] != null)
         {
             <div class="alert alert-danger mt-3" role="alert">
-               @ViewData["loginError"].ToString()
-                </div>       
+                @ViewData["loginError"].ToString()
+            </div>
         }
-     
+        else
+        {
+            <div class="alert alert-danger mt-3" role="alert" style="visibility: hidden">
+            </div>
+        }
         
+
     </div>
 </form>
