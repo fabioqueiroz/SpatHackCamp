@@ -2,6 +2,8 @@
 using Rubrics.Data.Access.RepositoryInterfaces;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 
 namespace Rubrics.Data.Access
@@ -39,5 +41,7 @@ namespace Rubrics.Data.Access
         }
 
         // TODO: check teacher details
+
+        
     }
 }

@@ -31,7 +31,6 @@ namespace Rubrics.Business.Services
 
             }).ToList();
         }
-
         public List<JoinModel> GetTestJoinsUsingLinq()
         {
             var join = _repository.GetJoinsUsingLinq();
@@ -57,6 +56,8 @@ namespace Rubrics.Business.Services
             }).ToList();
         }
 
+
+        // Create a default password for the student
         public string CreateRandomPassword(int size, bool lowerCase)
         {
             StringBuilder builder = new StringBuilder();
@@ -88,49 +89,6 @@ namespace Rubrics.Business.Services
             };
 
             _repository.RegisterNewStudent(student);
-        }
-
-        // TODO: keep only the version in the LoginService
-        public bool FindStudentLoginDetails(string email, string password)
-        {
-            // Hash the password
-            var hashedPassword = SHA512ComputeHash(password);
-
-            // Get the details from the db
-            var loginDetails = _repository.GetStudentLoginDetailsByEmail(email);
-   
-            if (!string.IsNullOrWhiteSpace(email) && !string.IsNullOrWhiteSpace(password))
-            {
-                if (loginDetails.Contains(email) && loginDetails.Contains(hashedPassword) || 
-                    loginDetails.Contains(email) && loginDetails.Contains(password))
-                {
-                    return true;
-                } 
-            }
-
-            return false;
-        }
-
-        // Encrypt password
-        public string SHA512ComputeHash(string password)
-        {
-            // Create a salt
-            var saltString = password.Replace(password.ElementAt(0), password.ElementAt(1));
-
-            var hash = new StringBuilder(); 
-            byte[] secretkeyBytes = Encoding.UTF8.GetBytes(saltString);
-            byte[] inputBytes = Encoding.UTF8.GetBytes(password);
-            using (var hmac = new HMACSHA512(secretkeyBytes))
-            {
-                byte[] hashValue = hmac.ComputeHash(inputBytes);
-
-                foreach (var theByte in hashValue)
-                {
-                    hash.Append(theByte.ToString("x2"));
-                }
-            }
-
-            return hash.ToString();
         }
     }
 }

@@ -8,6 +8,7 @@ namespace Rubrics.General.Business.Interfaces
     {
         int LoginValidation(string email, string password);
         bool DetailsChecker(string email, string password, List<string> detailsInDb);
+        string SHA512ComputeHash(string password);
 
     }
 }
