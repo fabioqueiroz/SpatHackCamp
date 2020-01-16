@@ -6,7 +6,7 @@ namespace Rubrics.General.Business.Interfaces
 {
     public interface ILoginService
     {
-        bool LoginValidation(string email, string password);
+        int LoginValidation(string email, string password);
         bool DetailsChecker(string email, string password, List<string> detailsInDb);
 
     }

@@ -16,13 +16,13 @@ namespace Rubrics.Business.Services
             _studentRepository = studentRepository;
         }
 
-        public bool LoginValidation(string email, string password)
+        public int LoginValidation(string email, string password)
         {
             // Check if is an admin
             var adminDetails = _loginRepository.CheckAdminDetails(email);
             if (adminDetails.Count > 0)
             {
-                return DetailsChecker(email, password, adminDetails);
+               return DetailsChecker(email, password, adminDetails) == true ? 1 : 0;
             }
 
             else
@@ -34,11 +34,11 @@ namespace Rubrics.Business.Services
                 var studentDetails = _studentRepository.GetStudentLoginDetailsByEmail(email);
                 if (studentDetails.Count > 0)
                 {
-                    return DetailsChecker(email, password, studentDetails);
+                    return DetailsChecker(email, password, studentDetails) == true ? 3 : 0;
                 }
             }
 
-            return false;
+            return 0;
         }
 
         public bool DetailsChecker(string email, string password, List<string> detailsInDb)

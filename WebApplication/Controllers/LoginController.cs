@@ -27,33 +27,60 @@ namespace WebApplication.Controllers
 
             return View();
         }
-        
-          
+
+        // ****** ANDREI: remove the comments of your method below so you don't need to care about a db connection
+        // and comment out mine below this one that's using live data so you don't get confused ******
+
+        //[HttpPost]
+        //public IActionResult AttemptLogin(string usernameLogin,string passwordLogin)
+        //{
+        //    if (usernameLogin.Equals("ricards@gmail.com") || usernameLogin.Equals("t@test.com"))
+        //    {
+        //        HttpContext.Session.SetString("username", usernameLogin);
+        //        HttpContext.Session.SetString("userType", "admin");
+        //        HttpContext.Session.SetInt32("userId", 1);
+
+        //        return RedirectToAction("Index", "Home");
+
+        //    }
+
+        //    if (usernameLogin.Equals("fabio@gmail.com"))
+        //    {
+        //        HttpContext.Session.SetString("username", usernameLogin);
+        //        HttpContext.Session.SetString("userType", "teacher");
+        //        HttpContext.Session.SetInt32("userId", 2);
+        //        return RedirectToAction("Index", "Home");
+        //    }
+
+        //    if (AreLoginDetailsCorrect(usernameLogin, passwordLogin))
+        //    {
+        //        HttpContext.Session.SetString("username", usernameLogin);
+        //        HttpContext.Session.SetString("userType", "student");
+        //        HttpContext.Session.SetInt32("userId", 3);
+        //        return RedirectToAction("Index", "Home");
+        //    }
+
+
+        //    return RedirectToAction("Index",new {error = "Sorry but your login details are not valid ..."});
+
+        //}
+
         [HttpPost]
-        public IActionResult AttemptLogin(string usernameLogin,string passwordLogin)
+        public IActionResult AttemptLogin(string usernameLogin, string passwordLogin)
         {
-            if (usernameLogin.Equals("ricards@gmail.com") || usernameLogin.Equals("t@test.com"))
+            // using the login service; need to add encryption from student service
+            var userId = _loginService.LoginValidation(usernameLogin, passwordLogin); ;
+
+            if (userId == 1)
             {
                 HttpContext.Session.SetString("username", usernameLogin);
                 HttpContext.Session.SetString("userType", "admin");
                 HttpContext.Session.SetInt32("userId", 1);
 
-                // using the student service
-                //var checkIsCorrect = _studentService.FindStudentLoginDetails(usernameLogin, passwordLogin);
-
-                // using the login service; need to add encryption from student service
-                var checkIsCorrect = _loginService.LoginValidation(usernameLogin, passwordLogin);
-
-                if (checkIsCorrect)
-                {
-                    return RedirectToAction("Index", "Home");
-                }
-
                 return RedirectToAction("Index", "Home");
-
             }
 
-            if (usernameLogin.Equals("fabio@gmail.com"))
+            if (userId == 2)
             {
                 HttpContext.Session.SetString("username", usernameLogin);
                 HttpContext.Session.SetString("userType", "teacher");
@@ -61,17 +88,17 @@ namespace WebApplication.Controllers
                 return RedirectToAction("Index", "Home");
             }
 
-            if (AreLoginDetailsCorrect(usernameLogin, passwordLogin))
+            if (userId == 3)
             {
                 HttpContext.Session.SetString("username", usernameLogin);
                 HttpContext.Session.SetString("userType", "student");
                 HttpContext.Session.SetInt32("userId", 3);
                 return RedirectToAction("Index", "Home");
             }
-        
 
-            return RedirectToAction("Index",new {error = "Sorry but your login details are not valid ..."});
-                
+
+            return RedirectToAction("Index", new { error = "Sorry but your login details are not valid ..." });
+
         }
 
         //use this method to check if the login details are valid 
