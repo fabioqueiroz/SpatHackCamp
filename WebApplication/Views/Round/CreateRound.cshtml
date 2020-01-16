@@ -5,7 +5,7 @@
 <div class="text-center">
     <h1>Create Round</h1>
 </div>
-<form id="teacherTable" method="post" action="@Url.Action("SubmitRound", "Round")">
+<form id="teacherTable" method="post" action="@Url.Action("SubmitRound", "Round")" onsubmit="return checkIfNoCellsEmpty()">
     <div class="input-group mb-3">
         <div class="input-group-prepend">
             <span class="input-group-text" id="basic-addon1">Deadline: </span>
@@ -22,7 +22,7 @@
     </div>
     <div class="row mt-4">
         <div class="col">
-            <table class="table table-bordered">
+            <table class="table table-bordered" id="teacherRubricCreate">
                 <input type="hidden" name="tableLength" value="5"/>
                 <input type="hidden" name="tableWidth" value="3"/>
 
@@ -40,7 +40,7 @@
                     <th scope="row" class="rubric-item">
                         <!--Material textarea-->
                         <div class="md-form">
-                            <textarea  class="md-textarea form-control" rows="3" name="row1col1"></textarea>
+                            <textarea class="md-textarea form-control" rows="3" name="row1col1"></textarea>
                         </div>
                     </th>
                     <td class="rubric-item">

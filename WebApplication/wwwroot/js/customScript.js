@@ -137,3 +137,14 @@ function isSheetCompleted(){
     }
 }
 
+function checkIfNoCellsEmpty(){
+    var textAreas = document.getElementsByTagName('textarea');
+    for (var i = 0; i < textAreas.length; i++) {
+        if(textAreas[i].value.trim() === '')
+        {
+            alert("Fields are not full!");
+            return false;
+        }
+    }
+    return false;
+}
