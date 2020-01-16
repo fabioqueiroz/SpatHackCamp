@@ -90,6 +90,7 @@ namespace Rubrics.Business.Services
             _repository.RegisterNewStudent(student);
         }
 
+        // TODO: keep only the version in the LoginService
         public bool FindStudentLoginDetails(string email, string password)
         {
             // Hash the password

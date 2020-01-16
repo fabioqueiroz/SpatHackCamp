@@ -49,12 +49,14 @@ namespace Rubrics.Data.Access
                 // Khaled
                 //.UseSqlServer("Data Source=LAPTOP-SHIVRIL8\\KSQLSERVER;Initial Catalog=Rubrics;Integrated Security=False;User Id=sa;Password=1234;MultipleActiveResultSets=True");
 
+                // Romnick
+                //.UseSqlServer("Data Source=ROMNICK\\SQLEXPRESS;Initial Catalog=Rubrics;Integrated Security=False;User Id=sa;Password=1234;MultipleActiveResultSets=True");
+
             }
         }
 
 
         // tables for the database
-
         public DbSet<Student> Students { get; set; }
         public DbSet<Rubric> Rubrics { get; set; }
         public DbSet<TableGroup> TableGroups { get; set; }
@@ -63,6 +65,7 @@ namespace Rubrics.Data.Access
         public DbSet<Category> Categories { get; set; }
         public DbSet<Test> Tests { get; set; }
         public DbSet<CategoryDescription> CategoryDescriptions { get; set; }
+        public DbSet<Admin> Admins { get; set; }
     }
 }
 

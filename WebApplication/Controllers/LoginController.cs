@@ -10,10 +10,12 @@ namespace WebApplication.Controllers
 {
     public class LoginController : Controller
     {
-        private IStudentService _studentService;
-        public LoginController(IStudentService studentService)
+        private readonly IStudentService _studentService;
+        private readonly ILoginService _loginService;
+        public LoginController(IStudentService studentService, ILoginService loginService)
         {
             _studentService = studentService;
+            _loginService = loginService;
         }
 
         // GET       
@@ -36,13 +38,19 @@ namespace WebApplication.Controllers
                 HttpContext.Session.SetString("userType", "admin");
                 HttpContext.Session.SetInt32("userId", 1);
 
-                var checkIsCorrect = _studentService.FindStudentLoginDetails(usernameLogin, passwordLogin);
+                // using the student service
+                //var checkIsCorrect = _studentService.FindStudentLoginDetails(usernameLogin, passwordLogin);
+
+                // using the login service; need to add encryption from student service
+                var checkIsCorrect = _loginService.LoginValidation(usernameLogin, passwordLogin);
 
                 if (checkIsCorrect)
                 {
                     return RedirectToAction("Index", "Home");
                 }
-               
+
+                return RedirectToAction("Index", "Home");
+
             }
 
             if (usernameLogin.Equals("fabio@gmail.com"))

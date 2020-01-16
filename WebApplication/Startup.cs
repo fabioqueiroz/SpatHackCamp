@@ -40,9 +40,11 @@ namespace WebApplication
                 .AddScoped<ITestService, TestService>()
                 .AddScoped<IStudentService, StudentService>()
                 .AddScoped<IRubricCreatorService, RubricCreatorService>()
+                .AddScoped<ILoginService, LoginService>()
                 .AddScoped<IRubricsRepository, RubricsRepository>()
                 .AddScoped<IStudentRepository, StudentRepository>()
-                .AddScoped<IRubricCreatorRepository, RubricCreatorRepository>();
+                .AddScoped<IRubricCreatorRepository, RubricCreatorRepository>()
+                .AddScoped<ILoginRepository, LoginRepository>();
 
             //configure the Session 
             services.AddControllersWithViews();
