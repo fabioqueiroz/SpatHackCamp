@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Rubrics.Data
+namespace Rubrics.General.Models
 {
-    public class TableGroup
+    public class TableGroupInDb
     {
         public int Id { get; set; }
         public string Name { get; set; }

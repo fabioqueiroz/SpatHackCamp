@@ -41,10 +41,12 @@ namespace WebApplication
                 .AddScoped<IStudentService, StudentService>()
                 .AddScoped<IRubricCreatorService, RubricCreatorService>()
                 .AddScoped<ILoginService, LoginService>()
+                .AddScoped<ITableGroupService, TableGroupService>()
                 .AddScoped<IRubricsRepository, RubricsRepository>()
                 .AddScoped<IStudentRepository, StudentRepository>()
                 .AddScoped<IRubricCreatorRepository, RubricCreatorRepository>()
-                .AddScoped<ILoginRepository, LoginRepository>();
+                .AddScoped<ILoginRepository, LoginRepository>()
+                .AddScoped<ITableGroupRepository, TableGroupRepository>();
 
             //configure the Session 
             services.AddControllersWithViews();
