@@ -3,6 +3,7 @@ using Rubrics.Data.Access.RepositoryInterfaces;
 using Rubrics.Data.JoinModels;
 using Rubrics.General.Business.Models;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,7 +12,6 @@ using Rubrics.Data.Access.ConnectionFactory;
 using System.Data;
 using System.Threading.Tasks;
 using Microsoft.Data.SqlClient;
-using Rubrics.General.Models;
 
 namespace Rubrics.Data.Access
 {
@@ -47,12 +47,12 @@ namespace Rubrics.Data.Access
             var db = _repository.RubricsContext;
 
             var result = (from s in db.Students
-                          join t in db.Tests on s.Score equals t.Score
-                          select new { s.FirstName, s.LastName }).ToList();
+                join t in db.Tests on s.ClassId equals t.Score
+                select new {s.FirstName, s.LastName}).ToList();
 
             foreach (var item in result)
             {
-                output.Add(new Join { FirstName = item.FirstName, LastName = item.LastName });
+                output.Add(new Join {FirstName = item.FirstName, LastName = item.LastName});
             }
 
             return output;
@@ -96,15 +96,15 @@ namespace Rubrics.Data.Access
         {
             var stdDetails = new List<string>();
             try
-            {              
+            {
                 var studentInIDb = _repository.GetSingle<Student>(x => x.Email == email);
 
                 if (studentInIDb != null)
                 {
                     stdDetails.Add(studentInIDb.Email);
-                    stdDetails.Add(studentInIDb.Password); 
+                    stdDetails.Add(studentInIDb.Password);
                 }
-               
+
             }
             catch (SqlException ex)
             {
@@ -142,52 +142,60 @@ namespace Rubrics.Data.Access
             return student;
         }
 
-        public async Task<IEnumerable<Student>> GetStudentsBySchoolClasses(int teacherClassId)
-        {
-            var query = @"SELECT s.FirstName, s.LastName
-                          FROM dbo.Students s INNER JOIN dbo.Tests t on s.Score = t.Score";
-
-            using (var conn = new SqlConnection(_connectionString.Value))
-            {
-                try
-                {
-                    var data = await conn.QueryAsync<Student>(query);
-
-                    return data;
-
-                }
-                catch (Exception ex)
-                {
-
-                    Console.WriteLine(ex.Message);
-
-                    throw new Exception(ex.Message);
-                }
-
-            }
-        }
-
         public Student GetStudentById(int id)
         {
             var studentInIDb = _repository.GetSingle<Student>(x => x.Id == id);
             return studentInIDb;
         }
 
+
+        public async Task<IEnumerable> GetStudentsBySchoolClass(int teacherClassId)
+        {
+            var query = new CommandDefinition(@"SELECT * from dbo.Students s
+              INNER JOIN dbo.SchoolClasses sc on s.ClassId = sc.Id
+              INNER JOIN dbo.TableGroupStudents tgs on tgs.StudentId = s.Id
+              INNER JOIN dbo.TableGroups t on t.Id = tgs.TableGroupId
+              WHERE sc.Id = @ClassId", new {ClassId = teacherClassId});
+            using (var conn = new SqlConnection(_connectionString.Value))
+            {
+                try
+                {
+                    var result = await conn.QueryAsync<Student>(query);
+                    var data = result.FirstOrDefault();
+                    return result;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    throw new Exception(ex.Message);
+                }
+            }
+        }
+
         public string GetSchoolNameById(int id)
         {
-            SchoolClass schoolClass = _repository.GetSingle<SchoolClass>(x => x.Id == id);
-            return schoolClass.Name;
+            throw new NotImplementedException();
         }
 
         public bool DeleteStudentByEmail(string email)
         {
-            Student toDelete =  _repository.GetSingle<Student>(x=>x.Email ==email);
+            Student toDelete = _repository.GetSingle<Student>(x => x.Email == email);
             if (toDelete == null)
             {
                 return false;
             }
-            _repository.Delete(toDelete);
-            return true;
+            else
+            {
+                _repository.Delete(toDelete);
+                return true;
+            }
+        }
+
+        public SchoolClass GetClassNameById( int id)
+        {
+            SchoolClass schoolClass = _repository.GetSingle<SchoolClass>(x => x.Id == id);
+            return schoolClass;
+
         }
     }
 }

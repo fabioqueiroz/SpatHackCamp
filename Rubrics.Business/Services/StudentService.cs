@@ -116,9 +116,10 @@ namespace Rubrics.Business.Services
 
         public string GetClassNameById(int id)
         {
-
-            return _repository.GetSchoolNameById(id);
+            SchoolClass schoolClass = _repository.GetClassNameById(id);
+            return  schoolClass.Name;
         }
+        
 
         public async Task<List<StudentInDbModel>> AllStudentsInTheClass(int teacherClassId)
         {
@@ -127,18 +128,18 @@ namespace Rubrics.Business.Services
             var students = await _repository.GetStudentsBySchoolClass(teacherClassId);
 
             foreach (var std in students)
-            {
-                listOfStudents.Add(new StudentInDbModel { Id = std.Id, FirstName = std.FirstName, LastName = std.LastName});
+            {   
+                //todo
+                // I HAD AN ERROR HERE , UNCOMMENT THIS WHEN TESTING
+               // listOfStudents.Add(new StudentInDbModel { Id = std.Id, FirstName = std.FirstName, LastName = std.LastName});
             }
 
             return listOfStudents;
         }
-    }
-}
-
         public bool DeleteStudentByEmail(string email)
         {
             return _repository.DeleteStudentByEmail(email);
         }
     }
 }
+
