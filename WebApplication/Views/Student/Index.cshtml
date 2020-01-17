@@ -3,10 +3,7 @@
     ViewData["Title"] = "Student profile";
     Layout = "~/Views/Shared/_Layout.cshtml";
     Student studentModel = (Student) ViewData["Student"];
-    string className = (string) ViewData["ClassName"];
-    DateTime dateTime = studentModel.DOB;
 }
-
 <div>
     <div class="text-center custom-card">
         <h5 class="card-title">Student ID : </h5>
@@ -26,11 +23,11 @@
    </div>
     <div class="text-center custom-card">
         <h5 class="card-title">Date of birth: </h5>
-        <p class="card-text">@(dateTime.Day + "/" + dateTime.Month + "/" + dateTime.Year)</p>
+        <p class="card-text">@studentModel.DOB</p>
     </div>
     <div class="text-center custom-card">
         <h5 class="card-title">Class Name: </h5>
-        <p class="card-text">@className</p>
+        <p class="card-text">@ViewData["ClassName"]</p>
     </div>
    
 </div>

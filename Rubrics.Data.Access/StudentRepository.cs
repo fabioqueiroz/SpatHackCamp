@@ -187,15 +187,8 @@ namespace Rubrics.Data.Access
             {
                 return false;
             }
-            else
-            {
-                _repository.Delete(toDelete);
-                return true;
-            }
-            
-          
-           // _repository.RubricsContext.Students.FromSqlRaw($"DELETE FROM dbo.Students s WHERE s.Email = Email", new {email = email});
-           return true;
+            _repository.Delete(toDelete);
+            return true;
         }
     }
 }
