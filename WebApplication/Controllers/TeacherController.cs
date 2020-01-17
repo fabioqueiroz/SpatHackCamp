@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Rubrics.General.Models;
+using WebApplication.Helper;
 using WebApplication.Models;
 
 namespace WebApplication.Controllers
@@ -59,8 +61,12 @@ namespace WebApplication.Controllers
         [HttpPost]
         public IActionResult SubmitTableGroup(IFormCollection form)
         {
+            // Retrieve the session user
+            var sessionUser = HttpContext.Session.GetObjectFromJson<AdminModel>("LoggedUser");
+            var teacherId = Convert.ToInt32(sessionUser.Id);
+
             var groupName = form["groupNameInput"];
-            var session = HttpContext.User;
+
             //get the number of students in a group
             int numberOfStudents = Int32.Parse(form["numberOfStudents"]);
             int[] ids = new int[numberOfStudents];

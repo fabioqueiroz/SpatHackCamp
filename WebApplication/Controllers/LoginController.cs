@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 using System.Web;
 using Microsoft.AspNetCore.Http;
 using Rubrics.General.Business.Interfaces;
+using Rubrics.General.Models;
+using WebApplication.Helper;
 
 namespace WebApplication.Controllers
 {
@@ -68,15 +70,18 @@ namespace WebApplication.Controllers
         [HttpPost]
         public IActionResult AttemptLogin(string usernameLogin, string passwordLogin)
         {
+            // Determine which level of access the user has
             var userId = _loginService.LoginValidation(usernameLogin, passwordLogin); 
-
-            // TODO: use data from db to store in the session
 
             if (userId == 1)
             {
                 HttpContext.Session.SetString("username", usernameLogin);
                 HttpContext.Session.SetString("userType", "admin");
                 HttpContext.Session.SetInt32("userId", 1);
+
+                // Store the whole that represents the entity in the session
+                var loggedUser = _loginService.GetAdminByEmail(usernameLogin);
+                HttpContext.Session.SetObjectAsJson("LoggedUser", loggedUser);
 
                 return RedirectToAction("Index", "Home");
             }
@@ -86,6 +91,10 @@ namespace WebApplication.Controllers
                 HttpContext.Session.SetString("username", usernameLogin);
                 HttpContext.Session.SetString("userType", "teacher");
                 HttpContext.Session.SetInt32("userId", 2);
+
+                var loggedUser = _loginService.GetTeacherByEmail(usernameLogin);
+                HttpContext.Session.SetObjectAsJson("LoggedUser", loggedUser);
+
                 return RedirectToAction("Index", "Home");
             }
 
@@ -94,6 +103,10 @@ namespace WebApplication.Controllers
                 HttpContext.Session.SetString("username", usernameLogin);
                 HttpContext.Session.SetString("userType", "student");
                 HttpContext.Session.SetInt32("userId", 3);
+
+                var loggedUser = _studentService.GetStudentByEmail(usernameLogin);
+                HttpContext.Session.SetObjectAsJson("LoggedUser", loggedUser);
+
                 return RedirectToAction("Index", "Home");
             }
 
