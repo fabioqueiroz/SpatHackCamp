@@ -116,5 +116,16 @@ namespace Rubrics.Business.Services
         {
              return _repository.GetStudentById(id);
         }
+
+        public string GetClassNameById(int id)
+        {
+
+            return _repository.GetSchoolNameById(id);
+        }
+
+        public bool DeleteStudentByEmail(string email)
+        {
+            return _repository.DeleteStudentByEmail(email);
+        }
     }
 }

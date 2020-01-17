@@ -173,5 +173,29 @@ namespace Rubrics.Data.Access
             var studentInIDb = _repository.GetSingle<Student>(x => x.Id == id);
             return studentInIDb;
         }
+
+        public string GetSchoolNameById(int id)
+        {
+            SchoolClass schoolClass = _repository.GetSingle<SchoolClass>(x => x.Id == id);
+            return schoolClass.Name;
+        }
+
+        public bool DeleteStudentByEmail(string email)
+        {
+            Student toDelete =  _repository.GetSingle<Student>(x=>x.Email ==email);
+            if (toDelete == null)
+            {
+                return false;
+            }
+            else
+            {
+                _repository.Delete(toDelete);
+                return true;
+            }
+            
+          
+           // _repository.RubricsContext.Students.FromSqlRaw($"DELETE FROM dbo.Students s WHERE s.Email = Email", new {email = email});
+           return true;
+        }
     }
 }

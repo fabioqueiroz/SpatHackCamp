@@ -20,8 +20,9 @@ namespace WebApplication.Controllers
         //should display all relevant information about a student
         public IActionResult Index(int id)
         {
-            //change the type from Student in db to normal student
-            ViewData["Student"] = _studentService.GetStudentById(id);
+            Student student =  _studentService.GetStudentById(id);
+            ViewData["Student"] = student;
+            ViewData["ClassName"] = _studentService.GetClassNameById(student.ClassId);
             
             if (HttpContext.Session.GetInt32("userId") == null)
             {

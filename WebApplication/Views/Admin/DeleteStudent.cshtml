@@ -2,9 +2,17 @@
     ViewData["Title"] = "Delete Student";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<form>
+<form action="@Url.Action("SubmitDeleteStudent", "Admin")" method="post">
     <div class="form-group">
         <label for="studentIdField">Student username</label>
-        <input type="email" class="form-control" id="studentIdField" placeholder="name@example.com">
+        <input type="email" class="form-control" id="studentIdField" name="email" placeholder="name@example.com">
+        <button class="btn btn-primary">Delete</button>
     </div>
+    @if (ViewData["Error"]!=null)
+    {<div class="alert alert-danger" role="alert">
+         The student email does not exist!!
+     </div>
+        
+    }
+    
 </form>

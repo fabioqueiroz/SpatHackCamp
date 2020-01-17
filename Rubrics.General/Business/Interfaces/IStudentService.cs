@@ -19,5 +19,8 @@ namespace Rubrics.General.Business.Interfaces
         void CreateNewStudent(StudentFormModel studentFormModel);
         StudentInDbModel GetStudentByEmail(string email);
         Student GetStudentById(int id);
+        string GetClassNameById(int id);
+
+        bool DeleteStudentByEmail(string email);
     }
 }
