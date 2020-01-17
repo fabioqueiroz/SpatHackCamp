@@ -59,6 +59,8 @@ namespace WebApplication.Controllers
         [HttpPost]
         public IActionResult SubmitTableGroup(IFormCollection form)
         {
+            var groupName = form["groupNameInput"];
+            var session = HttpContext.User;
             //get the number of students in a group
             int numberOfStudents = Int32.Parse(form["numberOfStudents"]);
             int[] ids = new int[numberOfStudents];

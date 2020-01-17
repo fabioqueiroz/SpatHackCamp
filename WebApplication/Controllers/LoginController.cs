@@ -28,8 +28,8 @@ namespace WebApplication.Controllers
             return View();
         }
 
-        // ****** ANDREI: remove the comments of your method below so you don't need to care about a db connection
-        // and comment out mine below this one that's using live data so you don't get confused ******
+        // ****** Remove the comments of the method below so you don't need to care about a db connection ******
+        //****** and comment out the other version below this one that's using live data so you don't get confused ******
 
         //[HttpPost]
         //public IActionResult AttemptLogin(string usernameLogin,string passwordLogin)
@@ -68,8 +68,7 @@ namespace WebApplication.Controllers
         [HttpPost]
         public IActionResult AttemptLogin(string usernameLogin, string passwordLogin)
         {
-            // using the login service; need to add encryption from student service
-            var userId = _loginService.LoginValidation(usernameLogin, passwordLogin); ;
+            var userId = _loginService.LoginValidation(usernameLogin, passwordLogin);
 
             if (userId == 1)
             {

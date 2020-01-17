@@ -113,5 +113,32 @@ namespace Rubrics.Data.Access
 
             return stdDetails;
         }
+
+        public Student GetStudentByEmail(string email)
+        {
+            var student = new Student();
+
+            try
+            {
+                var studentInIDb = _repository.GetSingle<Student>(x => x.Email == email);
+
+                if (studentInIDb != null)
+                {
+                    student.Id = studentInIDb.Id;
+                    student.FirstName = studentInIDb.FirstName;
+                    student.LastName = studentInIDb.LastName;
+                    student.Email = studentInIDb.Email;
+                    student.Password = studentInIDb.Password;
+                }
+
+            }
+            catch (SqlException ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+
+            return student;
+        }
     }
 }

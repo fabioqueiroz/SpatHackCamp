@@ -8,5 +8,7 @@ namespace Rubrics.Data.Access.RepositoryInterfaces
     {
         List<string> CheckAdminDetails(string email);
         List<string> CheckTeacherDetails(string email);
+        Admin GetAdminByEmail(string email);
+        Teacher GetTeacherByEmail(string email);
     }
 }

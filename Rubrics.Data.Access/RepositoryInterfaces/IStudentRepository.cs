@@ -14,6 +14,7 @@ namespace Rubrics.Data.Access.RepositoryInterfaces
         Task<IEnumerable<Join>> GetJoinsUsingDapper();
         void RegisterNewStudent(Student newStudent);
         List<string> GetStudentLoginDetailsByEmail(string email);
-       
+        Student GetStudentByEmail(string email);
+
     }
 }

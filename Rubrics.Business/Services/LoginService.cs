@@ -1,5 +1,6 @@
 ﻿using Rubrics.Data.Access.RepositoryInterfaces;
 using Rubrics.General.Business.Interfaces;
+using Rubrics.General.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,7 @@ namespace Rubrics.Business.Services
             _loginRepository = loginRepository;
             _studentRepository = studentRepository;
         }
+
 
         public int LoginValidation(string email, string password)
         {
@@ -87,6 +89,35 @@ namespace Rubrics.Business.Services
             }
 
             return hash.ToString();
+        }
+
+        public AdminModel GetAdminByEmail(string email)
+        {
+            var adminDetails = _loginRepository.GetAdminByEmail(email);
+
+            return new AdminModel
+            {
+                Id = adminDetails.Id,
+                FirstName = adminDetails.FirstName,
+                LastName = adminDetails.LastName,
+                Email = adminDetails.Email,
+                Password = adminDetails.Password
+            };
+        }
+
+        public TeacherModel GetTeacherByEmail(string email)
+        {
+            var teacherDetails = _loginRepository.GetTeacherByEmail(email);
+
+            return new TeacherModel
+            {
+                Id = teacherDetails.Id,
+                FirstName = teacherDetails.FirstName,
+                LastName = teacherDetails.LastName,
+                Email = teacherDetails.Email,
+                Password = teacherDetails.Password,
+                ClassId = teacherDetails.ClassId
+            };
         }
     }
 }
