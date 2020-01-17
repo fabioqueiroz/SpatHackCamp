@@ -68,7 +68,9 @@ namespace WebApplication.Controllers
         [HttpPost]
         public IActionResult AttemptLogin(string usernameLogin, string passwordLogin)
         {
-            var userId = _loginService.LoginValidation(usernameLogin, passwordLogin);
+            var userId = _loginService.LoginValidation(usernameLogin, passwordLogin); 
+
+            // TODO: use data from db to store in the session
 
             if (userId == 1)
             {

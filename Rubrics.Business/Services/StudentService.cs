@@ -2,6 +2,7 @@
 using Rubrics.Data.Access.RepositoryInterfaces;
 using Rubrics.General.Business.Interfaces;
 using Rubrics.General.Business.Models;
+using Rubrics.General.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -89,6 +90,23 @@ namespace Rubrics.Business.Services
             };
 
             _repository.RegisterNewStudent(student);
+        }
+
+        public StudentInDbModel GetStudentByEmail(string email)
+        {
+            var studentInDb = _repository.GetStudentByEmail(email);
+
+            return new StudentInDbModel
+            {
+                Id = studentInDb.Id,
+                FirstName = studentInDb.FirstName,
+                LastName = studentInDb.LastName,
+                Email = studentInDb.Email,
+                Password = studentInDb.Password,
+                DOB = studentInDb.DOB,
+                Address = studentInDb.Address,
+                Score = studentInDb.Score
+            };
         }
     }
 }

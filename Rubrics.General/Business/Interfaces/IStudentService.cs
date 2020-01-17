@@ -1,4 +1,5 @@
 ﻿using Rubrics.General.Business.Models;
+using Rubrics.General.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -15,5 +16,6 @@ namespace Rubrics.General.Business.Interfaces
         // Methods being implemented
         string CreateRandomPassword(int size, bool lowerCase);
         void CreateNewStudent(StudentFormModel studentFormModel);
+        StudentInDbModel GetStudentByEmail(string email);
     }
 }
