@@ -90,6 +90,11 @@ namespace WebApplication.Controllers
         public IActionResult SubmitPasswordChange(string passwordField)
         {
             string newPassword = passwordField;
+            var userInSession = HttpContext.Session.GetObjectFromJson<StudentModel>("LoggedUser");
+            var studentDetails = _studentService.GetStudentByEmail(userInSession.Email);
+
+
+
             return RedirectToAction("Profile", "Student");
         }
     }

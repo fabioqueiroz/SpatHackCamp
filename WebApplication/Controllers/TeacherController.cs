@@ -87,7 +87,7 @@ namespace WebApplication.Controllers
         [HttpPost]
         public IActionResult SubmitTableGroup(IFormCollection form)
         {
-           
+
             //get the number of students in a group
             int numberOfStudents = Int32.Parse(form["numberOfStudents"]);
             int[] ids = new int[numberOfStudents];
@@ -126,11 +126,10 @@ namespace WebApplication.Controllers
                 _tableGroupService.CreateNewTableGroup(newTableGroup);
 
                 
-
-                return RedirectToAction("Index", "Home");
             }
-            
-            return RedirectToAction("Index", new { error = "Please insert the name of the group." });
+            return RedirectToAction("Index", "Home");
         }
+        
+
     }
 }
