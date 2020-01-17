@@ -46,7 +46,7 @@ namespace Rubrics.Data.Access
             var db = _repository.RubricsContext;
 
             var result = (from s in db.Students
-                          join t in db.Tests on s.Score equals t.Score
+                          join t in db.Tests on s.ClassId equals t.Score
                           select new { s.FirstName, s.LastName }).ToList();
 
             foreach (var item in result)
@@ -95,15 +95,15 @@ namespace Rubrics.Data.Access
         {
             var stdDetails = new List<string>();
             try
-            {              
+            {
                 var studentInIDb = _repository.GetSingle<Student>(x => x.Email == email);
 
                 if (studentInIDb != null)
                 {
                     stdDetails.Add(studentInIDb.Email);
-                    stdDetails.Add(studentInIDb.Password); 
+                    stdDetails.Add(studentInIDb.Password);
                 }
-               
+
             }
             catch (SqlException ex)
             {
@@ -129,6 +129,7 @@ namespace Rubrics.Data.Access
                     student.LastName = studentInIDb.LastName;
                     student.Email = studentInIDb.Email;
                     student.Password = studentInIDb.Password;
+                    student.ClassId = studentInIDb.ClassId;
                 }
 
             }
@@ -140,5 +141,33 @@ namespace Rubrics.Data.Access
 
             return student;
         }
-    }
+
+        public async Task<IEnumerable<Student>> GetStudentsBySchoolClass(int teacherClassId)
+        {
+            var query = new CommandDefinition(@"SELECT * from dbo.Students s
+                          INNER JOIN dbo.SchoolClasses sc on s.ClassId = sc.Id
+                          INNER JOIN dbo.TableGroupStudents tgs on tgs.StudentId = s.Id
+                          INNER JOIN dbo.TableGroups t on t.Id = tgs.TableGroupId
+                          WHERE sc.Id = @ClassId", new { ClassId = teacherClassId });
+
+            using (var conn = new SqlConnection(_connectionString.Value))
+            {
+                try
+                {
+                    var result = await conn.QueryAsync<Student>(query);
+                    var data = result.FirstOrDefault();
+                    return result;
+
+                }
+                catch (Exception ex)
+                {
+
+                    Console.WriteLine(ex.Message);
+
+                    throw new Exception(ex.Message);
+                }
+
+            }
+        }
+     }
 }

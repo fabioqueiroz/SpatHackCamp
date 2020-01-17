@@ -13,6 +13,6 @@ namespace Rubrics.General.Models
         public string Password { get; set; }
         public string Address { get; set; }
         public DateTime DOB { get; set; }
-        public int Score { get; set; }
+        public int ClassId { get; set; }
     }
 }

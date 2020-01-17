@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Rubrics.Data.Access.RepositoryInterfaces;
 using Rubrics.General.Business.Interfaces;
 using Rubrics.General.Models;
 using WebApplication.Helper;
@@ -13,9 +15,11 @@ namespace WebApplication.Controllers
     public class TeacherController : Controller
     {
         private readonly ITableGroupService _tableGroupService;
-        public TeacherController(ITableGroupService tableGroupService)
+        private readonly IStudentService _studentRepository;
+        public TeacherController(ITableGroupService tableGroupService, IStudentService studentRepository)
         {
             _tableGroupService = tableGroupService;
+            _studentRepository = studentRepository;
         }
         /**
          * As a teacher I should be able to
@@ -56,11 +60,28 @@ namespace WebApplication.Controllers
             return View();
         }
 
-        public IActionResult CreateTableGroup()
+
+        public async Task<IActionResult> CreateTableGroup()
         {
+            var displayStudents = new List<StudentModel>();
+
             MockDatabase mockDatabase = new MockDatabase();
             ViewData["studentsNotInGroup"] =
                 mockDatabase.GetStudentsWithoutGroupForTeacherId(HttpContext.Session.GetInt32("userId"));
+
+            // Data from 
+            var sessionUser = HttpContext.Session.GetObjectFromJson<TeacherModel>("LoggedUser");
+            var teacherClassId = Convert.ToInt32(sessionUser.ClassId);
+            // get students by class
+            var students = await _studentRepository.AllStudentsInTheClass(teacherClassId);
+            foreach (var item in students)
+            {
+                displayStudents.Add(new StudentModel {StudentId = item.Id, FirstName = item.FirstName, LastName = item.LastName });
+            }
+
+            ViewData["studentsNotInGroup"] = displayStudents;
+
+
             return View();
         }
 
@@ -84,8 +105,14 @@ namespace WebApplication.Controllers
 
             // Send to service and persist in the db
             // Retrieve the session user
-            var sessionUser = HttpContext.Session.GetObjectFromJson<AdminModel>("LoggedUser");
+            var sessionUser = HttpContext.Session.GetObjectFromJson<TeacherModel>("LoggedUser");
             var teacherId = Convert.ToInt32(sessionUser.Id);
+            //var teacherClassId = Convert.ToInt32(sessionUser.ClassId);
+
+            // get students by class
+            //var students = _studentRepository.AllStudentsInTheClass(teacherClassId);
+            //ViewData["studentsNotInGroup"] = students;
+
             string groupName = form["groupNameInput"];
 
             if (!string.IsNullOrEmpty(groupName))
@@ -96,7 +123,10 @@ namespace WebApplication.Controllers
                     TeacherId = teacherId
                 };
 
+                // Create a table group
                 _tableGroupService.CreateNewTableGroup(newTableGroup);
+
+                
 
                 return RedirectToAction("Index", "Home");
             }

@@ -17,5 +17,6 @@ namespace Rubrics.General.Business.Interfaces
         string CreateRandomPassword(int size, bool lowerCase);
         void CreateNewStudent(StudentFormModel studentFormModel);
         StudentInDbModel GetStudentByEmail(string email);
+        Task<List<StudentInDbModel>> AllStudentsInTheClass(int teacherClassId);
     }
 }

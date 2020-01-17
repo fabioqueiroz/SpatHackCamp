@@ -28,7 +28,7 @@ namespace Rubrics.Business.Services
                 Id = x.Id,
                 FirstName = x.FirstName,
                 LastName = x.LastName,
-                Score = x.Score
+                Score = x.ClassId
 
             }).ToList();
         }
@@ -105,8 +105,22 @@ namespace Rubrics.Business.Services
                 Password = studentInDb.Password,
                 DOB = studentInDb.DOB,
                 Address = studentInDb.Address,
-                Score = studentInDb.Score
+                ClassId = studentInDb.ClassId
             };
+        }
+
+        public async Task<List<StudentInDbModel>> AllStudentsInTheClass(int teacherClassId)
+        {
+            var listOfStudents = new List<StudentInDbModel>();
+
+            var students = await _repository.GetStudentsBySchoolClass(teacherClassId);
+
+            foreach (var std in students)
+            {
+                listOfStudents.Add(new StudentInDbModel { Id = std.Id, FirstName = std.FirstName, LastName = std.LastName});
+            }
+
+            return listOfStudents;
         }
     }
 }
