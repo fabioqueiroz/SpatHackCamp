@@ -13,7 +13,8 @@ namespace WebApplication.Controllers
     public class TeacherController : Controller
     {
         private readonly ITableGroupService _tableGroupService;
-        public TeacherController(ITableGroupService tableGroupService)
+        private readonly IStudentService _studentRepository;
+        public TeacherController(ITableGroupService tableGroupService, IStudentService studentRepository)
         {
             _tableGroupService = tableGroupService;
         }
@@ -53,11 +54,27 @@ namespace WebApplication.Controllers
             return View();
         }
 
-        public IActionResult CreateTableGroup()
+
+        public async Task<IActionResult> CreateTableGroup()
         {
+            var displayStudents = new List<StudentModel>();
+
             MockDatabase mockDatabase = new MockDatabase();
             ViewData["studentsNotInGroup"] =
                 mockDatabase.GetStudentsWithoutGroupForTeacherId(HttpContext.Session.GetInt32("userId"));
+
+            // Data from 
+            var sessionUser = HttpContext.Session.GetObjectFromJson<TeacherModel>("LoggedUser");
+            var teacherClassId = Convert.ToInt32(sessionUser.ClassId);
+            // get students by class
+            var students = await _studentRepository.AllStudentsInTheClass(teacherClassId);
+            foreach (var item in students)
+            {
+                displayStudents.Add(new StudentModel {StudentId = item.Id, FirstName = item.FirstName, LastName = item.LastName });
+            }
+
+            ViewData["studentsNotInGroup"] = displayStudents;
+
             return View();
         }
 
@@ -83,7 +100,11 @@ namespace WebApplication.Controllers
             // Retrieve the session user
             var sessionUser = HttpContext.Session.GetObjectFromJson<TeacherModel>("LoggedUser");
             var teacherId = Convert.ToInt32(sessionUser.Id);
-            var teacherClassId = Convert.ToInt32(sessionUser.ClassId);
+            //var teacherClassId = Convert.ToInt32(sessionUser.ClassId);
+
+            // get students by class
+            //var students = _studentRepository.AllStudentsInTheClass(teacherClassId);
+            //ViewData["studentsNotInGroup"] = students;
 
             string groupName = form["groupNameInput"];
 
@@ -98,10 +119,11 @@ namespace WebApplication.Controllers
                 // Create a table group
                 _tableGroupService.CreateNewTableGroup(newTableGroup);
 
-                return RedirectToAction("Index", "Home");
+                
             }
-            
-            return RedirectToAction("Index", "Home",new { error = "Please insert the name of the group." });
+            return RedirectToAction("Index", "Home");
         }
+        
+
     }
 }

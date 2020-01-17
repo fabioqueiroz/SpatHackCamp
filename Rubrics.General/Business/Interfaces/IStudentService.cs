@@ -22,5 +22,6 @@ namespace Rubrics.General.Business.Interfaces
         string GetClassNameById(int id);
 
         bool DeleteStudentByEmail(string email);
+        Task<List<StudentInDbModel>> AllStudentsInTheClass(int teacherClassId);
     }
 }

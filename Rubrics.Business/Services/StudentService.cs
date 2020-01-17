@@ -15,7 +15,6 @@ namespace Rubrics.Business.Services
     public class StudentService : IStudentService
     {
         private IStudentRepository _repository;
-
         public StudentService(IStudentRepository repository)
         {
             _repository = repository;
@@ -33,20 +32,18 @@ namespace Rubrics.Business.Services
                 Score = x.ClassId
             }).ToList();
         }
-
         public List<JoinModel> GetTestJoinsUsingLinq()
         {
             var join = _repository.GetJoinsUsingLinq();
 
-            ;
-            return join.Select(x => new JoinModel
+            ; return join.Select(x => new JoinModel
             {
                 FirstName = x.FirstName,
                 LastName = x.LastName,
                 Score = x.Score
+
             }).ToList();
         }
-
         public async Task<IEnumerable<JoinModel>> GetTestJoinsUsingDapper()
         {
             var result = await _repository.GetJoinsUsingDapper();
@@ -56,6 +53,7 @@ namespace Rubrics.Business.Services
                 FirstName = x.FirstName,
                 LastName = x.LastName,
                 Score = x.Score
+
             }).ToList();
         }
 
@@ -71,7 +69,6 @@ namespace Rubrics.Business.Services
                 ch = Convert.ToChar(Convert.ToInt32(Math.Floor(26 * random.NextDouble() + 65)));
                 builder.Append(ch);
             }
-
             if (lowerCase)
             {
                 return builder.ToString().ToLower();
@@ -122,6 +119,22 @@ namespace Rubrics.Business.Services
 
             return _repository.GetSchoolNameById(id);
         }
+
+        public async Task<List<StudentInDbModel>> AllStudentsInTheClass(int teacherClassId)
+        {
+            var listOfStudents = new List<StudentInDbModel>();
+
+            var students = await _repository.GetStudentsBySchoolClass(teacherClassId);
+
+            foreach (var std in students)
+            {
+                listOfStudents.Add(new StudentInDbModel { Id = std.Id, FirstName = std.FirstName, LastName = std.LastName});
+            }
+
+            return listOfStudents;
+        }
+    }
+}
 
         public bool DeleteStudentByEmail(string email)
         {

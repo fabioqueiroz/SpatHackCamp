@@ -47,7 +47,7 @@ namespace Rubrics.Data.Access
             var db = _repository.RubricsContext;
 
             var result = (from s in db.Students
-                          join t in db.Tests on s.ClassId equals t.Score
+                          join t in db.Tests on s.Score equals t.Score
                           select new { s.FirstName, s.LastName }).ToList();
 
             foreach (var item in result)
@@ -96,15 +96,15 @@ namespace Rubrics.Data.Access
         {
             var stdDetails = new List<string>();
             try
-            {
+            {              
                 var studentInIDb = _repository.GetSingle<Student>(x => x.Email == email);
 
                 if (studentInIDb != null)
                 {
                     stdDetails.Add(studentInIDb.Email);
-                    stdDetails.Add(studentInIDb.Password);
+                    stdDetails.Add(studentInIDb.Password); 
                 }
-
+               
             }
             catch (SqlException ex)
             {
@@ -130,7 +130,6 @@ namespace Rubrics.Data.Access
                     student.LastName = studentInIDb.LastName;
                     student.Email = studentInIDb.Email;
                     student.Password = studentInIDb.Password;
-                    student.ClassId = studentInIDb.ClassId;
                 }
 
             }

@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 using Rubrics.Data;
 using Rubrics.General.Business.Interfaces;
 using Rubrics.General.Models;
+using Rubrics.General.Business.Interfaces;
+using WebApplication.Helper;
 using WebApplication.Models;
 
 namespace WebApplication.Controllers
@@ -59,18 +61,34 @@ namespace WebApplication.Controllers
             return View();
         }
 
+        //public IActionResult Profile()
+        //{
+        //    if (HttpContext.Session.GetInt32("userId") == null)
+        //    {
+        //        return RedirectToAction("Index", "Login");
+        //    }
+
+        //    ViewData["userId"] = HttpContext.Session.GetInt32("userId");
+        //    ViewData["username"] = HttpContext.Session.GetString("username").ToString();
+        //    ViewData["userType"] = HttpContext.Session.GetString("userType");
+        //    MockDatabase mockDatabase = new MockDatabase();
+        //    ViewData["student"] = mockDatabase.GetUserProfileFromId(HttpContext.Session.GetInt32("userId"));
+        //    return View();
+        //}
+
+        [HttpGet]
         public IActionResult Profile()
         {
-            if (HttpContext.Session.GetInt32("userId") == null)
+            var userInSession = HttpContext.Session.GetObjectFromJson<StudentModel>("LoggedUser");
+            var studentDetails = _studentService.GetStudentByEmail(userInSession.Email);
+            var student = new StudentModel
             {
-                return RedirectToAction("Index", "Login");
-            }
-
-            ViewData["userId"] = HttpContext.Session.GetInt32("userId");
-            ViewData["username"] = HttpContext.Session.GetString("username").ToString();
-            ViewData["userType"] = HttpContext.Session.GetString("userType");
-            MockDatabase mockDatabase = new MockDatabase();
-            ViewData["student"] = mockDatabase.GetUserProfileFromId(HttpContext.Session.GetInt32("userId"));
+                FirstName = studentDetails.FirstName,
+                LastName = studentDetails.LastName,
+                Email = studentDetails.Email,
+                DateOfBirth = studentDetails.DOB.ToString("dd/MM/yyyy")
+            };
+            ViewData["Student"] = student;
             return View();
         }
 
@@ -78,6 +96,11 @@ namespace WebApplication.Controllers
         public IActionResult SubmitPasswordChange(string passwordField)
         {
             string newPassword = passwordField;
+            var userInSession = HttpContext.Session.GetObjectFromJson<StudentModel>("LoggedUser");
+            var studentDetails = _studentService.GetStudentByEmail(userInSession.Email);
+
+
+
             return RedirectToAction("Profile", "Student");
         }
     }
