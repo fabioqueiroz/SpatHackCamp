@@ -129,6 +129,7 @@ namespace Rubrics.Data.Access
                     student.LastName = studentInIDb.LastName;
                     student.Email = studentInIDb.Email;
                     student.Password = studentInIDb.Password;
+                    student.DOB = studentInIDb.DOB;
                     student.ClassId = studentInIDb.ClassId;
                 }
 

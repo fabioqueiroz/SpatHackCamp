@@ -81,7 +81,6 @@ namespace WebApplication.Controllers
 
             ViewData["studentsNotInGroup"] = displayStudents;
 
-
             return View();
         }
 

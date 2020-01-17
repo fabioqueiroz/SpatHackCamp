@@ -1,12 +1,19 @@
 ﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Rubrics.General.Business.Interfaces;
+using WebApplication.Helper;
 using WebApplication.Models;
 
 namespace WebApplication.Controllers
 {
     public class StudentController : Controller
     {
+        private readonly IStudentService _studentService;
+        public StudentController(IStudentService studentRepository)
+        {
+            _studentService = studentRepository;
+        }
         // The index page for the Student Controller
         //should display all relevant information about a student
         public IActionResult Index(int id)
@@ -48,18 +55,34 @@ namespace WebApplication.Controllers
             return View();
         }
 
+        //public IActionResult Profile()
+        //{
+        //    if (HttpContext.Session.GetInt32("userId") == null)
+        //    {
+        //        return RedirectToAction("Index", "Login");
+        //    }
+
+        //    ViewData["userId"] = HttpContext.Session.GetInt32("userId");
+        //    ViewData["username"] = HttpContext.Session.GetString("username").ToString();
+        //    ViewData["userType"] = HttpContext.Session.GetString("userType");
+        //    MockDatabase mockDatabase = new MockDatabase();
+        //    ViewData["student"] = mockDatabase.GetUserProfileFromId(HttpContext.Session.GetInt32("userId"));
+        //    return View();
+        //}
+
+        [HttpGet]
         public IActionResult Profile()
         {
-            if (HttpContext.Session.GetInt32("userId") == null)
+            var userInSession = HttpContext.Session.GetObjectFromJson<StudentModel>("LoggedUser");
+            var studentDetails = _studentService.GetStudentByEmail(userInSession.Email);
+            var student = new StudentModel
             {
-                return RedirectToAction("Index", "Login");
-            }
-
-            ViewData["userId"] = HttpContext.Session.GetInt32("userId");
-            ViewData["username"] = HttpContext.Session.GetString("username").ToString();
-            ViewData["userType"] = HttpContext.Session.GetString("userType");
-            MockDatabase mockDatabase = new MockDatabase();
-            ViewData["student"] = mockDatabase.GetUserProfileFromId(HttpContext.Session.GetInt32("userId"));
+                FirstName = studentDetails.FirstName,
+                LastName = studentDetails.LastName,
+                Email = studentDetails.Email,
+                DateOfBirth = studentDetails.DOB.ToString("dd/MM/yyyy")
+            };
+            ViewData["Student"] = student;
             return View();
         }
 
