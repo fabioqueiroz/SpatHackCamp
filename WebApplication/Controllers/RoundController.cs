@@ -85,7 +85,8 @@ namespace WebApplication.Controllers
                 }
             }
             //redirect home afterwards
-            return RedirectToAction("Index", "Home");
+             return RedirectToAction("Index", "Home");
+            
         }
 
         public IActionResult SelectStudentsToSendRound(int id)

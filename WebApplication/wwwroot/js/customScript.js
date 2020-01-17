@@ -4,7 +4,7 @@ const highlightColor = "#A6E08E";
 let completedItems = 0;
 const table = document.getElementById("form-table");
 if (table != null) {
-   // const allHiddenInputs = table.getElementsByClassName("input-hidden");
+    // const allHiddenInputs = table.getElementsByClassName("input-hidden");
     const allRows = table.getElementsByTagName("tr");
     if (allRows !== null) {
         for (let i = 0; i < allRows.length; i++) {
@@ -13,7 +13,7 @@ if (table != null) {
                 rubricsForCurrentRow[j].addEventListener('click', () => {
                     highlightRubric(rubricsForCurrentRow[j],
                         rubricsForCurrentRow);
-                  //  allHiddenInputs[0].value = j;
+                    //  allHiddenInputs[0].value = j;
                 })
             }
         }
@@ -27,7 +27,7 @@ function highlightRubric(rubric, allRubricsOnRow) {
         allRubricsOnRow[i].style.background = ""
     }
     rubric.style.background = highlightColor;
-    
+
 }
 
 
@@ -103,35 +103,37 @@ function isChangePasswordModalValid() {
     }
     return true;
 }
-function isLoginValid(){
+
+function isLoginValid() {
     let alert = document.getElementsByClassName("alert")[0];
     let emailField = document.getElementById("inputEmailLogin");
     let passwordField = document.getElementById("inputPasswordLogin");
-    if(emailField.value.trim() ===""){
+    if (emailField.value.trim() === "") {
         alert.style.visibility = "visible";
         alert.innerText = "You must insert an email";
         return false;
     }
-    if(passwordField.value.trim()===""){
+    if (passwordField.value.trim() === "") {
         alert.style.visibility = "visible";
         alert.innerText = "You must insert a password";
         return false;
     }
     return true;
 }
-function isSheetCompleted(){
+
+function isSheetCompleted() {
     let alert = document.getElementsByClassName("alert")[0];
     let numberOfRubricsToComplete = document.getElementById("numberOfRubricsToComplete").value;
     let actualCompletedRubrics = 0;
     let allRubrics = document.getElementsByClassName("rubric-item");
-    for(let i =0;i<allRubrics.length;i++){
-        if(allRubrics[i].style.background === "rgb(166, 224, 142)"){
+    for (let i = 0; i < allRubrics.length; i++) {
+        if (allRubrics[i].style.background === "rgb(166, 224, 142)") {
             actualCompletedRubrics++;
         }
     }
-    if(actualCompletedRubrics == numberOfRubricsToComplete){
+    if (actualCompletedRubrics == numberOfRubricsToComplete) {
         return true;
-    }else{
+    } else {
         alert.style.visibility = "visible";
         return false;
     }
@@ -149,14 +151,15 @@ function isEmailFieldValid() {
 
 }
 
-function checkIfNoCellsEmpty(){
+function checkIfNoCellsEmpty() {
     var textAreas = document.getElementsByTagName('textarea');
+    var deadline = document.getElementsByName("roundDeadline");
+
     for (var i = 0; i < textAreas.length; i++) {
-        if(textAreas[i].value.trim() === '')
-        {
+        if (textAreas[i].value.trim() === '') {
             document.getElementById("createRubricAlert").style.visibility = "visible";
             return false;
         }
     }
-    return false;
+    return true;
 }
