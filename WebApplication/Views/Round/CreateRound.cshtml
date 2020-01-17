@@ -5,7 +5,11 @@
 <div class="text-center">
     <h1>Create Round</h1>
 </div>
-<form id="teacherTable" method="post" action="@Url.Action("SubmitRound", "Round")">
+<div class="alert alert-danger" role="alert" id="createRubricAlert" style="visibility: hidden;">
+    Fields are not full!
+</div>
+
+<form id="teacherTable" method="post" action="@Url.Action("SubmitRound", "Round")" onsubmit="return checkIfNoCellsEmpty()">
     <div class="input-group mb-3">
         <div class="input-group-prepend">
             <span class="input-group-text" id="basic-addon1">Deadline: </span>
@@ -22,10 +26,8 @@
     </div>
     <div class="row mt-4">
         <div class="col">
-            <table class="table table-bordered">
-                <input type="hidden" name="tableLength" value="5"/>
-                <input type="hidden" name="tableWidth" value="3"/>
-
+            <table class="table table-bordered" id="teacherRubricCreate">
+                <input type="hidden" name="tableHeight" id="tableHeight" value="3"/>
                 <thead>
                 <tr class="table-success">
                     <th scope="col"></th>
@@ -35,12 +37,12 @@
                     <th scope="col">4</th>
                 </tr>
                 </thead>
-                <tbody>
+                <tbody id="round-table">
                 <tr>
                     <th scope="row" class="rubric-item">
                         <!--Material textarea-->
                         <div class="md-form">
-                            <textarea  class="md-textarea form-control" rows="3" name="row1col1"></textarea>
+                            <textarea class="md-textarea form-control" rows="3" name="row1col1"></textarea>
                         </div>
                     </th>
                     <td class="rubric-item">
@@ -64,7 +66,7 @@
                     <td class="rubric-item">
                         <!--Material textarea-->
                         <div class="md-form">
-                            <textarea id="form7" class="md-textarea form-control" rows="3"  name="row1col5" ></textarea>
+                            <textarea  class="md-textarea form-control" rows="3"  name="row1col5" ></textarea>
                         </div>
                     </td>
                 </tr>
@@ -72,31 +74,31 @@
                     <th scope="row" class="rubric-item">
                         <!--Material textarea-->
                         <div class="md-form">
-                            <textarea id="form7" class="md-textarea form-control" rows="3" name="row2col1"></textarea>
+                            <textarea  class="md-textarea form-control" rows="3" name="row2col1"></textarea>
                         </div>
                     </th>
                     <td class="rubric-item">
                         <!--Material textarea-->
                         <div class="md-form">
-                            <textarea id="form7" class="md-textarea form-control" rows="3" name="row2col2"></textarea>
+                            <textarea  class="md-textarea form-control" rows="3" name="row2col2"></textarea>
                         </div>
                     </td>
                     <td class="rubric-item">
                         <!--Material textarea-->
                         <div class="md-form">
-                            <textarea id="form7" class="md-textarea form-control" rows="3" name="row2col3"></textarea>
+                            <textarea  class="md-textarea form-control" rows="3" name="row2col3"></textarea>
                         </div>
                     </td>
                     <td class="rubric-item">
                         <!--Material textarea-->
                         <div class="md-form">
-                            <textarea id="form7" class="md-textarea form-control" rows="3" name="row2col4" ></textarea>
+                            <textarea  class="md-textarea form-control" rows="3" name="row2col4" ></textarea>
                         </div>
                     </td>
                     <td class="rubric-item">
                         <!--Material textarea-->
                         <div class="md-form">
-                            <textarea id="form7" class="md-textarea form-control" name="row2col5"></textarea>
+                            <textarea  class="md-textarea form-control" rows="3" name="row2col5"></textarea>
                         </div>
                     </td>
                 </tr>
@@ -104,32 +106,32 @@
                     <th scope="row" class="rubric-item">
                         <!--Material textarea-->
                         <div class="md-form">
-                            <textarea id="form7" class="md-textarea form-control" rows="3" name="row3col1"></textarea>
+                            <textarea  class="md-textarea form-control" rows="3" name="row3col1"></textarea>
                             <input type="hidden" name="thirdRowCol1"/>
                         </div>
                     </th>
                     <td class="rubric-item">
                         <!--Material textarea-->
                         <div class="md-form">
-                            <textarea id="form7" class="md-textarea form-control" rows="3" name="row3col2"></textarea>
+                            <textarea  class="md-textarea form-control" rows="3" name="row3col2"></textarea>
                         </div>
                     </td>
                     <td class="rubric-item">
                         <!--Material textarea-->
                         <div class="md-form">
-                            <textarea id="form7" class="md-textarea form-control" rows="3" name="row3col3"></textarea>
+                            <textarea  class="md-textarea form-control" rows="3" name="row3col3"></textarea>
                         </div>
                     </td>
                     <td class="rubric-item">
                         <!--Material textarea-->
                         <div class="md-form">
-                            <textarea id="form7" class="md-textarea form-control" rows="3" name="row3col4"></textarea>
+                            <textarea class="md-textarea form-control" rows="3" name="row3col4"></textarea>
                         </div>
                     </td>
                     <td class="rubric-item">
                         <!--Material textarea-->
                         <div class="md-form">
-                            <textarea id="form7" class="md-textarea form-control" rows="3" name="row3col5"></textarea>
+                            <textarea  class="md-textarea form-control" rows="3" name="row3col5"></textarea>
                         </div>
                     </td>
                 </tr>
@@ -137,5 +139,16 @@
             </table>
         </div>
     </div>
-    <button type="submit" class="btn btn-primary float-right mr-3" id="createRubric">Create</button>
+    <div>
+
+        <div class="text-center mt-3">
+            <button type="button" class="btn-primary btn" onclick="addTableRow()">
+                <i class="far fa-plus-square" style="font-size: 30px"></i>
+            </button>
+        </div>
+        <div class="text-center mt-3">
+            <button type="submit" class="btn btn-primary text-center mr-3" style="font-size:20px" id="createRubric">Create round</button>
+        </div>
+    </div>
 </form>
+<script src="~/js/RoundScript.js"></script>

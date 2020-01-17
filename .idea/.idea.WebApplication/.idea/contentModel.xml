@@ -208,7 +208,6 @@
             <e p="CreateStudent.cshtml" t="Include" />
             <e p="DeleteStudent.cshtml" t="Include" />
           </e>
-          <e p="ConfirmationModal.html" t="Include" />
           <e p="Home" t="Include">
             <e p="Index.cshtml" t="Include" />
             <e p="Privacy.cshtml" t="Include" />
@@ -234,6 +233,7 @@
             <e p="_ValidationScriptsPartial.cshtml" t="Include" />
             <e p="CardPastRound.cshtml" t="Include" />
             <e p="CardStudent.cshtml" t="Include" />
+            <e p="ConfirmationModal.cshtml" t="Include" />
             <e p="Error.cshtml" t="Include" />
             <e p="Header.cshtml" t="Include" />
             <e p="modal.cshtml" t="Include" />
@@ -263,6 +263,7 @@
           <e p="favicon.ico" t="Include" />
           <e p="js" t="Include">
             <e p="customScript.js" t="Include" />
+            <e p="RoundScript.js" t="Include" />
             <e p="site.js" t="Include" />
             <e p="StudentSelector.js" t="Include" />
           </e>

@@ -10,7 +10,6 @@ namespace WebApplication.Models
         public List<StudentModel> Students { get; set; }
 
         public StudentModel StudentModelMarked { get; set; }
-        public int Length { get; set; }
-        public int Width { get; set; }
+        public int Height { get; set; }
     }
 }

@@ -59,12 +59,21 @@ namespace WebApplication.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        
-        
         public IActionResult DeleteStudent(string error)
         {
             ViewData["Error"] = error;
                 return View();
+        }
+
+        public IActionResult SubmitDeleteAction(string studentEmailField)
+        {
+            MockDatabase mockDatabase = new MockDatabase();
+            bool studentFound =  mockDatabase.DeleteStudentByEmail(studentEmailField);
+            if (studentFound)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            return RedirectToAction("DeleteStudent", "Admin",new {error= "The email has not been found in the database"});
         }
 
         [HttpPost]
