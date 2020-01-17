@@ -25,5 +25,13 @@ namespace Rubrics.Business.Services
 
             _tableGroupRepository.AddNewTableGroup(tableGroup);
         }
+
+        public List<Student> GetStudentsFromGroupId(int id)
+        {
+            //merge student data modal into view data
+            List<Student> dataStudents = _tableGroupRepository.GetStudentsFromGroup(id);
+           
+            return dataStudents;
+        }
     }
 }

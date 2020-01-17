@@ -1,18 +1,28 @@
 ﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Rubrics.Data;
+using Rubrics.General.Business.Interfaces;
+using Rubrics.General.Models;
 using WebApplication.Models;
 
 namespace WebApplication.Controllers
 {
     public class StudentController : Controller
     {
+        private readonly IStudentService _studentService;
+        public StudentController(IStudentService studentService)
+        {
+            _studentService = studentService;
+        }
+        
         // The index page for the Student Controller
         //should display all relevant information about a student
         public IActionResult Index(int id)
         {
-            MockDatabase mockDatabase = new MockDatabase();
-            ViewData["Student"] = mockDatabase.GetStudentDetailsFromId(id);
+            //change the type from Student in db to normal student
+            ViewData["Student"] = _studentService.GetStudentById(id);
+            
             if (HttpContext.Session.GetInt32("userId") == null)
             {
                 return RedirectToAction("Index", "Login");

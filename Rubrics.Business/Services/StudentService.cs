@@ -9,11 +9,13 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+
 namespace Rubrics.Business.Services
 {
     public class StudentService : IStudentService
     {
         private IStudentRepository _repository;
+
         public StudentService(IStudentRepository repository)
         {
             _repository = repository;
@@ -28,22 +30,23 @@ namespace Rubrics.Business.Services
                 Id = x.Id,
                 FirstName = x.FirstName,
                 LastName = x.LastName,
-                Score = x.Score
-
+                Score = x.ClassId
             }).ToList();
         }
+
         public List<JoinModel> GetTestJoinsUsingLinq()
         {
             var join = _repository.GetJoinsUsingLinq();
 
-            ; return join.Select(x => new JoinModel
+            ;
+            return join.Select(x => new JoinModel
             {
                 FirstName = x.FirstName,
                 LastName = x.LastName,
                 Score = x.Score
-
             }).ToList();
         }
+
         public async Task<IEnumerable<JoinModel>> GetTestJoinsUsingDapper()
         {
             var result = await _repository.GetJoinsUsingDapper();
@@ -53,7 +56,6 @@ namespace Rubrics.Business.Services
                 FirstName = x.FirstName,
                 LastName = x.LastName,
                 Score = x.Score
-
             }).ToList();
         }
 
@@ -69,6 +71,7 @@ namespace Rubrics.Business.Services
                 ch = Convert.ToChar(Convert.ToInt32(Math.Floor(26 * random.NextDouble() + 65)));
                 builder.Append(ch);
             }
+
             if (lowerCase)
             {
                 return builder.ToString().ToLower();
@@ -105,8 +108,13 @@ namespace Rubrics.Business.Services
                 Password = studentInDb.Password,
                 DOB = studentInDb.DOB,
                 Address = studentInDb.Address,
-                Score = studentInDb.Score
+                ClassId = studentInDb.ClassId
             };
+        }
+
+        public Student GetStudentById(int id)
+        {
+             return _repository.GetStudentById(id);
         }
     }
 }

@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using Rubrics.Data;
 
 namespace Rubrics.General.Business.Interfaces
 {
@@ -17,5 +18,6 @@ namespace Rubrics.General.Business.Interfaces
         string CreateRandomPassword(int size, bool lowerCase);
         void CreateNewStudent(StudentFormModel studentFormModel);
         StudentInDbModel GetStudentByEmail(string email);
+        Student GetStudentById(int id);
     }
 }

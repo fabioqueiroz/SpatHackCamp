@@ -22,13 +22,10 @@ namespace WebApplication.Controllers
          * see all the members of the group with which
          * a particular student is in
          */
-        public IActionResult GroupMembers(int selectedGroup)
+        public IActionResult GroupMembers(int id)
         {
-            //get the students from the same group with 
-            //the logged in student
-            //the data we need from them is :
-            MockDatabase mockDatabase = new MockDatabase();
-            ViewData["GroupMembers"] = mockDatabase.GetStudentsFromGroupId(selectedGroup);
+             //get the students from the group with the specific id
+             ViewData["GroupMembers"] =  _tableGroupService.GetStudentsFromGroupId(id);
             if (HttpContext.Session.GetInt32("userId") == null)
             {
                 return RedirectToAction("Index", "Login");
@@ -84,8 +81,10 @@ namespace WebApplication.Controllers
 
             // Send to service and persist in the db
             // Retrieve the session user
-            var sessionUser = HttpContext.Session.GetObjectFromJson<AdminModel>("LoggedUser");
+            var sessionUser = HttpContext.Session.GetObjectFromJson<TeacherModel>("LoggedUser");
             var teacherId = Convert.ToInt32(sessionUser.Id);
+            var teacherClassId = Convert.ToInt32(sessionUser.ClassId);
+
             string groupName = form["groupNameInput"];
 
             if (!string.IsNullOrEmpty(groupName))
@@ -96,12 +95,13 @@ namespace WebApplication.Controllers
                     TeacherId = teacherId
                 };
 
+                // Create a table group
                 _tableGroupService.CreateNewTableGroup(newTableGroup);
 
                 return RedirectToAction("Index", "Home");
             }
             
-            return RedirectToAction("Index", new { error = "Please insert the name of the group." });
+            return RedirectToAction("Index", "Home",new { error = "Please insert the name of the group." });
         }
     }
 }

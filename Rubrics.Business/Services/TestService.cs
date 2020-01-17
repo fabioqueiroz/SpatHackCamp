@@ -31,7 +31,7 @@ namespace Rubrics.Business.Services
                     Id = student.Id,
                     FirstName = student.FirstName,
                     LastName = student.LastName,
-                    Score = student.Score
+                    Score = student.ClassId
                 };
 
                 students.Add(result);

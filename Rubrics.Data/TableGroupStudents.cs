@@ -8,6 +8,6 @@ namespace Rubrics.Data
     {
         public int Id { get; set; }
         public int StudentId { get; set; }
-        public int TeacherId { get; set; }
+        public int TableGroupId { get; set; }
     }
 }

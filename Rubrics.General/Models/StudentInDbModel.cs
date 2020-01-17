@@ -4,6 +4,8 @@ using System.Text;
 
 namespace Rubrics.General.Models
 {
+    //todo
+    //add the group id
     public class StudentInDbModel
     {
         public int Id { get; set; }
@@ -13,6 +15,7 @@ namespace Rubrics.General.Models
         public string Password { get; set; }
         public string Address { get; set; }
         public DateTime DOB { get; set; }
-        public int Score { get; set; }
+        public int ClassId { get; set; }
+        
     }
 }
