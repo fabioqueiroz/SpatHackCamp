@@ -66,6 +66,8 @@ namespace Rubrics.Data.Access
         public DbSet<Test> Tests { get; set; }
         public DbSet<CategoryDescription> CategoryDescriptions { get; set; }
         public DbSet<Admin> Admins { get; set; }
+        public DbSet<TableGroupStudents> TableGroupStudents { get; set; }
+        public DbSet<SchoolClass> SchoolClasses { get; set; }
     }
 }
 

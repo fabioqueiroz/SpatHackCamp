@@ -49,8 +49,6 @@ namespace WebApplication.Controllers
             ViewData["username"] = HttpContext.Session.GetString("username").ToString();
             ViewData["userType"]= HttpContext.Session.GetString("userType");
             return View();
-
-            return View();
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
