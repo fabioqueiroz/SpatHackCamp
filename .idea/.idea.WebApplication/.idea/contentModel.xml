@@ -97,6 +97,8 @@
           <e p="20200117151506_newsupd.Designer.cs" t="Include" />
           <e p="20200117152215_eminem2.cs" t="Include" />
           <e p="20200117152215_eminem2.Designer.cs" t="Include" />
+          <e p="20200118160135_eminem3.cs" t="Include" />
+          <e p="20200118160135_eminem3.Designer.cs" t="Include" />
           <e p="ContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
