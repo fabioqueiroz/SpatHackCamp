@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Rubrics.General.Business.Interfaces;
+using Rubrics.General.Models;
 using WebApplication.Helper;
 using WebApplication.Models;
 
@@ -10,9 +11,11 @@ namespace WebApplication.Controllers
     public class StudentController : Controller
     {
         private readonly IStudentService _studentService;
-        public StudentController(IStudentService studentRepository)
+        private readonly ILoginService _loginService;
+        public StudentController(IStudentService studentRepository, ILoginService loginService)
         {
             _studentService = studentRepository;
+            _loginService = loginService;
         }
         // The index page for the Student Controller
         //should display all relevant information about a student
@@ -89,8 +92,18 @@ namespace WebApplication.Controllers
         [HttpPost]
         public IActionResult SubmitPasswordChange(string passwordField)
         {
-            string newPassword = passwordField;
-            return RedirectToAction("Profile", "Student");
+            if (!string.IsNullOrWhiteSpace(passwordField) && passwordField.Length > 2)
+            {
+                var hashedPassword = _loginService.SHA512ComputeHash(passwordField);
+                var userInSession = HttpContext.Session.GetObjectFromJson<StudentModel>("LoggedUser");
+                var studentDetails = _studentService.GetStudentByEmail(userInSession.Email);
+
+                _studentService.UpdateStudentPassword(studentDetails, hashedPassword);
+
+                return RedirectToAction("Profile", "Student"); 
+            }
+
+            return RedirectToAction("Index", new { error = "Your password is too short!" });
         }
     }
 }

@@ -16,6 +16,7 @@ namespace Rubrics.Data.Access.RepositoryInterfaces
         List<string> GetStudentLoginDetailsByEmail(string email);
         Student GetStudentByEmail(string email);
         Task<IEnumerable<Student>> GetStudentsBySchoolClass(int teacherClassId);
-
+        void UpdateStudentInDb(Student student);
+        void UpdateStudentPassword(Student student);
     }
 }

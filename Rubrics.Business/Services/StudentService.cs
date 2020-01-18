@@ -122,5 +122,22 @@ namespace Rubrics.Business.Services
 
             return listOfStudents;
         }
+
+        public void UpdateStudentPassword(StudentInDbModel studentInDb, string hashedPassword)
+        {
+            var updateStudent = new Student
+            {
+                Id = studentInDb.Id,
+                FirstName = studentInDb.FirstName,
+                LastName = studentInDb.LastName,
+                Email = studentInDb.Email,
+                Password = hashedPassword,
+                Address = studentInDb.Address,
+                DOB = studentInDb.DOB,
+                ClassId = studentInDb.ClassId
+            };
+
+            _repository.UpdateStudentPassword(updateStudent);
+        }
     }
 }

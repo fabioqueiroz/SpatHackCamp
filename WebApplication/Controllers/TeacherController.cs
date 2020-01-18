@@ -69,7 +69,6 @@ namespace WebApplication.Controllers
             ViewData["studentsNotInGroup"] =
                 mockDatabase.GetStudentsWithoutGroupForTeacherId(HttpContext.Session.GetInt32("userId"));
 
-            // Data from 
             var sessionUser = HttpContext.Session.GetObjectFromJson<TeacherModel>("LoggedUser");
             var teacherClassId = Convert.ToInt32(sessionUser.ClassId);
             // get students by class

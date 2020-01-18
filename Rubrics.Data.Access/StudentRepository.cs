@@ -170,5 +170,56 @@ namespace Rubrics.Data.Access
 
             }
         }
-     }
+
+        public void UpdateStudentInDb(Student student)
+        {
+            var getStudent = GetStudentByEmail(student.Email);
+
+            var updatedStudent = new Student
+            {
+                Id = getStudent.Id,
+                FirstName = getStudent.FirstName,
+                LastName = getStudent.LastName,
+                Email = getStudent.Email,
+                Password = student.Password,
+                DOB = getStudent.DOB,
+                Address = getStudent.Address,
+                ClassId = getStudent.ClassId
+            };
+
+            try
+            {
+                _repository.Update<Student>(updatedStudent);
+                _repository.Commit();
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public void UpdateStudentPassword(Student student)
+        {
+            var query = new CommandDefinition(@"UPDATE dbo.Students
+                          SET Password = @Password
+                          WHERE Id = @Id", new { student.Id , student.Password});
+
+            using (var conn = new SqlConnection(_connectionString.Value))
+            {
+                try
+                {
+                    var result =  conn.Query<Student>(query);
+                    var data = result.FirstOrDefault();
+
+                }
+                catch (SqlException ex)
+                {
+
+                    throw new Exception(ex.Message);
+                }
+
+            }
+        }
+    }
 }

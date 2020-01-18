@@ -18,5 +18,6 @@ namespace Rubrics.General.Business.Interfaces
         void CreateNewStudent(StudentFormModel studentFormModel);
         StudentInDbModel GetStudentByEmail(string email);
         Task<List<StudentInDbModel>> AllStudentsInTheClass(int teacherClassId);
+        void UpdateStudentPassword(StudentInDbModel studentInDb, string hashedPassword);
     }
 }
