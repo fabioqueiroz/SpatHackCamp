@@ -67,9 +67,9 @@ namespace WebApplication.Controllers
         
 
         [HttpPost]
-        public IActionResult SubmitDeleteStudent(string email)
+        public IActionResult SubmitDeleteStudent(string emailStudentToDelete)
         {
-            bool studentDeleted =  _studentService.DeleteStudentByEmail(email);
+            bool studentDeleted =  _studentService.DeleteStudentByEmail(emailStudentToDelete);
             if (studentDeleted)
             {
                 return RedirectToAction("Index", "Home");

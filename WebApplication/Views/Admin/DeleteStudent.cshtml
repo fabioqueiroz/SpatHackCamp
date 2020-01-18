@@ -6,20 +6,13 @@
 <form method="post" action="@Url.Action("SubmitDeleteStudent", "Admin")" onsubmit="return isEmailFieldValid()">
     <div class="form-group">
         <label for="studentEmailField">Student email</label>
-        <input type="email" class="form-control" id="studentEmailField" name="studentEmailField" placeholder="name@example.com">
+        <input type="email" class="form-control" id="studentEmailField" name="emailStudentToDelete" placeholder="name@example.com">
     </div>
     @if (ViewData["Error"] != null)
     {
-        
-    <div class="alert alert-danger" role="alert">
-        The student email does not exist!!
-    </div>
-    }
 
-    @if (@ViewData["ErrorMessage"] != null)
-    {
         <div class="alert alert-danger" role="alert">
-            The user with this email does not exist !
+            The student email does not exist!!
         </div>
     }
     else

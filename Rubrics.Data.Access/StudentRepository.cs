@@ -171,22 +171,18 @@ namespace Rubrics.Data.Access
                 }
             }
         }
-
-        public string GetSchoolNameById(int id)
-        {
-            throw new NotImplementedException();
-        }
+        
 
         public bool DeleteStudentByEmail(string email)
         {
-            Student toDelete = _repository.GetSingle<Student>(x => x.Email == email);
+            Student toDelete =  _repository.GetSingle<Student>(x=>x.Email ==email);
             if (toDelete == null)
             {
                 return false;
             }
             else
             {
-                _repository.Delete(toDelete);
+                 _repository.RubricsContext.Students.FromSqlRaw($"DELETE FROM dbo.Students s WHERE s.Email = Email", new {email = email});
                 return true;
             }
         }
