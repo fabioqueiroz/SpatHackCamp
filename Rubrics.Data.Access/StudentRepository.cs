@@ -130,6 +130,7 @@ namespace Rubrics.Data.Access
                     student.Email = studentInIDb.Email;
                     student.Password = studentInIDb.Password;
                     student.DOB = studentInIDb.DOB;
+                    student.Address = studentInIDb.Address;
                     student.ClassId = studentInIDb.ClassId;
                 }
 
@@ -173,23 +174,19 @@ namespace Rubrics.Data.Access
 
         public void UpdateStudentInDb(Student student)
         {
-            var getStudent = GetStudentByEmail(student.Email);
+            var stdInDb = GetStudentByEmail(student.Email);
 
-            var updatedStudent = new Student
-            {
-                Id = getStudent.Id,
-                FirstName = getStudent.FirstName,
-                LastName = getStudent.LastName,
-                Email = getStudent.Email,
-                Password = student.Password,
-                DOB = getStudent.DOB,
-                Address = getStudent.Address,
-                ClassId = getStudent.ClassId
-            };
+            stdInDb.FirstName = student.FirstName;
+            stdInDb.LastName = student.LastName;
+            stdInDb.Email = student.Email;
+            stdInDb.Password = student.Password;
+            stdInDb.DOB = student.DOB;
+            stdInDb.Address = student.Address;
+            stdInDb.ClassId = student.ClassId;
 
             try
             {
-                _repository.Update<Student>(updatedStudent);
+                _repository.Update<Student>(stdInDb);
                 _repository.Commit();
             }
             catch (Exception ex)
@@ -220,6 +217,11 @@ namespace Rubrics.Data.Access
                 }
 
             }
+        }
+        // TODO
+        public void ChangeStudentClassId(int classId)
+        {
+            throw new NotImplementedException();
         }
     }
 }

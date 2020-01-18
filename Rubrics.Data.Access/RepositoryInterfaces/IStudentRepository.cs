@@ -18,5 +18,6 @@ namespace Rubrics.Data.Access.RepositoryInterfaces
         Task<IEnumerable<Student>> GetStudentsBySchoolClass(int teacherClassId);
         void UpdateStudentInDb(Student student);
         void UpdateStudentPassword(Student student);
+        public void ChangeStudentClassId(int classId);
     }
 }

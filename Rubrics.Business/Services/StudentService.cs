@@ -139,5 +139,10 @@ namespace Rubrics.Business.Services
 
             _repository.UpdateStudentPassword(updateStudent);
         }
+        // TODO
+        public void AssignClassIdToTheStudent(int classId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
