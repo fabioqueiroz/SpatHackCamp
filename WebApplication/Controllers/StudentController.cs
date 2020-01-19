@@ -100,6 +100,9 @@ namespace WebApplication.Controllers
 
                 _studentService.UpdateStudentPassword(studentDetails, hashedPassword);
 
+                // Assign a default class when the password is changed
+                _studentService.AssignClassToTheStudent(studentDetails.Id, 1);
+
                 return RedirectToAction("Profile", "Student"); 
             }
 

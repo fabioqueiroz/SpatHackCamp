@@ -91,6 +91,37 @@ namespace Rubrics.Data.Access
             _repository.Commit();
         }
 
+        public Student GetStudentById(int studentId)
+        {
+            var student = new Student();
+
+            try
+            {
+                var studentInIDb = _repository.GetSingle<Student>(x => x.Id == studentId);
+
+                if (studentInIDb != null)
+                {
+                    student.Id = studentInIDb.Id;
+                    student.FirstName = studentInIDb.FirstName;
+                    student.LastName = studentInIDb.LastName;
+                    student.Email = studentInIDb.Email;
+                    student.Password = studentInIDb.Password;
+                    student.DOB = studentInIDb.DOB;
+                    student.Address = studentInIDb.Address;
+                    student.ClassId = studentInIDb.ClassId;
+                }
+
+            }
+            catch (SqlException ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
+
+            return student;
+        }
+
+
         public List<string> GetStudentLoginDetailsByEmail(string email)
         {
             var stdDetails = new List<string>();
@@ -198,9 +229,11 @@ namespace Rubrics.Data.Access
 
         public void UpdateStudentPassword(Student student)
         {
-            var query = new CommandDefinition(@"UPDATE dbo.Students
+            var query = new CommandDefinition(
+                          @"UPDATE dbo.Students
                           SET Password = @Password
-                          WHERE Id = @Id", new { student.Id , student.Password});
+                          WHERE Id = @Id", 
+                          new { student.Id , student.Password});
 
             using (var conn = new SqlConnection(_connectionString.Value))
             {
@@ -218,10 +251,30 @@ namespace Rubrics.Data.Access
 
             }
         }
-        // TODO
-        public void ChangeStudentClassId(int classId)
+
+        public void ChangeStudentClass(Student student, int classId)
         {
-            throw new NotImplementedException();
+            var query = new CommandDefinition(
+                          @"UPDATE dbo.Students
+                          SET ClassId = @ClassId
+                          WHERE Id = @Id", 
+                          new { student.Id, ClassId = classId });
+
+            using (var conn = new SqlConnection(_connectionString.Value))
+            {
+                try
+                {
+                    var result = conn.Query<Student>(query);
+                    var data = result.FirstOrDefault();
+
+                }
+                catch (SqlException ex)
+                {
+
+                    throw new Exception(ex.Message);
+                }
+
+            }
         }
     }
 }

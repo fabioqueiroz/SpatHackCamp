@@ -19,6 +19,6 @@ namespace Rubrics.General.Business.Interfaces
         StudentInDbModel GetStudentByEmail(string email);
         Task<List<StudentInDbModel>> AllStudentsInTheClass(int teacherClassId);
         void UpdateStudentPassword(StudentInDbModel studentInDb, string hashedPassword);
-        void AssignClassIdToTheStudent(int classId);
+        void AssignClassToTheStudent(int studentId, int classId);
     }
 }

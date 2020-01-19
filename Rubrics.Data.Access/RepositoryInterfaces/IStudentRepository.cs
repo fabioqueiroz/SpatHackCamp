@@ -14,10 +14,11 @@ namespace Rubrics.Data.Access.RepositoryInterfaces
         Task<IEnumerable<Join>> GetJoinsUsingDapper();
         void RegisterNewStudent(Student newStudent);
         List<string> GetStudentLoginDetailsByEmail(string email);
+        Student GetStudentById(int studentId);
         Student GetStudentByEmail(string email);
         Task<IEnumerable<Student>> GetStudentsBySchoolClass(int teacherClassId);
         void UpdateStudentInDb(Student student);
         void UpdateStudentPassword(Student student);
-        public void ChangeStudentClassId(int classId);
+        public void ChangeStudentClass(Student student, int classId);
     }
 }
