@@ -23,10 +23,17 @@ namespace Rubrics.Data.Access
             _repository.Commit();
         }
 
+        //public List<Student> GetStudentsFromGroup(int id)
+        //{
+        //    var students = _repository.RubricsContext.Students.FromSqlRaw("SELECT * FROM dbo.Students WHERE GroupId = @id", 
+        //        new SqlParameter("id",id)).ToList();
+        //    return students;
+        //}
+
         public List<Student> GetStudentsFromGroup(int id)
         {
-            var students = _repository.RubricsContext.Students.FromSqlRaw("SELECT * FROM dbo.Students WHERE GroupId = @id", 
-                new SqlParameter("id",id)).ToList();
+            var students = _repository.All<Student>().Where(x => x.ClassId == id).ToList();
+          
             return students;
         }
     }

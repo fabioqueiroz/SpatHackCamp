@@ -15,7 +15,7 @@ namespace Rubrics.Data
         public DateTime DOB { get; set; }
         public int ClassId { get; set; }
 
-        public int GroupId { get; set; }
+       // public int GroupId { get; set; }
 
     }
 }

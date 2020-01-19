@@ -27,8 +27,18 @@ namespace WebApplication.Controllers
          */
         public IActionResult GroupMembers(int id)
         {
-             //get the students from the group with the specific id
-             ViewData["GroupMembers"] =  _tableGroupService.GetStudentsFromGroupId(id);
+            var sessionUser = HttpContext.Session.GetObjectFromJson<TeacherModel>("LoggedUser");
+            var teacherClassId = Convert.ToInt32(sessionUser.ClassId);
+
+            // ** This was originally checking for a property called 'GroupId' added to the Student class **
+            //get the students from the group with the specific id 
+            ViewData["GroupMembers"] =  _tableGroupService.GetStudentsFromGroupId(id);
+
+            // *** REVIEW with Andrei- the view should be populated with the data linked to the ClassId ***
+            //ViewData["GroupMembers"] = _tableGroupService.GetStudentsFromGroupId(teacherClassId);
+            //var members = _tableGroupService.GetStudentsFromGroupId(teacherClassId);
+
+
             if (HttpContext.Session.GetInt32("userId") == null)
             {
                 return RedirectToAction("Index", "Login");
