@@ -88,6 +88,7 @@ namespace Rubrics.Data.Access
         // This method inserts a new student in the db
         public void RegisterNewStudent(Student newStudent)
         {
+            //working
             _repository.Add<Student>(newStudent);
             _repository.Commit();
         }
