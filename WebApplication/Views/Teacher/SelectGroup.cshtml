@@ -3,7 +3,7 @@
     List<TableGroupModel> groups = (List<TableGroupModel>) ViewData["Groups"];
 
 }
-<form method="get" action="@Url.Action("GroupMembers", "Teacher")">
+<form method="get" action="@Url.Action("GroupMembers", "Teacher",new {id=2})">
     <div class="form-group">
         <label for="selectedGroup">Select Group</label>
         <select class="form-control" name="selectedGroup" id="selectedGroup">

@@ -14,5 +14,6 @@ namespace Rubrics.General.Models
         public string Address { get; set; }
         public DateTime DOB { get; set; }
         public int ClassId { get; set; }
+        
     }
 }

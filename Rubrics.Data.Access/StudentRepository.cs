@@ -3,6 +3,7 @@ using Rubrics.Data.Access.RepositoryInterfaces;
 using Rubrics.Data.JoinModels;
 using Rubrics.General.Business.Models;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -46,12 +47,12 @@ namespace Rubrics.Data.Access
             var db = _repository.RubricsContext;
 
             var result = (from s in db.Students
-                          join t in db.Tests on s.ClassId equals t.Score
-                          select new { s.FirstName, s.LastName }).ToList();
+                join t in db.Tests on s.ClassId equals t.Score
+                select new {s.FirstName, s.LastName}).ToList();
 
             foreach (var item in result)
             {
-                output.Add(new Join { FirstName = item.FirstName, LastName = item.LastName });
+                output.Add(new Join {FirstName = item.FirstName, LastName = item.LastName});
             }
 
             return output;
@@ -87,6 +88,7 @@ namespace Rubrics.Data.Access
         // This method inserts a new student in the db
         public void RegisterNewStudent(Student newStudent)
         {
+            //working
             _repository.Add<Student>(newStudent);
             _repository.Commit();
         }
@@ -175,14 +177,20 @@ namespace Rubrics.Data.Access
             return student;
         }
 
-        public async Task<IEnumerable<Student>> GetStudentsBySchoolClass(int teacherClassId)
+        public Student GetStudentById(int id)
+        {
+            var studentInIDb = _repository.GetSingle<Student>(x => x.Id == id);
+            return studentInIDb;
+        }
+
+
+        public async Task<IEnumerable> GetStudentsBySchoolClass(int teacherClassId)
         {
             var query = new CommandDefinition(@"SELECT * from dbo.Students s
-                          INNER JOIN dbo.SchoolClasses sc on s.ClassId = sc.Id
-                          INNER JOIN dbo.TableGroupStudents tgs on tgs.StudentId = s.Id
-                          INNER JOIN dbo.TableGroups t on t.Id = tgs.TableGroupId
-                          WHERE sc.Id = @ClassId", new { ClassId = teacherClassId });
-
+              INNER JOIN dbo.SchoolClasses sc on s.ClassId = sc.Id
+              INNER JOIN dbo.TableGroupStudents tgs on tgs.StudentId = s.Id
+              INNER JOIN dbo.TableGroups t on t.Id = tgs.TableGroupId
+              WHERE sc.Id = @ClassId", new {ClassId = teacherClassId});
             using (var conn = new SqlConnection(_connectionString.Value))
             {
                 try
@@ -190,18 +198,34 @@ namespace Rubrics.Data.Access
                     var result = await conn.QueryAsync<Student>(query);
                     var data = result.FirstOrDefault();
                     return result;
-
                 }
                 catch (Exception ex)
                 {
-
                     Console.WriteLine(ex.Message);
-
                     throw new Exception(ex.Message);
                 }
-
             }
         }
+        
+
+        public bool DeleteStudentByEmail(string email)
+        {
+            Student toDelete =  _repository.GetSingle<Student>(x=>x.Email ==email);
+            if (toDelete == null)
+            {
+                return false;
+            }
+            else
+            {
+                 _repository.RubricsContext.Students.FromSqlRaw($"DELETE FROM dbo.Students s WHERE s.Email = Email", new {email = email});
+                return true;
+            }
+        }
+
+        public SchoolClass GetClassNameById( int id)
+        {
+            SchoolClass schoolClass = _repository.GetSingle<SchoolClass>(x => x.Id == id);
+            return schoolClass;
 
         public void UpdateStudentInDb(Student student)
         {

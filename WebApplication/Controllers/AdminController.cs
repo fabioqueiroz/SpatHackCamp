@@ -63,9 +63,23 @@ namespace WebApplication.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        public IActionResult DeleteStudent()
+        public IActionResult DeleteStudent(string error)
         {
-            return View();
+            ViewData["Error"] = error;
+                return View();
+        }
+        
+
+        [HttpPost]
+        public IActionResult SubmitDeleteStudent(string emailStudentToDelete)
+        {
+            bool studentDeleted =  _studentService.DeleteStudentByEmail(emailStudentToDelete);
+            if (studentDeleted)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            
+            return RedirectToAction("DeleteStudent",new {error= "The student does not exist"});
         }
     }
 }

@@ -1,6 +1,9 @@
 ﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Rubrics.Data;
+using Rubrics.General.Business.Interfaces;
+using Rubrics.General.Models;
 using Rubrics.General.Business.Interfaces;
 using Rubrics.General.Models;
 using WebApplication.Helper;
@@ -16,13 +19,17 @@ namespace WebApplication.Controllers
         {
             _studentService = studentRepository;
             _loginService = loginService;
+
         }
+        
         // The index page for the Student Controller
         //should display all relevant information about a student
         public IActionResult Index(int id)
         {
-            MockDatabase mockDatabase = new MockDatabase();
-            ViewData["Student"] = mockDatabase.GetStudentDetailsFromId(id);
+            Student student =  _studentService.GetStudentById(id);
+            ViewData["Student"] = student;
+            ViewData["ClassName"] = _studentService.GetClassNameById(student.ClassId);
+            
             if (HttpContext.Session.GetInt32("userId") == null)
             {
                 return RedirectToAction("Index", "Login");
@@ -92,6 +99,7 @@ namespace WebApplication.Controllers
         [HttpPost]
         public IActionResult SubmitPasswordChange(string passwordField)
         {
+
             if (!string.IsNullOrWhiteSpace(passwordField) && passwordField.Length > 2)
             {
                 var hashedPassword = _loginService.SHA512ComputeHash(passwordField);
@@ -107,6 +115,7 @@ namespace WebApplication.Controllers
             }
 
             return RedirectToAction("Index", new { error = "Your password is too short!" });
+
         }
     }
 }

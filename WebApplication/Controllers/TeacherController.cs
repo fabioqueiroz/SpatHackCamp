@@ -4,7 +4,6 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Rubrics.Data.Access.RepositoryInterfaces;
 using Rubrics.General.Business.Interfaces;
 using Rubrics.General.Models;
 using WebApplication.Helper;
@@ -26,13 +25,10 @@ namespace WebApplication.Controllers
          * see all the members of the group with which
          * a particular student is in
          */
-        public IActionResult GroupMembers(int selectedGroup)
+        public IActionResult GroupMembers(int id)
         {
-            //get the students from the same group with 
-            //the logged in student
-            //the data we need from them is :
-            MockDatabase mockDatabase = new MockDatabase();
-            ViewData["GroupMembers"] = mockDatabase.GetStudentsFromGroupId(selectedGroup);
+             //get the students from the group with the specific id
+             ViewData["GroupMembers"] =  _tableGroupService.GetStudentsFromGroupId(id);
             if (HttpContext.Session.GetInt32("userId") == null)
             {
                 return RedirectToAction("Index", "Login");
@@ -120,11 +116,10 @@ namespace WebApplication.Controllers
                 _tableGroupService.CreateNewTableGroup(newTableGroup);
 
                 
-
-                return RedirectToAction("Index", "Home");
             }
-            
-            return RedirectToAction("Index", new { error = "Please insert the name of the group." });
+            return RedirectToAction("Index", "Home");
         }
+        
+
     }
 }

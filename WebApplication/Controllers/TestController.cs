@@ -47,13 +47,15 @@ namespace Rubrics.Controllers
 
                 }).ToList(); // This method converts all the data into a collection 
 
-                return View(displayStudents);
+              //  return View(displayStudents);
             }
             catch (Exception)
             {
 
-                return View();
+                //return View();
             }
+
+            return null;
         }
     }
 }

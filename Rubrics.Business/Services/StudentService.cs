@@ -9,6 +9,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+
 namespace Rubrics.Business.Services
 {
     public class StudentService : IStudentService
@@ -29,7 +30,6 @@ namespace Rubrics.Business.Services
                 FirstName = x.FirstName,
                 LastName = x.LastName,
                 Score = x.ClassId
-
             }).ToList();
         }
         public List<JoinModel> GetTestJoinsUsingLinq()
@@ -109,6 +109,18 @@ namespace Rubrics.Business.Services
             };
         }
 
+        public Student GetStudentById(int id)
+        {
+             return _repository.GetStudentById(id);
+        }
+
+        public string GetClassNameById(int id)
+        {
+            SchoolClass schoolClass = _repository.GetClassNameById(id);
+            return  schoolClass.Name;
+        }
+        
+
         public async Task<List<StudentInDbModel>> AllStudentsInTheClass(int teacherClassId)
         {
             var listOfStudents = new List<StudentInDbModel>();
@@ -116,12 +128,19 @@ namespace Rubrics.Business.Services
             var students = await _studentRepository.GetStudentsBySchoolClass(teacherClassId);
 
             foreach (var std in students)
-            {
-                listOfStudents.Add(new StudentInDbModel { Id = std.Id, FirstName = std.FirstName, LastName = std.LastName});
+            {   
+                //todo
+                // I HAD AN ERROR HERE , UNCOMMENT THIS WHEN TESTING
+               // listOfStudents.Add(new StudentInDbModel { Id = std.Id, FirstName = std.FirstName, LastName = std.LastName});
             }
 
             return listOfStudents;
         }
+
+        public bool DeleteStudentByEmail(string email)
+        {
+            return _repository.DeleteStudentByEmail(email);
+
 
         public void UpdateStudentPassword(StudentInDbModel studentInDb, string hashedPassword)
         {
@@ -145,6 +164,8 @@ namespace Rubrics.Business.Services
             var studentInDb = _studentRepository.GetStudentById(studentId);
 
             _studentRepository.ChangeStudentClass(studentInDb, classId);
+
         }
     }
 }
+

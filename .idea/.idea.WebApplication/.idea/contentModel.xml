@@ -4,8 +4,8 @@
     <e p="C:\Users\avram\.Rider2019.3\config\javascript\extLibs\http_cdnjs.cloudflare.com_ajax_libs_font-awesome_4.7.0_css_font-awesome.css" t="IncludeRecursive" />
     <e p="C:\Users\avram\.Rider2019.3\config\javascript\extLibs\http_use.fontawesome.com_releases_v5.7.1_css_all.css" t="IncludeRecursive" />
     <e p="C:\Users\avram\.Rider2019.3\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\avram\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_WebApplication.-728541950.00" t="ExcludeRecursive" />
-    <e p="C:\Users\avram\RiderProjects\WebApplication" t="IncludeFlat">
+    <e p="C:\Users\avram\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_WebApplication.-904988353.00" t="ExcludeRecursive" />
+    <e p="C:\Users\avram\Desktop\SpatProjectRickAndMe" t="IncludeFlat">
       <e p="0. Solution Items" t="Include" />
       <e p="1. Presentation Layer" t="Include" />
       <e p="2. Service Layer" t="Include" />
@@ -22,13 +22,18 @@
         </e>
         <e p="Rubrics.Business.csproj" t="IncludeRecursive" />
         <e p="Services" t="Include">
+          <e p="LoginService.cs" t="Include" />
+          <e p="RubricCreatorService.cs" t="Include" />
           <e p="StudentService.cs" t="Include" />
+          <e p="TableGroupService.cs" t="Include" />
           <e p="TestService.cs" t="Include" />
         </e>
       </e>
       <e p="Rubrics.Data" t="IncludeRecursive">
+        <e p="Admin.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="Category.cs" t="Include" />
+        <e p="CategoryDescription.cs" t="Include" />
         <e p="Description.cs" t="Include" />
         <e p="JoinModels" t="Include">
           <e p="Join.cs" t="Include" />
@@ -42,8 +47,10 @@
         </e>
         <e p="Rubric.cs" t="Include" />
         <e p="Rubrics.Data.csproj" t="IncludeRecursive" />
+        <e p="SchoolClass.cs" t="Include" />
         <e p="Student.cs" t="Include" />
         <e p="TableGroup.cs" t="Include" />
+        <e p="TableGroupStudents.cs" t="Include" />
         <e p="Teacher.cs" t="Include" />
         <e p="Test.cs" t="Include" />
       </e>
@@ -54,9 +61,44 @@
         </e>
         <e p="Context.cs" t="Include" />
         <e p="GenericRepository.cs" t="Include" />
+        <e p="LoginRepository.cs" t="Include" />
         <e p="Migrations" t="Include">
           <e p="20200112233831_sqlsetup.cs" t="Include" />
           <e p="20200112233831_sqlsetup.Designer.cs" t="Include" />
+          <e p="20200115094851_rebuilt.cs" t="Include" />
+          <e p="20200115094851_rebuilt.Designer.cs" t="Include" />
+          <e p="20200115112409_rebuiltcategory.cs" t="Include" />
+          <e p="20200115112409_rebuiltcategory.Designer.cs" t="Include" />
+          <e p="20200115113036_catdescp.cs" t="Include" />
+          <e p="20200115113036_catdescp.Designer.cs" t="Include" />
+          <e p="20200115113200_catdescp2.cs" t="Include" />
+          <e p="20200115113200_catdescp2.Designer.cs" t="Include" />
+          <e p="20200115121635_student-refactored.cs" t="Include" />
+          <e p="20200115121635_student-refactored.Designer.cs" t="Include" />
+          <e p="20200116110817_admin-table.cs" t="Include" />
+          <e p="20200116110817_admin-table.Designer.cs" t="Include" />
+          <e p="20200116231323_teatchers.cs" t="Include" />
+          <e p="20200116231323_teatchers.Designer.cs" t="Include" />
+          <e p="20200116231746_teacher-refactored.cs" t="Include" />
+          <e p="20200116231746_teacher-refactored.Designer.cs" t="Include" />
+          <e p="20200116234738_tablegroup-update.cs" t="Include" />
+          <e p="20200116234738_tablegroup-update.Designer.cs" t="Include" />
+          <e p="20200117104320_tbgroup-correction.cs" t="Include" />
+          <e p="20200117104320_tbgroup-correction.Designer.cs" t="Include" />
+          <e p="20200117132948_tablegroupstudents.cs" t="Include" />
+          <e p="20200117132948_tablegroupstudents.Designer.cs" t="Include" />
+          <e p="20200117135615_schoolclass.cs" t="Include" />
+          <e p="20200117135615_schoolclass.Designer.cs" t="Include" />
+          <e p="20200117141852_student-refactored-again.cs" t="Include" />
+          <e p="20200117141852_student-refactored-again.Designer.cs" t="Include" />
+          <e p="20200117150251_eminem.cs" t="Include" />
+          <e p="20200117150251_eminem.Designer.cs" t="Include" />
+          <e p="20200117151506_newsupd.cs" t="Include" />
+          <e p="20200117151506_newsupd.Designer.cs" t="Include" />
+          <e p="20200117152215_eminem2.cs" t="Include" />
+          <e p="20200117152215_eminem2.Designer.cs" t="Include" />
+          <e p="20200118160135_eminem3.cs" t="Include" />
+          <e p="20200118160135_eminem3.Designer.cs" t="Include" />
           <e p="ContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
@@ -68,26 +110,38 @@
         </e>
         <e p="RepositoryInterfaces" t="Include">
           <e p="IGenericRepository.cs" t="Include" />
+          <e p="ILoginRepository.cs" t="Include" />
+          <e p="IRubricCreatorRepository.cs" t="Include" />
           <e p="IRubricsRepository.cs" t="Include" />
           <e p="IStudentRepository.cs" t="Include" />
+          <e p="ITableGroupRepository.cs" t="Include" />
         </e>
+        <e p="RubricCreatorRepository.cs" t="Include" />
         <e p="Rubrics.Data.Access.csproj" t="IncludeRecursive" />
         <e p="RubricsRepository.cs" t="Include" />
         <e p="StudentRepository.cs" t="Include" />
+        <e p="TableGroupRepository.cs" t="Include" />
       </e>
       <e p="Rubrics.General" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
         <e p="Business" t="Include">
           <e p="Interfaces" t="Include">
+            <e p="ILoginService.cs" t="Include" />
+            <e p="IRubricCreatorService.cs" t="Include" />
             <e p="IStudentService.cs" t="Include" />
+            <e p="ITableGroupService.cs" t="Include" />
             <e p="ITestService.cs" t="Include" />
           </e>
         </e>
         <e p="Models" t="Include">
+          <e p="AdminModel.cs" t="Include" />
           <e p="CategoryModel.cs" t="Include" />
           <e p="DescriptionModel.cs" t="Include" />
           <e p="JoinModel.cs" t="Include" />
-          <e p="StudentModel.cs" t="Include" />
+          <e p="StudentFormModel.cs" t="Include" />
+          <e p="StudentInDbModel.cs" t="Include" />
+          <e p="TableGroupInDb.cs" t="Include" />
+          <e p="TeacherModel.cs" t="Include" />
           <e p="TestModel.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
@@ -114,6 +168,9 @@
           <e p="StudentFormController.cs" t="Include" />
           <e p="TeacherController.cs" t="Include" />
           <e p="TestController.cs" t="Include" />
+        </e>
+        <e p="Helper" t="Include">
+          <e p="SessionExtensions.cs" t="Include" />
         </e>
         <e p="Models" t="Include">
           <e p="ErrorViewModel.cs" t="Include" />
@@ -155,7 +212,6 @@
             <e p="CreateStudent.cshtml" t="Include" />
             <e p="DeleteStudent.cshtml" t="Include" />
           </e>
-          <e p="ConfirmationModal.html" t="Include" />
           <e p="Home" t="Include">
             <e p="Index.cshtml" t="Include" />
             <e p="Privacy.cshtml" t="Include" />
@@ -181,6 +237,7 @@
             <e p="_ValidationScriptsPartial.cshtml" t="Include" />
             <e p="CardPastRound.cshtml" t="Include" />
             <e p="CardStudent.cshtml" t="Include" />
+            <e p="ConfirmationModal.cshtml" t="Include" />
             <e p="Error.cshtml" t="Include" />
             <e p="Header.cshtml" t="Include" />
             <e p="modal.cshtml" t="Include" />
@@ -210,6 +267,7 @@
           <e p="favicon.ico" t="Include" />
           <e p="js" t="Include">
             <e p="customScript.js" t="Include" />
+            <e p="RoundScript.js" t="Include" />
             <e p="site.js" t="Include" />
             <e p="StudentSelector.js" t="Include" />
           </e>

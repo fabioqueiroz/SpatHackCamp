@@ -14,10 +14,11 @@
         }
     }
     SheetModel markingSheetModel = roundModel.MarkingSheets[0];
+    
 }
 
 <!--Use this hidden input field to perform front end validation-->
-<input type="hidden" value = "@markingSheetModel.Width" id ="numberOfRubricsToComplete"/>
+<input type="hidden" value = "@markingSheetModel.Height" id ="numberOfRubricsToComplete"/>
 <div class="text-center">
     <h1>Rate Ricards for the @roundModel.ModuleName</h1>
     <h4>Deadline : <strong>@roundModel.Deadline</strong></h4>

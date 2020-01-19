@@ -42,7 +42,7 @@ namespace Rubrics.Data.Access
             {
                 optionsBuilder
                     // local connection
-                    .UseSqlServer("Data Source=LAPTOP-JEDG5RJB\\LAPSQLSERVER;Initial Catalog=Rubrics;Integrated Security=False;User Id=sa;Password=fabio1980;MultipleActiveResultSets=True");
+                    .UseSqlServer("Data Source=DESKTOP-32CSAGQ\\SQLEXPRESS;Initial Catalog=Rubrics;Integrated Security=False;User Id=sa;Password=Wanrltw;MultipleActiveResultSets=True");
                 // Yusuf
                 //.UseSqlServer("Data Source=YIU\\MYSERVER;Initial Catalog=Rubrics;Integrated Security=False;User Id=sa;Password=badat123;MultipleActiveResultSets=True");
 

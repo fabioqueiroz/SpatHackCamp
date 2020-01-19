@@ -1,12 +1,13 @@
-﻿@{
+﻿@using Rubrics.Data
+@{
     ViewData["Title"] = "Student profile";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    StudentModel studentModel = (StudentModel) ViewData["Student"];
+    Student studentModel = (Student) ViewData["Student"];
 }
 <div>
     <div class="text-center custom-card">
         <h5 class="card-title">Student ID : </h5>
-        <p class="card-text">@studentModel.StudentId</p>
+        <p class="card-text">@studentModel.Id</p>
     </div>
    <div class="text-center custom-card">
        <h5 class="card-title">E-mail : </h5>
@@ -22,11 +23,11 @@
    </div>
     <div class="text-center custom-card">
         <h5 class="card-title">Date of birth: </h5>
-        <p class="card-text">@studentModel.DateOfBirth</p>
+        <p class="card-text">@studentModel.DOB</p>
     </div>
     <div class="text-center custom-card">
         <h5 class="card-title">Class Name: </h5>
-        <p class="card-text">@studentModel.TableGroup.ClassName</p>
+        <p class="card-text">@ViewData["ClassName"]</p>
     </div>
    
 </div>

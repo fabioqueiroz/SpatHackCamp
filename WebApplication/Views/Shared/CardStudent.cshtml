@@ -1,11 +1,13 @@
-﻿@{
-    StudentModel student = (StudentModel) ViewData["Student"];
+﻿@using Rubrics.Data
+@{
+    Student student = (Student) ViewData["Student"];
 }
+
 <div class="col mt-3" style="padding: 2rem">
     <div class="card" style="width: 18rem;">
         <div class="card-body">
             <h5 class="card-title text-center">@(student.FirstName + " " + student.LastName)</h5>
-            <button type="button" class="btn btn-primary btn-block" onclick="location.href='@Url.Action("Index", "Student",new {id = student.StudentId})'">Select</button>
+            <button type="button" class="btn btn-primary btn-block" onclick="location.href='@Url.Action("Index", "Student", new {id = student.Id})'">Select</button>
         </div>
     </div>
 </div>

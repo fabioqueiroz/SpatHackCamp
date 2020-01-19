@@ -1,10 +1,10 @@
 ﻿{
   "version": "1.0.0",
   "restore": {
-    "projectUniqueName": "C:\\Users\\avram\\RiderProjects\\WebApplication\\WebApplication\\WebApplication.csproj",
+    "projectUniqueName": "C:\\Users\\avram\\Desktop\\SpatProjectRickAndMe\\WebApplication\\WebApplication.csproj",
     "projectName": "WebApplication",
-    "projectPath": "C:\\Users\\avram\\RiderProjects\\WebApplication\\WebApplication\\WebApplication.csproj",
-    "outputPath": "C:\\Users\\avram\\RiderProjects\\WebApplication\\WebApplication\\obj\\",
+    "projectPath": "C:\\Users\\avram\\Desktop\\SpatProjectRickAndMe\\WebApplication\\WebApplication.csproj",
+    "outputPath": "C:\\Users\\avram\\Desktop\\SpatProjectRickAndMe\\WebApplication\\obj\\",
     "projectStyle": "PackageReference",
     "originalTargetFrameworks": [
       "netcoreapp3.0"
@@ -16,17 +16,17 @@
     "frameworks": {
       "netcoreapp3.0": {
         "projectReferences": {
-          "C:\\Users\\avram\\RiderProjects\\WebApplication\\Rubrics.Business\\Rubrics.Business.csproj": {
-            "projectPath": "C:\\Users\\avram\\RiderProjects\\WebApplication\\Rubrics.Business\\Rubrics.Business.csproj"
+          "C:\\Users\\avram\\Desktop\\SpatProjectRickAndMe\\Rubrics.Business\\Rubrics.Business.csproj": {
+            "projectPath": "C:\\Users\\avram\\Desktop\\SpatProjectRickAndMe\\Rubrics.Business\\Rubrics.Business.csproj"
           },
-          "C:\\Users\\avram\\RiderProjects\\WebApplication\\Rubrics.Data.Access\\Rubrics.Data.Access.csproj": {
-            "projectPath": "C:\\Users\\avram\\RiderProjects\\WebApplication\\Rubrics.Data.Access\\Rubrics.Data.Access.csproj"
+          "C:\\Users\\avram\\Desktop\\SpatProjectRickAndMe\\Rubrics.Data.Access\\Rubrics.Data.Access.csproj": {
+            "projectPath": "C:\\Users\\avram\\Desktop\\SpatProjectRickAndMe\\Rubrics.Data.Access\\Rubrics.Data.Access.csproj"
           },
-          "C:\\Users\\avram\\RiderProjects\\WebApplication\\Rubrics.Data\\Rubrics.Data.csproj": {
-            "projectPath": "C:\\Users\\avram\\RiderProjects\\WebApplication\\Rubrics.Data\\Rubrics.Data.csproj"
+          "C:\\Users\\avram\\Desktop\\SpatProjectRickAndMe\\Rubrics.Data\\Rubrics.Data.csproj": {
+            "projectPath": "C:\\Users\\avram\\Desktop\\SpatProjectRickAndMe\\Rubrics.Data\\Rubrics.Data.csproj"
           },
-          "C:\\Users\\avram\\RiderProjects\\WebApplication\\Rubrics.General\\Rubrics.General.csproj": {
-            "projectPath": "C:\\Users\\avram\\RiderProjects\\WebApplication\\Rubrics.General\\Rubrics.General.csproj"
+          "C:\\Users\\avram\\Desktop\\SpatProjectRickAndMe\\Rubrics.General\\Rubrics.General.csproj": {
+            "projectPath": "C:\\Users\\avram\\Desktop\\SpatProjectRickAndMe\\Rubrics.General\\Rubrics.General.csproj"
           }
         }
       }
