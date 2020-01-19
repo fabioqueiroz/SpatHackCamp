@@ -14,10 +14,11 @@ namespace WebApplication.Controllers
     public class TeacherController : Controller
     {
         private readonly ITableGroupService _tableGroupService;
-        private readonly IStudentService _studentRepository;
-        public TeacherController(ITableGroupService tableGroupService, IStudentService studentRepository)
+        private readonly IStudentService _studentService;
+        public TeacherController(ITableGroupService tableGroupService, IStudentService studentService)
         {
             _tableGroupService = tableGroupService;
+            _studentService = studentService;
         }
         /**
          * As a teacher I should be able to
@@ -64,25 +65,24 @@ namespace WebApplication.Controllers
             ViewData["studentsNotInGroup"] =
                 mockDatabase.GetStudentsWithoutGroupForTeacherId(HttpContext.Session.GetInt32("userId"));
 
-            // Data from 
             var sessionUser = HttpContext.Session.GetObjectFromJson<TeacherModel>("LoggedUser");
             var teacherClassId = Convert.ToInt32(sessionUser.ClassId);
+
             // get students by class
-            var students = await _studentRepository.AllStudentsInTheClass(teacherClassId);
+            var students = await _studentService.AllStudentsInTheClass(teacherClassId);
             foreach (var item in students)
             {
                 displayStudents.Add(new StudentModel {StudentId = item.Id, FirstName = item.FirstName, LastName = item.LastName });
             }
-
-            ViewData["studentsNotInGroup"] = displayStudents;
+            // Uncomment to populate with real data
+            //ViewData["studentsNotInGroup"] = displayStudents;
 
             return View();
         }
 
         [HttpPost]
         public IActionResult SubmitTableGroup(IFormCollection form)
-        {
-           
+        {           
             //get the number of students in a group
             int numberOfStudents = Int32.Parse(form["numberOfStudents"]);
             int[] ids = new int[numberOfStudents];
@@ -101,11 +101,6 @@ namespace WebApplication.Controllers
             // Retrieve the session user
             var sessionUser = HttpContext.Session.GetObjectFromJson<TeacherModel>("LoggedUser");
             var teacherId = Convert.ToInt32(sessionUser.Id);
-            //var teacherClassId = Convert.ToInt32(sessionUser.ClassId);
-
-            // get students by class
-            //var students = _studentRepository.AllStudentsInTheClass(teacherClassId);
-            //ViewData["studentsNotInGroup"] = students;
 
             string groupName = form["groupNameInput"];
 

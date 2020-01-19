@@ -14,15 +14,15 @@ namespace Rubrics.Business.Services
 {
     public class StudentService : IStudentService
     {
-        private IStudentRepository _repository;
-        public StudentService(IStudentRepository repository)
+        private IStudentRepository _studentRepository;
+        public StudentService(IStudentRepository studentRepository)
         {
-            _repository = repository;
+            _studentRepository = studentRepository;
         }
 
         public List<StudentFormModel> GetAllTheStudents()
         {
-            var std = _repository.GetAllStudents();
+            var std = _studentRepository.GetAllStudents();
 
             return std.Select(x => new StudentFormModel
             {
@@ -34,7 +34,7 @@ namespace Rubrics.Business.Services
         }
         public List<JoinModel> GetTestJoinsUsingLinq()
         {
-            var join = _repository.GetJoinsUsingLinq();
+            var join = _studentRepository.GetJoinsUsingLinq();
 
             ; return join.Select(x => new JoinModel
             {
@@ -46,7 +46,7 @@ namespace Rubrics.Business.Services
         }
         public async Task<IEnumerable<JoinModel>> GetTestJoinsUsingDapper()
         {
-            var result = await _repository.GetJoinsUsingDapper();
+            var result = await _studentRepository.GetJoinsUsingDapper();
 
             return result.Select(x => new JoinModel
             {
@@ -89,12 +89,12 @@ namespace Rubrics.Business.Services
                 Address = studentFormModel.Address
             };
 
-            _repository.RegisterNewStudent(student);
+            _studentRepository.RegisterNewStudent(student);
         }
 
         public StudentInDbModel GetStudentByEmail(string email)
         {
-            var studentInDb = _repository.GetStudentByEmail(email);
+            var studentInDb = _studentRepository.GetStudentByEmail(email);
 
             return new StudentInDbModel
             {
@@ -125,7 +125,7 @@ namespace Rubrics.Business.Services
         {
             var listOfStudents = new List<StudentInDbModel>();
 
-            var students = await _repository.GetStudentsBySchoolClass(teacherClassId);
+            var students = await _studentRepository.GetStudentsBySchoolClass(teacherClassId);
 
             foreach (var std in students)
             {   
@@ -136,9 +136,35 @@ namespace Rubrics.Business.Services
 
             return listOfStudents;
         }
+
         public bool DeleteStudentByEmail(string email)
         {
             return _repository.DeleteStudentByEmail(email);
+
+
+        public void UpdateStudentPassword(StudentInDbModel studentInDb, string hashedPassword)
+        {
+            var updateStudent = new Student
+            {
+                Id = studentInDb.Id,
+                FirstName = studentInDb.FirstName,
+                LastName = studentInDb.LastName,
+                Email = studentInDb.Email,
+                Password = hashedPassword,
+                Address = studentInDb.Address,
+                DOB = studentInDb.DOB,
+                ClassId = studentInDb.ClassId
+            };
+
+            _studentRepository.UpdateStudentPassword(updateStudent);
+        }
+
+        public void AssignClassToTheStudent(int studentId, int classId)
+        {
+            var studentInDb = _studentRepository.GetStudentById(studentId);
+
+            _studentRepository.ChangeStudentClass(studentInDb, classId);
+
         }
     }
 }

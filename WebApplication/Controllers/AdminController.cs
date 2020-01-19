@@ -10,10 +10,12 @@ namespace WebApplication.Controllers
 {
     public class AdminController : Controller
     {
-        private IStudentService _studentService;
-        public AdminController(IStudentService studentService)
+        private readonly IStudentService _studentService;
+        private readonly ILoginService _loginService;
+        public AdminController(IStudentService studentService, ILoginService loginService)
         {
             _studentService = studentService;
+            _loginService = loginService;
         }
 
         public IActionResult CreateStudent()
@@ -38,7 +40,9 @@ namespace WebApplication.Controllers
             MockDatabase mockDatabase = new MockDatabase();
             mockDatabase.InsertStudentIntoTheDatabase(fullAddress);
 
-            var randomPassword = _studentService.CreateRandomPassword(6, true);
+            //var randomPassword = _studentService.CreateRandomPassword(6, true);
+            // Create a default password by hashing the first name
+            var defaultPassword = _loginService.SHA512ComputeHash(firstName);
 
             // Service logic
             var newStudent = new StudentFormModel
@@ -46,7 +50,7 @@ namespace WebApplication.Controllers
                 FirstName = firstName,
                 LastName = lastName,
                 Email = email,
-                Password = randomPassword,
+                Password = defaultPassword,
                 // gender ???
                 DOB = Convert.ToDateTime(dateOfBirth),
                 Address = fullAddress

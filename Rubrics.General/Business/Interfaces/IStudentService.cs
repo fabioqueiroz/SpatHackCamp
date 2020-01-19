@@ -23,5 +23,7 @@ namespace Rubrics.General.Business.Interfaces
 
         bool DeleteStudentByEmail(string email);
         Task<List<StudentInDbModel>> AllStudentsInTheClass(int teacherClassId);
+        void UpdateStudentPassword(StudentInDbModel studentInDb, string hashedPassword);
+        void AssignClassToTheStudent(int studentId, int classId);
     }
 }

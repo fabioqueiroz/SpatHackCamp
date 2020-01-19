@@ -5,6 +5,7 @@ using Rubrics.Data;
 using Rubrics.General.Business.Interfaces;
 using Rubrics.General.Models;
 using Rubrics.General.Business.Interfaces;
+using Rubrics.General.Models;
 using WebApplication.Helper;
 using WebApplication.Models;
 
@@ -13,9 +14,12 @@ namespace WebApplication.Controllers
     public class StudentController : Controller
     {
         private readonly IStudentService _studentService;
-        public StudentController(IStudentService studentService)
+        private readonly ILoginService _loginService;
+        public StudentController(IStudentService studentRepository, ILoginService loginService)
         {
-            _studentService = studentService;
+            _studentService = studentRepository;
+            _loginService = loginService;
+
         }
         
         // The index page for the Student Controller
@@ -95,13 +99,23 @@ namespace WebApplication.Controllers
         [HttpPost]
         public IActionResult SubmitPasswordChange(string passwordField)
         {
-            string newPassword = passwordField;
-            var userInSession = HttpContext.Session.GetObjectFromJson<StudentModel>("LoggedUser");
-            var studentDetails = _studentService.GetStudentByEmail(userInSession.Email);
 
+            if (!string.IsNullOrWhiteSpace(passwordField) && passwordField.Length > 2)
+            {
+                var hashedPassword = _loginService.SHA512ComputeHash(passwordField);
+                var userInSession = HttpContext.Session.GetObjectFromJson<StudentModel>("LoggedUser");
+                var studentDetails = _studentService.GetStudentByEmail(userInSession.Email);
 
+                _studentService.UpdateStudentPassword(studentDetails, hashedPassword);
 
-            return RedirectToAction("Profile", "Student");
+                // Assign a default class when the password is changed
+                _studentService.AssignClassToTheStudent(studentDetails.Id, 1);
+
+                return RedirectToAction("Profile", "Student"); 
+            }
+
+            return RedirectToAction("Index", new { error = "Your password is too short!" });
+
         }
     }
 }
