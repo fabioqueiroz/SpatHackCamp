@@ -111,12 +111,12 @@ namespace Rubrics.Business.Services
 
         public Student GetStudentById(int id)
         {
-             return _repository.GetStudentById(id);
+             return _studentRepository.GetStudentById(id);
         }
 
         public string GetClassNameById(int id)
         {
-            SchoolClass schoolClass = _repository.GetClassNameById(id);
+            SchoolClass schoolClass = _studentRepository.GetClassNameById(id);
             return  schoolClass.Name;
         }
         
@@ -139,8 +139,9 @@ namespace Rubrics.Business.Services
 
         public bool DeleteStudentByEmail(string email)
         {
-            return _repository.DeleteStudentByEmail(email);
+            return _studentRepository.DeleteStudentByEmail(email);
 
+        }
 
         public void UpdateStudentPassword(StudentInDbModel studentInDb, string hashedPassword)
         {

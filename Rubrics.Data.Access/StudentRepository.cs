@@ -177,11 +177,11 @@ namespace Rubrics.Data.Access
             return student;
         }
 
-        public Student GetStudentById(int id)
-        {
-            var studentInIDb = _repository.GetSingle<Student>(x => x.Id == id);
-            return studentInIDb;
-        }
+        //public Student GetStudentById(int id)
+        //{
+        //    var studentInIDb = _repository.GetSingle<Student>(x => x.Id == id);
+        //    return studentInIDb;
+        //}
 
 
         public async Task<IEnumerable> GetStudentsBySchoolClass(int teacherClassId)
@@ -222,11 +222,12 @@ namespace Rubrics.Data.Access
             }
         }
 
-        public SchoolClass GetClassNameById( int id)
+        public SchoolClass GetClassNameById(int id)
         {
             SchoolClass schoolClass = _repository.GetSingle<SchoolClass>(x => x.Id == id);
             return schoolClass;
 
+        }
         public void UpdateStudentInDb(Student student)
         {
             var stdInDb = GetStudentByEmail(student.Email);
