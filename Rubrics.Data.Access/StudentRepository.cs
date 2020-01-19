@@ -210,15 +210,25 @@ namespace Rubrics.Data.Access
 
         public bool DeleteStudentByEmail(string email)
         {
-            Student toDelete =  _repository.GetSingle<Student>(x=>x.Email ==email);
+            Student toDelete =  _repository.GetSingle<Student>(x=> x.Email.Equals(email));
             if (toDelete == null)
             {
                 return false;
             }
             else
             {
-                 _repository.RubricsContext.Students.FromSqlRaw($"DELETE FROM dbo.Students s WHERE s.Email = Email", new {email = email});
-                return true;
+                try
+                {
+                    _repository.Delete<Student>(toDelete);
+                    _repository.Commit();
+
+                    return true;
+                }
+                catch (SqlException ex)
+                {
+
+                    throw new Exception(ex.Message);
+                }
             }
         }
 
