@@ -90,10 +90,10 @@ namespace WebApplication.Controllers
             // Uncomment to populate with real data
 
             displayStudents.Add(new StudentModel {StudentId = 1, FirstName = "Andrei", LastName = "Avram"});
-           displayStudents.Add(new StudentModel {StudentId = 2, FirstName = "Pablo", LastName = "Escobar"});
+           displayStudents.Add(new StudentModel {StudentId = 2, FirstName = "Ricards", LastName = "Augustauskis"});
            displayStudents.Add(new StudentModel {StudentId = 3, FirstName = "Ignacio", LastName = "Roca"});
-           displayStudents.Add(new StudentModel {StudentId = 4, FirstName = "Julian", LastName = "Bass"});
-           displayStudents.Add(new StudentModel {StudentId = 5, FirstName = "Lady", LastName = "Gaga"});
+           displayStudents.Add(new StudentModel {StudentId = 4, FirstName = "Nela", LastName = "Ion"});
+           displayStudents.Add(new StudentModel {StudentId = 5, FirstName = "Arron", LastName = "Gagan"});
            ViewData["studentsNotInGroup"] = displayStudents;
            return View();
         }
