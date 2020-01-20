@@ -10,8 +10,8 @@ using Rubrics.Data.Access;
 namespace Rubrics.Data.Access.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20200117152215_eminem2")]
-    partial class eminem2
+    [Migration("20200120003524_recovery-attempt3")]
+    partial class recoveryattempt3
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -148,9 +148,6 @@ namespace Rubrics.Data.Access.Migrations
 
                     b.Property<string>("FirstName")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("GroupId")
-                        .HasColumnType("int");
 
                     b.Property<string>("LastName")
                         .HasColumnType("nvarchar(max)");

@@ -10,8 +10,8 @@ using Rubrics.Data.Access;
 namespace Rubrics.Data.Access.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20200117150251_eminem")]
-    partial class eminem
+    [Migration("20200120003359_recovery-attempt2")]
+    partial class recoveryattempt2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
