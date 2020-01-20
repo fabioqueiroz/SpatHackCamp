@@ -4,6 +4,7 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Rubrics.Data;
 using Rubrics.General.Business.Interfaces;
 using Rubrics.General.Models;
 using WebApplication.Helper;
@@ -71,23 +72,30 @@ namespace WebApplication.Controllers
         {
             var displayStudents = new List<StudentModel>();
 
-            MockDatabase mockDatabase = new MockDatabase();
-            ViewData["studentsNotInGroup"] =
-                mockDatabase.GetStudentsWithoutGroupForTeacherId(HttpContext.Session.GetInt32("userId"));
+            //MockDatabase mockDatabase = new MockDatabase();
+            //ViewData["studentsNotInGroup"] =
+            //    mockDatabase.GetStudentsWithoutGroupForTeacherId(HttpContext.Session.GetInt32("userId"));
 
-            var sessionUser = HttpContext.Session.GetObjectFromJson<TeacherModel>("LoggedUser");
-            var teacherClassId = Convert.ToInt32(sessionUser.ClassId);
+            //*** FABIO UNCOMMENT THIS ******
+           // var sessionUser = HttpContext.Session.GetObjectFromJson<TeacherModel>("LoggedUser");
+            //var teacherClassId = Convert.ToInt32(sessionUser.ClassId);
 
-            // get students by class
-            var students = await _studentService.AllStudentsInTheClass(teacherClassId);
-            foreach (var item in students)
-            {
-                displayStudents.Add(new StudentModel {StudentId = item.Id, FirstName = item.FirstName, LastName = item.LastName });
-            }
+            // // get students by class
+            // var students = await _studentService.AllStudentsInTheClass(teacherClassId);
+            // foreach (var item in students)
+            // {
+            //     displayStudents.Add(new StudentModel {StudentId = item.Id, FirstName = item.FirstName, LastName = item.LastName });
+            // }
+            
             // Uncomment to populate with real data
-            // ViewData["studentsNotInGroup"] = displayStudents;
 
-            return View();
+            displayStudents.Add(new StudentModel {StudentId = 1, FirstName = "Andrei", LastName = "Avram"});
+           displayStudents.Add(new StudentModel {StudentId = 2, FirstName = "Pablo", LastName = "Escobar"});
+           displayStudents.Add(new StudentModel {StudentId = 3, FirstName = "Ignacio", LastName = "Roca"});
+           displayStudents.Add(new StudentModel {StudentId = 4, FirstName = "Julian", LastName = "Bass"});
+           displayStudents.Add(new StudentModel {StudentId = 5, FirstName = "Lady", LastName = "Gaga"});
+           ViewData["studentsNotInGroup"] = displayStudents;
+           return View();
         }
 
         [HttpPost]
