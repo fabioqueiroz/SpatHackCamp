@@ -71,9 +71,9 @@ namespace WebApplication.Controllers
         {
             var displayStudents = new List<StudentModel>();
 
-            MockDatabase mockDatabase = new MockDatabase();
-            ViewData["studentsNotInGroup"] =
-                mockDatabase.GetStudentsWithoutGroupForTeacherId(HttpContext.Session.GetInt32("userId"));
+            //MockDatabase mockDatabase = new MockDatabase();
+            //ViewData["studentsNotInGroup"] =
+            //    mockDatabase.GetStudentsWithoutGroupForTeacherId(HttpContext.Session.GetInt32("userId"));
 
             var sessionUser = HttpContext.Session.GetObjectFromJson<TeacherModel>("LoggedUser");
             var teacherClassId = Convert.ToInt32(sessionUser.ClassId);
@@ -85,7 +85,7 @@ namespace WebApplication.Controllers
                 displayStudents.Add(new StudentModel {StudentId = item.Id, FirstName = item.FirstName, LastName = item.LastName });
             }
             // Uncomment to populate with real data
-            // ViewData["studentsNotInGroup"] = displayStudents;
+            ViewData["studentsNotInGroup"] = displayStudents;
 
             return View();
         }
