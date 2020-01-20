@@ -18,7 +18,7 @@ namespace Rubrics.Data.Access.RepositoryInterfaces
         Student GetStudentById(int studentId);
         Student GetStudentByEmail(string email);
         //Student GetStudentById(int id);
-        Task<IEnumerable> GetStudentsBySchoolClass(int teacherClassId);
+        Task<IEnumerable<Student>> GetStudentsBySchoolClass(int teacherClassId);
         public bool DeleteStudentByEmail(string email);
         SchoolClass GetClassNameById(int id);
         //Task<IEnumerable<Student>> GetStudentsBySchoolClass(int teacherClassId);

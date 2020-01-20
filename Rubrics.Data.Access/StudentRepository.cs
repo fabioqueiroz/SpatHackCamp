@@ -184,7 +184,7 @@ namespace Rubrics.Data.Access
         //}
 
 
-        public async Task<IEnumerable> GetStudentsBySchoolClass(int teacherClassId)
+        public async Task<IEnumerable<Student>> GetStudentsBySchoolClass(int teacherClassId)
         {
             var query = new CommandDefinition(@"SELECT * from dbo.Students s
               INNER JOIN dbo.SchoolClasses sc on s.ClassId = sc.Id

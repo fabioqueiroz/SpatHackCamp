@@ -128,10 +128,10 @@ namespace Rubrics.Business.Services
             var students = await _studentRepository.GetStudentsBySchoolClass(teacherClassId);
 
             foreach (var std in students)
-            {   
+            {
                 //todo
                 // I HAD AN ERROR HERE , UNCOMMENT THIS WHEN TESTING
-               // listOfStudents.Add(new StudentInDbModel { Id = std.Id, FirstName = std.FirstName, LastName = std.LastName});
+                listOfStudents.Add(new StudentInDbModel { Id = std.Id, FirstName = std.FirstName, LastName = std.LastName });
             }
 
             return listOfStudents;

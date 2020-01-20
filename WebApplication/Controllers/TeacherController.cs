@@ -85,7 +85,7 @@ namespace WebApplication.Controllers
                 displayStudents.Add(new StudentModel {StudentId = item.Id, FirstName = item.FirstName, LastName = item.LastName });
             }
             // Uncomment to populate with real data
-            //ViewData["studentsNotInGroup"] = displayStudents;
+            // ViewData["studentsNotInGroup"] = displayStudents;
 
             return View();
         }
