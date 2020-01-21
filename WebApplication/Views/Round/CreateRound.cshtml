@@ -12,7 +12,7 @@
 <form id="teacherTable" method="post" action="@Url.Action("SubmitRound", "Round")" onsubmit="return checkIfNoCellsEmpty()">
     <div class="input-group mb-3">
         <div class="input-group-prepend">
-            <span class="input-group-text" id="basic-addon1">Deadline: </span>
+            <span class="input-group-text" id="basic-addon1" name="deadline">Deadline: </span>
         </div>
         <input type="date" name="roundDeadline" class="form-control" placeholder="Deadline" aria-label="Deadline" aria-describedby="basic-addon1">
         <div class="input-group-prepend ml-3">
