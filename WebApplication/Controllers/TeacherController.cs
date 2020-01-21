@@ -76,18 +76,20 @@ namespace WebApplication.Controllers
             //ViewData["studentsNotInGroup"] =
             //    mockDatabase.GetStudentsWithoutGroupForTeacherId(HttpContext.Session.GetInt32("userId"));
 
-            //*** FABIO UNCOMMENT THIS ******
-           // var sessionUser = HttpContext.Session.GetObjectFromJson<TeacherModel>("LoggedUser");
-            //var teacherClassId = Convert.ToInt32(sessionUser.ClassId);
 
-            // // get students by class
-            // var students = await _studentService.AllStudentsInTheClass(teacherClassId);
-            // foreach (var item in students)
-            // {
-            //     displayStudents.Add(new StudentModel {StudentId = item.Id, FirstName = item.FirstName, LastName = item.LastName });
-            // }
-            
+           
+           var sessionUser = HttpContext.Session.GetObjectFromJson<TeacherModel>("LoggedUser");
+            var teacherClassId = Convert.ToInt32(sessionUser.ClassId);
+
+            // get students by class
+            var students = await _studentService.AllStudentsInTheClass(teacherClassId);
+            foreach (var item in students)
+            {
+                displayStudents.Add(new StudentModel {StudentId = item.Id, FirstName = item.FirstName, LastName = item.LastName });
+            }
+   
             // Uncomment to populate with real data
+            ViewData["studentsNotInGroup"] = displayStudents;
 
             displayStudents.Add(new StudentModel {StudentId = 1, FirstName = "Andrei", LastName = "Avram"});
            displayStudents.Add(new StudentModel {StudentId = 2, FirstName = "Ricards", LastName = "Augustauskis"});
