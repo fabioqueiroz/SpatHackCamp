@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\avram\.Rider2019.3\config\javascript\extLibs\http_cdnjs.cloudflare.com_ajax_libs_font-awesome_4.7.0_css_font-awesome.css" t="IncludeRecursive" />
-    <e p="C:\Users\avram\.Rider2019.3\config\javascript\extLibs\http_use.fontawesome.com_releases_v5.7.1_css_all.css" t="IncludeRecursive" />
-    <e p="C:\Users\avram\.Rider2019.3\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\avram\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_WebApplication.-904988353.00" t="ExcludeRecursive" />
-    <e p="C:\Users\avram\Desktop\SpatProjectRickAndMe" t="IncludeFlat">
+    <e p="C:\Users\Bazinga\.Rider2019.3\config\javascript\extLibs\http_use.fontawesome.com_releases_v5.7.1_css_all.css" t="IncludeRecursive" />
+    <e p="C:\Users\Bazinga\.Rider2019.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Bazinga\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_WebApplication.932755175.00" t="ExcludeRecursive" />
+    <e p="C:\Users\Bazinga\Desktop\spat" t="IncludeFlat">
       <e p="0. Solution Items" t="Include" />
       <e p="1. Presentation Layer" t="Include" />
       <e p="2. Service Layer" t="Include" />
@@ -91,14 +90,12 @@
           <e p="20200117135615_schoolclass.Designer.cs" t="Include" />
           <e p="20200117141852_student-refactored-again.cs" t="Include" />
           <e p="20200117141852_student-refactored-again.Designer.cs" t="Include" />
-          <e p="20200117150251_eminem.cs" t="Include" />
-          <e p="20200117150251_eminem.Designer.cs" t="Include" />
           <e p="20200117151506_newsupd.cs" t="Include" />
           <e p="20200117151506_newsupd.Designer.cs" t="Include" />
-          <e p="20200117152215_eminem2.cs" t="Include" />
-          <e p="20200117152215_eminem2.Designer.cs" t="Include" />
-          <e p="20200118160135_eminem3.cs" t="Include" />
-          <e p="20200118160135_eminem3.Designer.cs" t="Include" />
+          <e p="20200120003359_recovery-attempt2.cs" t="Include" />
+          <e p="20200120003359_recovery-attempt2.Designer.cs" t="Include" />
+          <e p="20200120003524_recovery-attempt3.cs" t="Include" />
+          <e p="20200120003524_recovery-attempt3.Designer.cs" t="Include" />
           <e p="ContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">

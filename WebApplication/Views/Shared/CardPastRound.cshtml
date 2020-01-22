@@ -11,22 +11,22 @@
             <!--Display the color of the card accordingly to the grade-->
             <div class="progress">
                 @{
-                    if (grade <40)
+                    if (grade <4)
                     {
                         <!--Display red progressBar-->
-                        <div class="progress-bar" role="progressbar" style="width: @grade%;background: red" aria-valuenow="25"
-                             aria-valuemin="0" aria-valuemax="100"><strong>@grade%</strong></div>
-                    }else if (grade >= 40 && grade <= 69)
+                        <div class="progress-bar" role="progressbar" style="width: @(grade*12.5)%;background: red" aria-valuenow="@grade"
+                             aria-valuemin="0" aria-valuemax="8"><strong>@grade/8</strong></div>
+                    }else if (grade >= 4 && grade <= 6)
                     {
                         <!--Display yellow progressBar-->
-                        <div class="progress-bar" role="progressbar" style="width: @grade%;background: #EDBE01;color: black!important;" aria-valuenow="25"
-                             aria-valuemin="0" aria-valuemax="100"><strong>@grade%</strong></div>
+                        <div class="progress-bar" role="progressbar" style="width:  @(grade*12.5)%;background: #EDBE01;color: black!important;" aria-valuenow="@grade"
+                             aria-valuemin="0" aria-valuemax="8"><strong>@grade/8</strong></div>
                     }
                     else
                     {
                         <!--Display green progressBar-->
-                        <div class="progress-bar" role="progressbar" style="width: @grade%;background: green" aria-valuenow="25"
-                             aria-valuemin="0" aria-valuemax="100"><strong>@grade%</strong></div> 
+                        <div class="progress-bar" role="progressbar" style="width:  @(grade*12.5)%;background: green" aria-valuenow="@grade"
+                             aria-valuemin="0" aria-valuemax="8"><strong>@grade/8</strong></div> 
                     }
                 }
                 
