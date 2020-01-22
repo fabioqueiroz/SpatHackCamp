@@ -4,8 +4,6 @@ using Microsoft.AspNetCore.Mvc;
 using Rubrics.Data;
 using Rubrics.General.Business.Interfaces;
 using Rubrics.General.Models;
-using Rubrics.General.Business.Interfaces;
-using Rubrics.General.Models;
 using WebApplication.Helper;
 using WebApplication.Models;
 
@@ -64,21 +62,6 @@ namespace WebApplication.Controllers
             ViewData["PastRounds"] = pastRounds;
             return View();
         }
-
-        //public IActionResult Profile()
-        //{
-        //    if (HttpContext.Session.GetInt32("userId") == null)
-        //    {
-        //        return RedirectToAction("Index", "Login");
-        //    }
-
-        //    ViewData["userId"] = HttpContext.Session.GetInt32("userId");
-        //    ViewData["username"] = HttpContext.Session.GetString("username").ToString();
-        //    ViewData["userType"] = HttpContext.Session.GetString("userType");
-        //    MockDatabase mockDatabase = new MockDatabase();
-        //    ViewData["student"] = mockDatabase.GetUserProfileFromId(HttpContext.Session.GetInt32("userId"));
-        //    return View();
-        //}
 
         [HttpGet]
         public IActionResult Profile()

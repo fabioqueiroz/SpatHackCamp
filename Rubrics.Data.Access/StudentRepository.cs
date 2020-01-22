@@ -88,7 +88,6 @@ namespace Rubrics.Data.Access
         // This method inserts a new student in the db
         public void RegisterNewStudent(Student newStudent)
         {
-            //working
             _repository.Add<Student>(newStudent);
             _repository.Commit();
         }
@@ -177,13 +176,7 @@ namespace Rubrics.Data.Access
             return student;
         }
 
-        //public Student GetStudentById(int id)
-        //{
-        //    var studentInIDb = _repository.GetSingle<Student>(x => x.Id == id);
-        //    return studentInIDb;
-        //}
-
-
+ 
         public async Task<IEnumerable<Student>> GetStudentsBySchoolClass(int teacherClassId)
         {
             var query = new CommandDefinition(@"SELECT * from dbo.Students s

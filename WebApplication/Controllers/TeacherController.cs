@@ -31,14 +31,8 @@ namespace WebApplication.Controllers
             var sessionUser = HttpContext.Session.GetObjectFromJson<TeacherModel>("LoggedUser");
             var teacherClassId = Convert.ToInt32(sessionUser.ClassId);
 
-            // ** This was originally checking for a property called 'GroupId' added to the Student class **
             //get the students from the group with the specific id 
             ViewData["GroupMembers"] =  _tableGroupService.GetStudentsFromGroupId(id);
-
-            // *** REVIEW with Andrei- the view should be populated with the data linked to the ClassId ***
-            //ViewData["GroupMembers"] = _tableGroupService.GetStudentsFromGroupId(teacherClassId);
-            //var members = _tableGroupService.GetStudentsFromGroupId(teacherClassId);
-
 
             if (HttpContext.Session.GetInt32("userId") == null)
             {
@@ -71,32 +65,26 @@ namespace WebApplication.Controllers
         public async Task<IActionResult> CreateTableGroup()
         {
             var displayStudents = new List<StudentModel>();
-
-            //MockDatabase mockDatabase = new MockDatabase();
-            //ViewData["studentsNotInGroup"] =
-            //    mockDatabase.GetStudentsWithoutGroupForTeacherId(HttpContext.Session.GetInt32("userId"));
-
-
-           
+          
            var sessionUser = HttpContext.Session.GetObjectFromJson<TeacherModel>("LoggedUser");
-            var teacherClassId = Convert.ToInt32(sessionUser.ClassId);
+           var teacherClassId = Convert.ToInt32(sessionUser.ClassId);
 
             // get students by class
             var students = await _studentService.AllStudentsInTheClass(teacherClassId);
             foreach (var item in students)
             {
-                displayStudents.Add(new StudentModel {StudentId = item.Id, FirstName = item.FirstName, LastName = item.LastName });
+                // Uncomment to populate with real data
+                //displayStudents.Add(new StudentModel {StudentId = item.Id, FirstName = item.FirstName, LastName = item.LastName });
             }
    
-            // Uncomment to populate with real data
-            ViewData["studentsNotInGroup"] = displayStudents;
-
-            displayStudents.Add(new StudentModel {StudentId = 1, FirstName = "Andrei", LastName = "Avram"});
+           displayStudents.Add(new StudentModel {StudentId = 1, FirstName = "Andrei", LastName = "Avram"});
            displayStudents.Add(new StudentModel {StudentId = 2, FirstName = "Ricards", LastName = "Augustauskis"});
            displayStudents.Add(new StudentModel {StudentId = 3, FirstName = "Ignacio", LastName = "Roca"});
            displayStudents.Add(new StudentModel {StudentId = 4, FirstName = "Nela", LastName = "Ion"});
            displayStudents.Add(new StudentModel {StudentId = 5, FirstName = "Arron", LastName = "Gagan"});
+
            ViewData["studentsNotInGroup"] = displayStudents;
+
            return View();
         }
 
