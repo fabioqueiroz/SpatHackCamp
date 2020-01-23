@@ -86,7 +86,7 @@ namespace WebApplication.Controllers
            ViewData["studentsNotInGroup"] = displayStudents;
 
            return View();
-        }
+         }
 
         [HttpPost]
         public IActionResult SubmitTableGroup(IFormCollection form)
