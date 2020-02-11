@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\fabio\\OneDrive\\Desktop\\Clone\\SpatProjectRickAndMe\\WebApplication\\WebApplication.csproj": {}
+    "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatHackCamp\\WebApplication\\WebApplication.csproj": {}
   },
   "projects": {
-    "C:\\Users\\fabio\\OneDrive\\Desktop\\Clone\\SpatProjectRickAndMe\\Rubrics.Business\\Rubrics.Business.csproj": {
+    "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatHackCamp\\Rubrics.Business\\Rubrics.Business.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\fabio\\OneDrive\\Desktop\\Clone\\SpatProjectRickAndMe\\Rubrics.Business\\Rubrics.Business.csproj",
+        "projectUniqueName": "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatHackCamp\\Rubrics.Business\\Rubrics.Business.csproj",
         "projectName": "Rubrics.Business",
-        "projectPath": "C:\\Users\\fabio\\OneDrive\\Desktop\\Clone\\SpatProjectRickAndMe\\Rubrics.Business\\Rubrics.Business.csproj",
+        "projectPath": "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatHackCamp\\Rubrics.Business\\Rubrics.Business.csproj",
         "packagesPath": "C:\\Users\\fabio\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\fabio\\OneDrive\\Desktop\\Clone\\SpatProjectRickAndMe\\Rubrics.Business\\obj\\",
+        "outputPath": "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatHackCamp\\Rubrics.Business\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -31,14 +31,14 @@
         "frameworks": {
           "netcoreapp3.0": {
             "projectReferences": {
-              "C:\\Users\\fabio\\OneDrive\\Desktop\\Clone\\SpatProjectRickAndMe\\Rubrics.Data.Access\\Rubrics.Data.Access.csproj": {
-                "projectPath": "C:\\Users\\fabio\\OneDrive\\Desktop\\Clone\\SpatProjectRickAndMe\\Rubrics.Data.Access\\Rubrics.Data.Access.csproj"
+              "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatHackCamp\\Rubrics.Data.Access\\Rubrics.Data.Access.csproj": {
+                "projectPath": "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatHackCamp\\Rubrics.Data.Access\\Rubrics.Data.Access.csproj"
               },
-              "C:\\Users\\fabio\\OneDrive\\Desktop\\Clone\\SpatProjectRickAndMe\\Rubrics.Data\\Rubrics.Data.csproj": {
-                "projectPath": "C:\\Users\\fabio\\OneDrive\\Desktop\\Clone\\SpatProjectRickAndMe\\Rubrics.Data\\Rubrics.Data.csproj"
+              "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatHackCamp\\Rubrics.Data\\Rubrics.Data.csproj": {
+                "projectPath": "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatHackCamp\\Rubrics.Data\\Rubrics.Data.csproj"
               },
-              "C:\\Users\\fabio\\OneDrive\\Desktop\\Clone\\SpatProjectRickAndMe\\Rubrics.General\\Rubrics.General.csproj": {
-                "projectPath": "C:\\Users\\fabio\\OneDrive\\Desktop\\Clone\\SpatProjectRickAndMe\\Rubrics.General\\Rubrics.General.csproj"
+              "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatHackCamp\\Rubrics.General\\Rubrics.General.csproj": {
+                "projectPath": "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatHackCamp\\Rubrics.General\\Rubrics.General.csproj"
               }
             }
           }
@@ -79,14 +79,14 @@
         }
       }
     },
-    "C:\\Users\\fabio\\OneDrive\\Desktop\\Clone\\SpatProjectRickAndMe\\Rubrics.Data.Access\\Rubrics.Data.Access.csproj": {
+    "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatHackCamp\\Rubrics.Data.Access\\Rubrics.Data.Access.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\fabio\\OneDrive\\Desktop\\Clone\\SpatProjectRickAndMe\\Rubrics.Data.Access\\Rubrics.Data.Access.csproj",
+        "projectUniqueName": "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatHackCamp\\Rubrics.Data.Access\\Rubrics.Data.Access.csproj",
         "projectName": "Rubrics.Data.Access",
-        "projectPath": "C:\\Users\\fabio\\OneDrive\\Desktop\\Clone\\SpatProjectRickAndMe\\Rubrics.Data.Access\\Rubrics.Data.Access.csproj",
+        "projectPath": "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatHackCamp\\Rubrics.Data.Access\\Rubrics.Data.Access.csproj",
         "packagesPath": "C:\\Users\\fabio\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\fabio\\OneDrive\\Desktop\\Clone\\SpatProjectRickAndMe\\Rubrics.Data.Access\\obj\\",
+        "outputPath": "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatHackCamp\\Rubrics.Data.Access\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -106,11 +106,11 @@
         "frameworks": {
           "netcoreapp3.0": {
             "projectReferences": {
-              "C:\\Users\\fabio\\OneDrive\\Desktop\\Clone\\SpatProjectRickAndMe\\Rubrics.Data\\Rubrics.Data.csproj": {
-                "projectPath": "C:\\Users\\fabio\\OneDrive\\Desktop\\Clone\\SpatProjectRickAndMe\\Rubrics.Data\\Rubrics.Data.csproj"
+              "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatHackCamp\\Rubrics.Data\\Rubrics.Data.csproj": {
+                "projectPath": "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatHackCamp\\Rubrics.Data\\Rubrics.Data.csproj"
               },
-              "C:\\Users\\fabio\\OneDrive\\Desktop\\Clone\\SpatProjectRickAndMe\\Rubrics.General\\Rubrics.General.csproj": {
-                "projectPath": "C:\\Users\\fabio\\OneDrive\\Desktop\\Clone\\SpatProjectRickAndMe\\Rubrics.General\\Rubrics.General.csproj"
+              "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatHackCamp\\Rubrics.General\\Rubrics.General.csproj": {
+                "projectPath": "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatHackCamp\\Rubrics.General\\Rubrics.General.csproj"
               }
             }
           }
@@ -177,14 +177,14 @@
         }
       }
     },
-    "C:\\Users\\fabio\\OneDrive\\Desktop\\Clone\\SpatProjectRickAndMe\\Rubrics.Data\\Rubrics.Data.csproj": {
+    "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatHackCamp\\Rubrics.Data\\Rubrics.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\fabio\\OneDrive\\Desktop\\Clone\\SpatProjectRickAndMe\\Rubrics.Data\\Rubrics.Data.csproj",
+        "projectUniqueName": "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatHackCamp\\Rubrics.Data\\Rubrics.Data.csproj",
         "projectName": "Rubrics.Data",
-        "projectPath": "C:\\Users\\fabio\\OneDrive\\Desktop\\Clone\\SpatProjectRickAndMe\\Rubrics.Data\\Rubrics.Data.csproj",
+        "projectPath": "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatHackCamp\\Rubrics.Data\\Rubrics.Data.csproj",
         "packagesPath": "C:\\Users\\fabio\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\fabio\\OneDrive\\Desktop\\Clone\\SpatProjectRickAndMe\\Rubrics.Data\\obj\\",
+        "outputPath": "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatHackCamp\\Rubrics.Data\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -242,14 +242,14 @@
         }
       }
     },
-    "C:\\Users\\fabio\\OneDrive\\Desktop\\Clone\\SpatProjectRickAndMe\\Rubrics.General\\Rubrics.General.csproj": {
+    "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatHackCamp\\Rubrics.General\\Rubrics.General.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\fabio\\OneDrive\\Desktop\\Clone\\SpatProjectRickAndMe\\Rubrics.General\\Rubrics.General.csproj",
+        "projectUniqueName": "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatHackCamp\\Rubrics.General\\Rubrics.General.csproj",
         "projectName": "Rubrics.General",
-        "projectPath": "C:\\Users\\fabio\\OneDrive\\Desktop\\Clone\\SpatProjectRickAndMe\\Rubrics.General\\Rubrics.General.csproj",
+        "projectPath": "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatHackCamp\\Rubrics.General\\Rubrics.General.csproj",
         "packagesPath": "C:\\Users\\fabio\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\fabio\\OneDrive\\Desktop\\Clone\\SpatProjectRickAndMe\\Rubrics.General\\obj\\",
+        "outputPath": "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatHackCamp\\Rubrics.General\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -269,8 +269,8 @@
         "frameworks": {
           "netcoreapp3.0": {
             "projectReferences": {
-              "C:\\Users\\fabio\\OneDrive\\Desktop\\Clone\\SpatProjectRickAndMe\\Rubrics.Data\\Rubrics.Data.csproj": {
-                "projectPath": "C:\\Users\\fabio\\OneDrive\\Desktop\\Clone\\SpatProjectRickAndMe\\Rubrics.Data\\Rubrics.Data.csproj"
+              "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatHackCamp\\Rubrics.Data\\Rubrics.Data.csproj": {
+                "projectPath": "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatHackCamp\\Rubrics.Data\\Rubrics.Data.csproj"
               }
             }
           }
@@ -311,14 +311,14 @@
         }
       }
     },
-    "C:\\Users\\fabio\\OneDrive\\Desktop\\Clone\\SpatProjectRickAndMe\\WebApplication\\WebApplication.csproj": {
+    "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatHackCamp\\WebApplication\\WebApplication.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\fabio\\OneDrive\\Desktop\\Clone\\SpatProjectRickAndMe\\WebApplication\\WebApplication.csproj",
+        "projectUniqueName": "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatHackCamp\\WebApplication\\WebApplication.csproj",
         "projectName": "WebApplication",
-        "projectPath": "C:\\Users\\fabio\\OneDrive\\Desktop\\Clone\\SpatProjectRickAndMe\\WebApplication\\WebApplication.csproj",
+        "projectPath": "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatHackCamp\\WebApplication\\WebApplication.csproj",
         "packagesPath": "C:\\Users\\fabio\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\fabio\\OneDrive\\Desktop\\Clone\\SpatProjectRickAndMe\\WebApplication\\obj\\",
+        "outputPath": "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatHackCamp\\WebApplication\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -338,17 +338,17 @@
         "frameworks": {
           "netcoreapp3.0": {
             "projectReferences": {
-              "C:\\Users\\fabio\\OneDrive\\Desktop\\Clone\\SpatProjectRickAndMe\\Rubrics.Business\\Rubrics.Business.csproj": {
-                "projectPath": "C:\\Users\\fabio\\OneDrive\\Desktop\\Clone\\SpatProjectRickAndMe\\Rubrics.Business\\Rubrics.Business.csproj"
+              "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatHackCamp\\Rubrics.Business\\Rubrics.Business.csproj": {
+                "projectPath": "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatHackCamp\\Rubrics.Business\\Rubrics.Business.csproj"
               },
-              "C:\\Users\\fabio\\OneDrive\\Desktop\\Clone\\SpatProjectRickAndMe\\Rubrics.Data.Access\\Rubrics.Data.Access.csproj": {
-                "projectPath": "C:\\Users\\fabio\\OneDrive\\Desktop\\Clone\\SpatProjectRickAndMe\\Rubrics.Data.Access\\Rubrics.Data.Access.csproj"
+              "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatHackCamp\\Rubrics.Data.Access\\Rubrics.Data.Access.csproj": {
+                "projectPath": "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatHackCamp\\Rubrics.Data.Access\\Rubrics.Data.Access.csproj"
               },
-              "C:\\Users\\fabio\\OneDrive\\Desktop\\Clone\\SpatProjectRickAndMe\\Rubrics.Data\\Rubrics.Data.csproj": {
-                "projectPath": "C:\\Users\\fabio\\OneDrive\\Desktop\\Clone\\SpatProjectRickAndMe\\Rubrics.Data\\Rubrics.Data.csproj"
+              "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatHackCamp\\Rubrics.Data\\Rubrics.Data.csproj": {
+                "projectPath": "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatHackCamp\\Rubrics.Data\\Rubrics.Data.csproj"
               },
-              "C:\\Users\\fabio\\OneDrive\\Desktop\\Clone\\SpatProjectRickAndMe\\Rubrics.General\\Rubrics.General.csproj": {
-                "projectPath": "C:\\Users\\fabio\\OneDrive\\Desktop\\Clone\\SpatProjectRickAndMe\\Rubrics.General\\Rubrics.General.csproj"
+              "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatHackCamp\\Rubrics.General\\Rubrics.General.csproj": {
+                "projectPath": "C:\\Users\\fabio\\OneDrive\\Desktop\\All Projects\\C#\\SPAT\\SpatHackCamp\\Rubrics.General\\Rubrics.General.csproj"
               }
             }
           }
